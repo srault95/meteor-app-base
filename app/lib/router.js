@@ -28,12 +28,12 @@ Router.map(function() {
     this.route('home', {
         path: '/',
     });
-
     this.route('private');
+    this.route('settings');
 });
 
 Router.plugin('ensureSignedIn', {
-  only: ['private']
+  only: ['private', 'settings']
 });
 
 /*

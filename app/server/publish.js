@@ -5,6 +5,10 @@ Meteor.publish(null, function (){
   return Meteor.roles.find({})
 })
 
+Meteor.publish('settings', function() {
+  return Settings.find({});
+});
+
 /*
 // Filtrage d'une collection par role et group. Ne renvoit que données du group
 

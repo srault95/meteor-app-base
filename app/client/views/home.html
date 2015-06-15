@@ -1,5 +1,13 @@
 <template name="home">
     <div class="ui fluid center aligned basic fitted segment">
         <h1>Hello World!</h1>
+        <div class="ui segment">
+            {{#unless AppConfig.configured }}
+                <ul>Compte Administrateur par défaut:
+                    <li>Email: {{AppConfig.default_admin.email}}</li>
+                    <li>Mot de passe: {{AppConfig.default_admin.password}}</li>
+                </ul>
+            {{/unless}}
+        </div>
     </div>
 </template>

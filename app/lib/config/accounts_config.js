@@ -1,5 +1,6 @@
 T9n.setLanguage('fr');
 
+/*
 Accounts.validateNewUser(function (user) {
     var loggedInUser = Meteor.user();
 
@@ -9,6 +10,7 @@ Accounts.validateNewUser(function (user) {
 
     throw new Meteor.Error(403, "Not authorized to create new users");
 });
+*/
 
 /*
 - https://github.com/meteor-useraccounts/core/blob/master/Guide.md#routing
@@ -58,7 +60,7 @@ AccountsTemplates.configure({
         theme: "light",
         data_type: "image"
     },
-    showReCaptcha: true,
+    showReCaptcha: false,
 
     //defaultLayout: 'emptyLayout',
     overrideLoginErrors: true,
@@ -91,6 +93,16 @@ AccountsTemplates.configure({
     //privacyUrl: 'privacy',
     //termsUrl: 'terms-of-use',
 });
+
+/*
+if (! _.isUndefined(Meteor.settings.sikka)){
+    //TODO: AccountsTemplates.options.showReCaptcha = true
+}
+*/
+
+/*
+AccountsTemplates :  {"options":{"showReCaptcha":true,"overrideLoginErrors":true,"enablePasswordChange":true,"sendVerificationEmail":false,"showAddRemoveServices":true,"showForgotPasswordLink":true,"showLabels":true,"showPlaceholders":true,"showResendVerificationEmailLink":false,"negativeValidation":true,"positiveValidation":true,"negativeFeedback":false,"positiveFeedback":true,"confirmPassword":true,"defaultState":"signIn","forbidClientAccountCreation":false,"lowercaseUsername":false,"socialLoginStyle":"popup","homeRoutePath":"/","redirectTimeout":2000,"reCaptcha":{"theme":"light","data_type":"image"}}}
+*/
 
 /*
 AccountsTemplates.configure({

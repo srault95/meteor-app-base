@@ -1,6 +1,8 @@
 # Documentation Meteor
 
-* [Structure de Projet](project-structure.md)
+[Adresse de ce projet](https://github.com/srault95/meteor-app-base)
+
+* [Utilisation du modèle de projet](project-structure.md)
 * Plugins
     * [Simple Schema](simple-schema.md)
     * [Authentification Sociale](social-auth.md)
