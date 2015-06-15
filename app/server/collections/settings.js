@@ -50,7 +50,8 @@ var set_or_update = function(doc){
         }
 
         console.info("Sikka.Config.rateLimits.perIp : ", Sikka.Config.rateLimits.perIp);
-        Sikka.Config.rateLimits.perIp = doc['sikka']['rateLimits']['perIp'];
+        //Sikka.Config.rateLimits.perIp = doc['sikka']['rateLimits']['perIp'];
+        Sikka.Config.rateLimits.perIp = doc.sikka.rateLimits.perIp;
         console.info("Sikka.Config.rateLimits.perIp : ", Sikka.Config.rateLimits.perIp);
 
         //JSON.stringify(Sikka.Config);
