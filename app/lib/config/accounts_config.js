@@ -108,8 +108,8 @@ AccountsTemplates :  {"options":{"showReCaptcha":true,"overrideLoginErrors":true
 AccountsTemplates.configure({
 
     reCaptcha: {
-        siteKey: '6Lfy2gcTAAAAAKnsML6lr46PHNJMIC-XyH8QKSLl',
-        secret: '6Lfy2gcTAAAAAJrcx1pMcwSpw-MG7IOkLJAZG6HM',
+        siteKey: 'XXX',
+        secret: 'XXX',
         theme: "light",
         data_type: "image"
     },

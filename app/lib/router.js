@@ -30,6 +30,7 @@ Router.map(function() {
     });
     this.route('private');
     this.route('settings');
+    this.route('piechart');
 });
 
 Router.plugin('ensureSignedIn', {

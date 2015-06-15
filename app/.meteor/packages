@@ -44,3 +44,8 @@ nimble:restivus
 #anti:fake
 #dburles:factory
 less
+autopublish
+insecure
+zimme:collection-softremovable
+maazalik:highcharts
+meteorhacks:sikka
