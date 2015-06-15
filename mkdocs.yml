@@ -1,0 +1,23 @@
+dev_addr: 127.0.0.1:8080
+strict: true
+site_name: Meteor
+site_dir: site
+docs_dir: docs
+repo_url: https://github.com/srault95/meteor-app-base
+site_url: http://srault95.github.io/meteor-app-base
+repo_name: GitHub
+site_description: Documentations Meteor
+site_author: Stéphane RAULT
+#google_analytics: ['UA-36723568-3', 'mkdocs.org']
+remote_branch: gh-pages
+remote_name: gh-pages
+theme: readthedocs
+pages:
+    - 'Accueil': index.md
+    - 'Structure de Projet': project-structure.md
+    - 'Liens': links.md
+markdown_extensions:
+    - smarty
+    - toc:
+        permalink: True
+    - sane_lists
