@@ -1,0 +1,64 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to MkDocs\n\n\n\n\n\n\nWelcome to MkDocs", 
+            "title": "Accueil"
+        }, 
+        {
+            "location": "/#welcome-to-mkdocs", 
+            "text": "Welcome to MkDocs", 
+            "title": "Welcome to MkDocs"
+        }, 
+        {
+            "location": "/project-structure/", 
+            "text": "Structure de Projet Meteor\n\n\nIl y a beaucoup d\navis sur cette question mais pour l\ninstant, la majorit\u00e9 s\naccorde pour avoir au minimum la structure suivante:\n\n\n.meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "title": "Structure de Projet"
+        }, 
+        {
+            "location": "/project-structure/#structure-de-projet-meteor", 
+            "text": "Il y a beaucoup d avis sur cette question mais pour l instant, la majorit\u00e9 s accorde pour avoir au minimum la structure suivante:  .meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "title": "Structure de Projet Meteor"
+        }, 
+        {
+            "location": "/links/", 
+            "text": "Liens sur Meteor\n\n\nSites officiels\n\n\n\n\nmeteor.com\n\n\nDocumentation\n\n\nD\u00e9pot Meteor\n\n\nPlugins\n\n\n\n\nTutoriels - Fran\u00e7ais\n\n\n\n\nhttp://fr.discovermeteor.com/pdf\n\n\nhttp://openclassrooms.com/courses/creez-une-single-page-app-avec-node-js-et-meteor\n\n\nhttp://www.etiennebalit.com/2013/04/meteor-b-a-ba-et-bonnes-pratiques/\n\n\n\n\nTutoriels - Anglais\n\n\n\n\nhttp://iron-meteor.github.io/iron-router/#route-controllers\n\n\nhttp://robertdickert.com/blog/2014/05/09/set-up-navigation-with-iron-router-and-bootstrap/\n\n\nhttps://github.com/awatson1978/meteor-cookbook\n\n\nhttp://www.webtempest.com/meteor-js-autoform-tutorial\n\n\nhttps://medium.com/@s_eschweiler/how-to-build-web-apps-ultra-fast-with-meteor-iron-scaffolding-and-automatic-form-generation-11734eda8e67\n\n\n\n\nLes librairies les plus utiles\n\n\n\n\nhttps://github.com/aldeed/meteor-simple-schema\n\n\nhttps://github.com/aldeed/meteor-autoform\n\n\nhttps://github.com/aldeed/meteor-collection2\n\n\n\n\nEnvironnement de d\u00e9veloppement - IDE\n\n\nJe n\nai pas encore trouv\u00e9 l\nenvironnement id\u00e9al pour Meteor.\n\n\nJ\nai laiss\u00e9 Eclipse de cot\u00e9 car je suis sous Windows et plusieurs d\u00e9pendances Node.js ou Meteor ne fonctionnent pas ou sont compliqu\u00e9s \u00e0 installer.\n\n\nPour l\ninstant, j\nai mis au moins une image Docker avec Cloud9, l\nIDE en ligne et Meteor.\n\n\nIl est disponible sur https://github.com/srault95/meteor-app-base\n\n\n\n\nLes choix d\nIDE sont:\n\n\nCloud9 - http://c9.io/\n\n\nWebStorm - https://www.jetbrains.com/webstorm/\n\n\nAtom - https://atom.io\n\n\n\n\n\n\n\n\nQuelques projets a suivre\n\n\nmeteor kitchen\n\n\nhttp://www.meteorkitchen.com\n\n\nOrion CMS\n\n\nhttp://orionjs.org\n\n\nLaunch Docker\n\n\nhttps://github.com/ongoworks/launchdock", 
+            "title": "Liens"
+        }, 
+        {
+            "location": "/links/#liens-sur-meteor", 
+            "text": "", 
+            "title": "Liens sur Meteor"
+        }, 
+        {
+            "location": "/links/#sites-officiels", 
+            "text": "meteor.com  Documentation  D\u00e9pot Meteor  Plugins", 
+            "title": "Sites officiels"
+        }, 
+        {
+            "location": "/links/#tutoriels-francais", 
+            "text": "http://fr.discovermeteor.com/pdf  http://openclassrooms.com/courses/creez-une-single-page-app-avec-node-js-et-meteor  http://www.etiennebalit.com/2013/04/meteor-b-a-ba-et-bonnes-pratiques/", 
+            "title": "Tutoriels - Fran\u00e7ais"
+        }, 
+        {
+            "location": "/links/#tutoriels-anglais", 
+            "text": "http://iron-meteor.github.io/iron-router/#route-controllers  http://robertdickert.com/blog/2014/05/09/set-up-navigation-with-iron-router-and-bootstrap/  https://github.com/awatson1978/meteor-cookbook  http://www.webtempest.com/meteor-js-autoform-tutorial  https://medium.com/@s_eschweiler/how-to-build-web-apps-ultra-fast-with-meteor-iron-scaffolding-and-automatic-form-generation-11734eda8e67", 
+            "title": "Tutoriels - Anglais"
+        }, 
+        {
+            "location": "/links/#les-librairies-les-plus-utiles", 
+            "text": "https://github.com/aldeed/meteor-simple-schema  https://github.com/aldeed/meteor-autoform  https://github.com/aldeed/meteor-collection2", 
+            "title": "Les librairies les plus utiles"
+        }, 
+        {
+            "location": "/links/#environnement-de-developpement-ide", 
+            "text": "Je n ai pas encore trouv\u00e9 l environnement id\u00e9al pour Meteor.  J ai laiss\u00e9 Eclipse de cot\u00e9 car je suis sous Windows et plusieurs d\u00e9pendances Node.js ou Meteor ne fonctionnent pas ou sont compliqu\u00e9s \u00e0 installer.  Pour l instant, j ai mis au moins une image Docker avec Cloud9, l IDE en ligne et Meteor.  Il est disponible sur https://github.com/srault95/meteor-app-base   Les choix d IDE sont:  Cloud9 - http://c9.io/  WebStorm - https://www.jetbrains.com/webstorm/  Atom - https://atom.io", 
+            "title": "Environnement de d\u00e9veloppement - IDE"
+        }, 
+        {
+            "location": "/links/#quelques-projets-a-suivre", 
+            "text": "meteor kitchen  http://www.meteorkitchen.com  Orion CMS  http://orionjs.org  Launch Docker  https://github.com/ongoworks/launchdock", 
+            "title": "Quelques projets a suivre"
+        }
+    ]
+}
