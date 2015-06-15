@@ -2,27 +2,282 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\n\n\n\n\nWelcome to MkDocs", 
+            "text": "Documentation Meteor\n\n\n\n\nStructure de Projet\n\n\nPlugins\n\n\nSimple Schema\n\n\nAuthentification Sociale\n\n\nautoform-semantic-ui\n\n\nuseraccounts\n\n\ncollection-timestampable\n\n\nmeteor-collection-helpers\n\n\nmeteor-roles\n\n\nAPI Rest\n\n\nInternationalisation\n\n\npublish-counts\n\n\nEn cours d'\u00e9valuation\n\n\n\n\n\n\nTips\n\n\nLiens\n\n\nFaq", 
             "title": "Accueil"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "Welcome to MkDocs", 
-            "title": "Welcome to MkDocs"
+            "location": "/#documentation-meteor", 
+            "text": "Structure de Projet  Plugins  Simple Schema  Authentification Sociale  autoform-semantic-ui  useraccounts  collection-timestampable  meteor-collection-helpers  meteor-roles  API Rest  Internationalisation  publish-counts  En cours d'\u00e9valuation    Tips  Liens  Faq", 
+            "title": "Documentation Meteor"
         }, 
         {
             "location": "/project-structure/", 
-            "text": "Structure de Projet Meteor\n\n\nIl y a beaucoup d\navis sur cette question mais pour l\ninstant, la majorit\u00e9 s\naccorde pour avoir au minimum la structure suivante:\n\n\n.meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "text": "Structure de Projet Meteor\n\n\nIl y a beaucoup d'avis sur cette question mais pour l'instant, la majorit\u00e9 s'accorde pour avoir au minimum la structure suivante:\n\n\n.meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
             "title": "Structure de Projet"
         }, 
         {
             "location": "/project-structure/#structure-de-projet-meteor", 
-            "text": "Il y a beaucoup d avis sur cette question mais pour l instant, la majorit\u00e9 s accorde pour avoir au minimum la structure suivante:  .meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "text": "Il y a beaucoup d'avis sur cette question mais pour l'instant, la majorit\u00e9 s'accorde pour avoir au minimum la structure suivante:  .meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
             "title": "Structure de Projet Meteor"
         }, 
         {
+            "location": "/simple-schema/", 
+            "text": "Simple Schema\n\n\nUn package qui va vraiment vous faciliter la vie !!!\n\n\nEn r\u00e9sumer, simple-schema vous permet de d\u00e9finir la structure de chaque Collection ou d'un simple formulaire.\n\n\nMais le plus important est que la validation est utilisable autant cot\u00e9 client que cot\u00e9 serveur.\n\n\nhttps://github.com/aldeed/meteor-simple-schema\n\n\nExemple:\n\n\n\nBookSchema = new SimpleSchema({\n  title: {\n    type: String,\n    label: \nTitle\n,\n    max: 200\n  },\n  author: {\n    type: String,\n    label: \nAuthor\n\n  },\n  copies: {\n    type: Number,\n    label: \nNumber of copies\n,\n    min: 0\n  },\n  lastCheckedOut: {\n    type: Date,\n    label: \nLast date this book was checked out\n,\n    optional: true\n  },\n  summary: {\n    type: String,\n    label: \nBrief summary\n,\n    optional: true,\n    max: 1000\n  }\n});\n\n\n\n\n\nLes types de champs\n\n\nEn version simple:\n\n\nString\nNumber\nBoolean\nObject\n\n\n\nLa m\u00eame chose comme tableau:\n\n\n[String]\n[Number]\n[Boolean]\n[Object]\n[Date]", 
+            "title": "Simple Schema"
+        }, 
+        {
+            "location": "/simple-schema/#simple-schema", 
+            "text": "Un package qui va vraiment vous faciliter la vie !!!  En r\u00e9sumer, simple-schema vous permet de d\u00e9finir la structure de chaque Collection ou d'un simple formulaire.  Mais le plus important est que la validation est utilisable autant cot\u00e9 client que cot\u00e9 serveur.  https://github.com/aldeed/meteor-simple-schema  Exemple:  \nBookSchema = new SimpleSchema({\n  title: {\n    type: String,\n    label:  Title ,\n    max: 200\n  },\n  author: {\n    type: String,\n    label:  Author \n  },\n  copies: {\n    type: Number,\n    label:  Number of copies ,\n    min: 0\n  },\n  lastCheckedOut: {\n    type: Date,\n    label:  Last date this book was checked out ,\n    optional: true\n  },\n  summary: {\n    type: String,\n    label:  Brief summary ,\n    optional: true,\n    max: 1000\n  }\n});", 
+            "title": "Simple Schema"
+        }, 
+        {
+            "location": "/simple-schema/#les-types-de-champs", 
+            "text": "En version simple:  String\nNumber\nBoolean\nObject  La m\u00eame chose comme tableau:  [String]\n[Number]\n[Boolean]\n[Object]\n[Date]", 
+            "title": "Les types de champs"
+        }, 
+        {
+            "location": "/social-auth/", 
+            "text": "Authentification Sociale\n\n\nConfiguration Accounts.ui pour l'authentification sociales\n\n\nAccounts.ui.config({\n  requestPermissions: {\n    facebook: ['user_likes'],\n    github: ['user', 'repo']\n  },\n  requestOfflineToken: {\n    google: true\n  },\n  passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'\n});\n\n\n\nPermissions par provider\n\n\n\n\nFacebook: http://developers.facebook.com/docs/authentication/permissions/\n\n\nGitHub: http://developer.github.com/v3/oauth/#scopes\n\n\nGoogle: https://developers.google.com/accounts/docs/OAuth2Login#scopeparameter\n\n\nMeetup: http://www.meetup.com/meetup_api/auth/#oauth2-scopes\n\n\nTwitter, Weibo, Meteor developer accounts: requestPermissions currently not supported\n\n\n\n\nlinkedin\n\n\n\n\nhttps://atmospherejs.com/pauli/accounts-linkedin\n\n\nhttps://github.com/PauliBuccini/meteor-accounts-linkedin/\n\n\nhttp://linkedin.com/\n\n\nhttps://developer.linkedin.com/docs/oauth2\n\n\nCr\u00e9ation d'une application : https://www.linkedin.com/developer/apps/new\n\n\n\n\n\n$ meteor add pauli:accounts-linkedin\n\n\n\n\n\nService Configuration:\n\n\n\n\nPar javascript\n\n\n\n\n\nServiceConfiguration.configurations.update(\n    { service: \nlinkedin\n },\n    { $set: {\n        clientId: \nXXXXXXXXXXXXXX\n,\n        secret: \nXXXXXXXXXXXXXXXX\n\n      }\n    },\n    { upsert: true }\n);\n\n\n\n\n\nMeteor Developpeur\n\n\n\n\nhttps://atmospherejs.com/meteor/accounts-meteor-developer\n\n\n\n\ngithub\n\n\nService Configuration:\n\n\n\n\nPar javascript\n\n\n\n\n\nServiceConfiguration.configurations.update(\n    { service: \ngithub\n },\n    { $set: {\n        clientId: \nXXXXXXXXXXXXXXXXXXXXXXXX\n,\n        secret: \nXXXXXXXXXXXXXXXXXXXXXXXX\n\n      }\n    },\n    { upsert: true }\n);\n\n\n\n\n\n\n\nPar le settings.json\n\n\n\n\nFacebook\n\n\nService Configuration:\n\n\n\n\nPar javascript\n\n\n\n\n\nServiceConfiguration.configurations.update(\n    { service: \nfacebook\n },\n    { $set: {\n        appId: \nXXXXXXXXXXXXXXX\n,\n        secret: \nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n\n      }\n    },\n    { upsert: true }\n);\n\n\n\n\n\nGoogle\n\n\nService Configuration:\n\n\n\n\nPar javascript\n\n\n\n\n\nServiceConfiguration.configurations.update(\n    { service: \ngoogle\n },\n    { $set: {\n        clientId: \nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n,\n        client_email: \nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n,\n        secret: \nXXXXXXXXXXXXXXXXXXXXXXXX\n\n      }\n    },\n    { upsert: true }\n);\n\n\n\n\n\nmeteor-developer\n\n\nService Configuration:\n\n\n\n\nPar javascript\n\n\n\n\n\nServiceConfiguration.configurations.update(\n    { service: \nmeteor-developer\n },\n    { $set: {\n        clientId: \nXXXXXXXXXXXXXXXXX\n,\n        secret: \nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n\n      }\n    },\n    { upsert: true }\n);", 
+            "title": "Authentification Sociale"
+        }, 
+        {
+            "location": "/social-auth/#authentification-sociale", 
+            "text": "", 
+            "title": "Authentification Sociale"
+        }, 
+        {
+            "location": "/social-auth/#configuration-accountsui-pour-lauthentification-sociales", 
+            "text": "Accounts.ui.config({\n  requestPermissions: {\n    facebook: ['user_likes'],\n    github: ['user', 'repo']\n  },\n  requestOfflineToken: {\n    google: true\n  },\n  passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'\n});  Permissions par provider   Facebook: http://developers.facebook.com/docs/authentication/permissions/  GitHub: http://developer.github.com/v3/oauth/#scopes  Google: https://developers.google.com/accounts/docs/OAuth2Login#scopeparameter  Meetup: http://www.meetup.com/meetup_api/auth/#oauth2-scopes  Twitter, Weibo, Meteor developer accounts: requestPermissions currently not supported", 
+            "title": "Configuration Accounts.ui pour l'authentification sociales"
+        }, 
+        {
+            "location": "/social-auth/#linkedin", 
+            "text": "https://atmospherejs.com/pauli/accounts-linkedin  https://github.com/PauliBuccini/meteor-accounts-linkedin/  http://linkedin.com/  https://developer.linkedin.com/docs/oauth2  Cr\u00e9ation d'une application : https://www.linkedin.com/developer/apps/new   \n$ meteor add pauli:accounts-linkedin  Service Configuration:   Par javascript   \nServiceConfiguration.configurations.update(\n    { service:  linkedin  },\n    { $set: {\n        clientId:  XXXXXXXXXXXXXX ,\n        secret:  XXXXXXXXXXXXXXXX \n      }\n    },\n    { upsert: true }\n);", 
+            "title": "linkedin"
+        }, 
+        {
+            "location": "/social-auth/#meteor-developpeur", 
+            "text": "https://atmospherejs.com/meteor/accounts-meteor-developer", 
+            "title": "Meteor Developpeur"
+        }, 
+        {
+            "location": "/social-auth/#github", 
+            "text": "Service Configuration:   Par javascript   \nServiceConfiguration.configurations.update(\n    { service:  github  },\n    { $set: {\n        clientId:  XXXXXXXXXXXXXXXXXXXXXXXX ,\n        secret:  XXXXXXXXXXXXXXXXXXXXXXXX \n      }\n    },\n    { upsert: true }\n);   Par le settings.json", 
+            "title": "github"
+        }, 
+        {
+            "location": "/social-auth/#facebook", 
+            "text": "Service Configuration:   Par javascript   \nServiceConfiguration.configurations.update(\n    { service:  facebook  },\n    { $set: {\n        appId:  XXXXXXXXXXXXXXX ,\n        secret:  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \n      }\n    },\n    { upsert: true }\n);", 
+            "title": "Facebook"
+        }, 
+        {
+            "location": "/social-auth/#google", 
+            "text": "Service Configuration:   Par javascript   \nServiceConfiguration.configurations.update(\n    { service:  google  },\n    { $set: {\n        clientId:  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ,\n        client_email:  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ,\n        secret:  XXXXXXXXXXXXXXXXXXXXXXXX \n      }\n    },\n    { upsert: true }\n);", 
+            "title": "Google"
+        }, 
+        {
+            "location": "/social-auth/#meteor-developer", 
+            "text": "Service Configuration:   Par javascript   \nServiceConfiguration.configurations.update(\n    { service:  meteor-developer  },\n    { $set: {\n        clientId:  XXXXXXXXXXXXXXXXX ,\n        secret:  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \n      }\n    },\n    { upsert: true }\n);", 
+            "title": "meteor-developer"
+        }, 
+        {
+            "location": "/autoform-semantic-ui/", 
+            "text": "autoform-semantic-ui\n\n\nTemplate Semantic-ui pour le package aldeed:autoform.\n\n\nhttps://github.com/fabienb4/meteor-autoform-semantic-ui\n\n\nInstallation\n\n\nD\u00e9pendances: templating, underscore, aldeed:autoform\n\n\n$ meteor add semantic:ui-css\n$ meteor add fabienb4:autoform-semantic-ui\n\n\n\n\nConfiguration globale:\n\n\n\n//client/startup.js\nMeteor.startup(function() {\n    AutoForm.setDefaultTemplate(\nsemanticUI\n);\n});\n\n\n\n\n\nConfiguration par formulaire:\n\n\n{{#autoForm collection=\nItems\n id=\nitemsInsertForm\n type=\ninsert\n template=\nsemanticUI\n}}\n...\n{{/autoForm}}\n\n\n\n\nUsage\n\n\nChamps select\n - http://semantic-ui.com/collections/form.html#basic-select\n\n\n{{\n afQuickField name=\nitems\n type=\nbasic-select\n options=items}}\n\n\n\n\n\n// Template helpers:\nTemplate.main.helpers({\n    items: [\n      { value: \n1\n, label: \nItem 1\n },\n      { value: \n2\n, label: \nItem 2\n }\n    ];\n});", 
+            "title": "autoform-semantic-ui"
+        }, 
+        {
+            "location": "/autoform-semantic-ui/#autoform-semantic-ui", 
+            "text": "Template Semantic-ui pour le package aldeed:autoform.  https://github.com/fabienb4/meteor-autoform-semantic-ui  Installation  D\u00e9pendances: templating, underscore, aldeed:autoform  $ meteor add semantic:ui-css\n$ meteor add fabienb4:autoform-semantic-ui  Configuration globale:  \n//client/startup.js\nMeteor.startup(function() {\n    AutoForm.setDefaultTemplate( semanticUI );\n});  Configuration par formulaire:  {{#autoForm collection= Items  id= itemsInsertForm  type= insert  template= semanticUI }}\n...\n{{/autoForm}}  Usage  Champs select  - http://semantic-ui.com/collections/form.html#basic-select  {{  afQuickField name= items  type= basic-select  options=items}}  // Template helpers:\nTemplate.main.helpers({\n    items: [\n      { value:  1 , label:  Item 1  },\n      { value:  2 , label:  Item 2  }\n    ];\n});", 
+            "title": "autoform-semantic-ui"
+        }, 
+        {
+            "location": "/useraccounts/", 
+            "text": "useraccounts\n\n\nhttps://atmospherejs.com/useraccounts/core\nhttps://github.com/meteor-useraccounts/core/\n\n\nD\u00e9mo: http://useraccounts.meteor.com/\n\n\nFonctionnement:\n\n\nuseraccounts:core fournit toutes les fonctions de base mais aucun template.\n\n\nil faut utiliser une des extensions comme useraccounts:semantic-ui pour obtenir des templates.\n\n\nExemple avec le bouton de connection:\n\n\n\n{{\n atNavButton}}\n\n\n\n\n\n\n\nLe code correspondant se trouve dans:\n\n\nhttps://github.com/meteor-useraccounts/semantic-ui/blob/master/lib/at_nav_button.html\n\n\nhttps://github.com/meteor-useraccounts/semantic-ui/blob/master/lib/at_nav_button.js\n\n\n\n\n\n\n\n\nInstallation\n\n\n    $ meteor add useraccounts:core\n\n\n\n\nExtension - useraccounts:semantic-ui\n\n\nD\u00e9mo: https://useraccounts-semantic-ui.meteor.com/\n\n\n    $ meteor add useraccounts:semantic-ui", 
+            "title": "useraccounts"
+        }, 
+        {
+            "location": "/useraccounts/#useraccounts", 
+            "text": "https://atmospherejs.com/useraccounts/core\nhttps://github.com/meteor-useraccounts/core/  D\u00e9mo: http://useraccounts.meteor.com/  Fonctionnement:  useraccounts:core fournit toutes les fonctions de base mais aucun template.  il faut utiliser une des extensions comme useraccounts:semantic-ui pour obtenir des templates.  Exemple avec le bouton de connection:  \n{{  atNavButton}}   Le code correspondant se trouve dans:  https://github.com/meteor-useraccounts/semantic-ui/blob/master/lib/at_nav_button.html  https://github.com/meteor-useraccounts/semantic-ui/blob/master/lib/at_nav_button.js", 
+            "title": "useraccounts"
+        }, 
+        {
+            "location": "/useraccounts/#installation", 
+            "text": "$ meteor add useraccounts:core", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/useraccounts/#extension-useraccountssemantic-ui", 
+            "text": "D\u00e9mo: https://useraccounts-semantic-ui.meteor.com/      $ meteor add useraccounts:semantic-ui", 
+            "title": "Extension - useraccounts:semantic-ui"
+        }, 
+        {
+            "location": "/collection-timestampable/", 
+            "text": "collection-timestampable\n\n\nhttps://atmospherejs.com/zimme/collection-timestampable\n\n\nPeut ajouter les champs createdAt, createdBy, updatedAt, updatedBy \u00e0 chaque document\n\n\nUsage\n\n\n    Posts = new Mongo.Collection('posts');\n\n    // Default options\n    Posts.attachBehaviour('timestampable');\n\n    // Custom options\n    Posts.attachBehaviour('timestampable', {\n      createdAt: 'insertedAt' // nom du champs dans le document\n      createdBy: 'insertedBy'\n      updatedAt: 'modifiedAt'\n      updatedBy: false\n    });", 
+            "title": "collection-timestampable"
+        }, 
+        {
+            "location": "/collection-timestampable/#collection-timestampable", 
+            "text": "https://atmospherejs.com/zimme/collection-timestampable  Peut ajouter les champs createdAt, createdBy, updatedAt, updatedBy \u00e0 chaque document", 
+            "title": "collection-timestampable"
+        }, 
+        {
+            "location": "/collection-timestampable/#usage", 
+            "text": "Posts = new Mongo.Collection('posts');\n\n    // Default options\n    Posts.attachBehaviour('timestampable');\n\n    // Custom options\n    Posts.attachBehaviour('timestampable', {\n      createdAt: 'insertedAt' // nom du champs dans le document\n      createdBy: 'insertedBy'\n      updatedAt: 'modifiedAt'\n      updatedBy: false\n    });", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/meteor-collection-helpers/", 
+            "text": "collection-helpers\n\n\nAjoute des fonctions aux collections\n\n\nhttps://github.com/dburles/meteor-collection-helpers\n\n\nInstallation\n\n\n$ meteor add dburles:collection-helpers\n\n\n\n\nUtilisation\n\n\nDans Javascript:\n\n\nAppInstances.helpers({\n  hosts: function () {\n    var dockerHosts = this.dockerHosts || [];\n    return Hosts.find({_id: {$in: dockerHosts}}).fetch();  // fetch ??\n  },\n});\n\n\n\n\nDans les templates:\n\n\nth\nHosts\n/th\n\n\ntd\n\n  {{#each hosts}}\n  \ndiv\n\n    \na href=\nhttp://{{this.publicHost}}\n target=\n_blank\n{{this.publicHost}}\n/a\n\n  \n/div\n\n  {{/each}}\n\n/td", 
+            "title": "meteor-collection-helpers"
+        }, 
+        {
+            "location": "/meteor-collection-helpers/#collection-helpers", 
+            "text": "Ajoute des fonctions aux collections  https://github.com/dburles/meteor-collection-helpers", 
+            "title": "collection-helpers"
+        }, 
+        {
+            "location": "/meteor-collection-helpers/#installation", 
+            "text": "$ meteor add dburles:collection-helpers", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/meteor-collection-helpers/#utilisation", 
+            "text": "Dans Javascript:  AppInstances.helpers({\n  hosts: function () {\n    var dockerHosts = this.dockerHosts || [];\n    return Hosts.find({_id: {$in: dockerHosts}}).fetch();  // fetch ??\n  },\n});  Dans les templates:  th Hosts /th  td \n  {{#each hosts}}\n   div \n     a href= http://{{this.publicHost}}  target= _blank {{this.publicHost}} /a \n   /div \n  {{/each}} /td", 
+            "title": "Utilisation"
+        }, 
+        {
+            "location": "/meteor-roles/", 
+            "text": "Meteor Roles\n\n\nhttps://github.com/alanning/meteor-roles\n\n\nInstallation\n\n\n\n$ meteor add accounts-password\n$ meteor add alanning:roles\n\n\n\n\n\nLa collection n'est pas publi\u00e9 par d\u00e9faut, il faut le faire avec:\n\n\n\n// server/publish.js\nMeteor.publish(null, function (){\n  return Meteor.roles.find({})\n})\n\n\n\n\n\nAssigner des r\u00f4les au d\u00e9marrage du server\n\n\nhttps://github.com/alanning/meteor-roles/blob/master/examples/rolesWithAccountsUI/server/startup.js\nhttps://github.com/alanning/meteor-roles/blob/master/examples/iron-router/server/server.js\n\n\nCr\u00e9ation de roles au d\u00e9marrage\n\n\nAssigner automatiquement un role par default\n\n\n# Cot\u00e9 startup - server:\n  Accounts.onCreateUser(function (options, user) {\n    Roles.setRolesOnUserObj(user, ['admin','view-secrets']);\n    return user\n  });\n\n\nTips - Limiter la cr\u00e9ation d'utilisateurs\n\n\nAutoriser seulement la cr\u00e9ation pour les roles admin ou manage-users:\n\n\n\n//common\nAccounts.validateNewUser(function (user) {\n    var loggedInUser = Meteor.user();\n\n    if (Roles.userIsInRole(loggedInUser, ['admin','manage-users'])) {\n      return true;\n    }\n\n    throw new Meteor.Error(403, \nNot authorized to create new users\n);\n});\n\n\n\n\n\nTips - Exemple de filtrage des donn\u00e9es cot\u00e9 server - Par Groupe utilisateur\n\n\n\n// server/publish.js\nMeteor.publish('secrets', function (group) {\n  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {\n\n    return Meteor.secrets.find({group: group});\n\n  } else {\n\n    // user not authorized. do not publish secrets\n    this.stop();\n    return;\n\n  }\n});\n\n\n\n\n\nUtilisation dans les templates\n\n\n\n\ntemplate name=\nheader\n\n  {{#if isInRole 'admin'}}\n    {{\n admin_nav}}\n  {{/if}}\n  {{#if isInRole 'admin,editor'}}\n    {{\n editor_stuff}}\n  {{/if}}\n\n/template\n\n\n// Limiter au group1 avec le role admin ou editor\n\ntemplate name=\nheader\n\n  {{#if isInRole 'admin,editor' 'group1'}}\n    {{\n editor_stuff}}\n  {{/if}}\n\n/template\n\n\n\n\n\n\nCollections\n\n\n\n\nMeteor.roles\n\n\nModifie Meteor.users\n\n\n\n\nAjout de role\n\n\n\n\nusers Array | String\n\n\nroles Array | String\n\n\ngroup String optional (default Roles.GLOBAL_GROUP)\n\n\n\n\nRoles.addUsersToRoles(userId, 'admin')\n\n\nRoles.addUsersToRoles(userId, ['view-secrets'], 'example.com')\n\n\nRoles.addUsersToRoles([user1, user2], ['user','editor'])\n\n\nRoles.addUsersToRoles([user1, user2], ['glorious-admin', 'perform-action'], 'example.org')\n\n\nRoles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP)", 
+            "title": "meteor-roles"
+        }, 
+        {
+            "location": "/meteor-roles/#meteor-roles", 
+            "text": "https://github.com/alanning/meteor-roles", 
+            "title": "Meteor Roles"
+        }, 
+        {
+            "location": "/meteor-roles/#installation", 
+            "text": "$ meteor add accounts-password\n$ meteor add alanning:roles  La collection n'est pas publi\u00e9 par d\u00e9faut, il faut le faire avec:  \n// server/publish.js\nMeteor.publish(null, function (){\n  return Meteor.roles.find({})\n})", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/meteor-roles/#assigner-des-roles-au-demarrage-du-server", 
+            "text": "https://github.com/alanning/meteor-roles/blob/master/examples/rolesWithAccountsUI/server/startup.js\nhttps://github.com/alanning/meteor-roles/blob/master/examples/iron-router/server/server.js", 
+            "title": "Assigner des r\u00f4les au d\u00e9marrage du server"
+        }, 
+        {
+            "location": "/meteor-roles/#creation-de-roles-au-demarrage", 
+            "text": "", 
+            "title": "Cr\u00e9ation de roles au d\u00e9marrage"
+        }, 
+        {
+            "location": "/meteor-roles/#assigner-automatiquement-un-role-par-default", 
+            "text": "# Cot\u00e9 startup - server:\n  Accounts.onCreateUser(function (options, user) {\n    Roles.setRolesOnUserObj(user, ['admin','view-secrets']);\n    return user\n  });", 
+            "title": "Assigner automatiquement un role par default"
+        }, 
+        {
+            "location": "/meteor-roles/#tips-limiter-la-creation-dutilisateurs", 
+            "text": "Autoriser seulement la cr\u00e9ation pour les roles admin ou manage-users:  \n//common\nAccounts.validateNewUser(function (user) {\n    var loggedInUser = Meteor.user();\n\n    if (Roles.userIsInRole(loggedInUser, ['admin','manage-users'])) {\n      return true;\n    }\n\n    throw new Meteor.Error(403,  Not authorized to create new users );\n});", 
+            "title": "Tips - Limiter la cr\u00e9ation d'utilisateurs"
+        }, 
+        {
+            "location": "/meteor-roles/#tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur", 
+            "text": "// server/publish.js\nMeteor.publish('secrets', function (group) {\n  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {\n\n    return Meteor.secrets.find({group: group});\n\n  } else {\n\n    // user not authorized. do not publish secrets\n    this.stop();\n    return;\n\n  }\n});", 
+            "title": "Tips - Exemple de filtrage des donn\u00e9es cot\u00e9 server - Par Groupe utilisateur"
+        }, 
+        {
+            "location": "/meteor-roles/#utilisation-dans-les-templates", 
+            "text": "template name= header \n  {{#if isInRole 'admin'}}\n    {{  admin_nav}}\n  {{/if}}\n  {{#if isInRole 'admin,editor'}}\n    {{  editor_stuff}}\n  {{/if}} /template \n\n// Limiter au group1 avec le role admin ou editor template name= header \n  {{#if isInRole 'admin,editor' 'group1'}}\n    {{  editor_stuff}}\n  {{/if}} /template", 
+            "title": "Utilisation dans les templates"
+        }, 
+        {
+            "location": "/meteor-roles/#collections", 
+            "text": "Meteor.roles  Modifie Meteor.users", 
+            "title": "Collections"
+        }, 
+        {
+            "location": "/meteor-roles/#ajout-de-role", 
+            "text": "users Array | String  roles Array | String  group String optional (default Roles.GLOBAL_GROUP)   Roles.addUsersToRoles(userId, 'admin')  Roles.addUsersToRoles(userId, ['view-secrets'], 'example.com')  Roles.addUsersToRoles([user1, user2], ['user','editor'])  Roles.addUsersToRoles([user1, user2], ['glorious-admin', 'perform-action'], 'example.org')  Roles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP)", 
+            "title": "Ajout de role"
+        }, 
+        {
+            "location": "/rest-api/", 
+            "text": "Rest APIs\n\n\nrestivus\n\n\nAPI Rest\n\n\nhttps://atmospherejs.com/nimble/restivus\n\n\nInstallation\n\n\nmeteor add nimble:restivus\n\n\n\nConfiguration rapide\n\n\n\nItems = new Mongo.Collection('items');\n\nif (Meteor.isServer) {\n\n  Restivus.configure({\n    useAuth: true,\n    prettyJson: true\n  });\n\n  // Generates: GET, POST, DELETE on /api/items and GET, PUT, DELETE on\n  // /api/items/:id for Items collection\n  Restivus.addCollection(Items);\n\n}\n\n\n\n\n\nCollection Meteor.users\n\n\nRestivus.addCollection(Meteor.users, {\n    excludedEndpoints: ['deleteAll', 'put'],\n    routeOptions: {\n      authRequired: true\n    },\n    endpoints: {\n      post: {\n        authRequired: false\n      },\n      delete: {\n        roleRequired: 'admin'\n      }\n    }\n});\n\n\n\nParticularit\u00e9s du POST de la collection Meteor.users\n\n\nSeuls les champs reconnus par Accounts.createUser() sont autoris\u00e9s dans le POST\n\n\nCes champs sont: email, username, password, et profile\n\n\nSolution: il faut surement personnalis\u00e9 avec l'utilisation d'un Accounts.setPassword(userId, newPassword, [options])\n\n\nPOST http://localhost:3000/api/users\n\n\n{\n    \"email\": \"jack@mail.com\",\n    \"password\": \"password\",\n    \"profile\": {\n      \"firstName\": \"Jack\",\n      \"lastName\": \"Rose\"\n    }\n  }\n\n\ncollectionapi\n\n\nhttps://github.com/xcv58/meteor-collectionapi\n\n\nhttps://github.com/xcv58/meteor-collectionapi-demo/blob/cf233f31d973191e6cd4510ed5e017ad695b33f8/server/restful.js#L36\n\n\nFournit un serveur d\u00e9di\u00e9 \u00e0 l'api, ind\u00e9pendant de l'application.\n\n\nFonctionnalit\u00e9s:\n\n* Authentification custom\n\n\nConfiguration rapide\n\n\nPlayers = new Meteor.Collection(\"players\");\n\n\nif (Meteor.isServer) {\n  Meteor.startup(function () {\n    collectionApi = new CollectionAPI({ authToken: '97f0ad9e24ca5e0408a269748d7fe0a0' });\n    collectionApi.addCollection(Players, 'players');\n    collectionApi.start();\n  });\n}\n\n\n$ curl -H \"X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0\" http://localhost:3000/collectionapi/players", 
+            "title": "API Rest"
+        }, 
+        {
+            "location": "/rest-api/#rest-apis", 
+            "text": "", 
+            "title": "Rest APIs"
+        }, 
+        {
+            "location": "/rest-api/#restivus", 
+            "text": "API Rest  https://atmospherejs.com/nimble/restivus  Installation  meteor add nimble:restivus  Configuration rapide  \nItems = new Mongo.Collection('items');\n\nif (Meteor.isServer) {\n\n  Restivus.configure({\n    useAuth: true,\n    prettyJson: true\n  });\n\n  // Generates: GET, POST, DELETE on /api/items and GET, PUT, DELETE on\n  // /api/items/:id for Items collection\n  Restivus.addCollection(Items);\n\n}  Collection Meteor.users  Restivus.addCollection(Meteor.users, {\n    excludedEndpoints: ['deleteAll', 'put'],\n    routeOptions: {\n      authRequired: true\n    },\n    endpoints: {\n      post: {\n        authRequired: false\n      },\n      delete: {\n        roleRequired: 'admin'\n      }\n    }\n});  Particularit\u00e9s du POST de la collection Meteor.users  Seuls les champs reconnus par Accounts.createUser() sont autoris\u00e9s dans le POST  Ces champs sont: email, username, password, et profile  Solution: il faut surement personnalis\u00e9 avec l'utilisation d'un Accounts.setPassword(userId, newPassword, [options])  POST http://localhost:3000/api/users  {\n    \"email\": \"jack@mail.com\",\n    \"password\": \"password\",\n    \"profile\": {\n      \"firstName\": \"Jack\",\n      \"lastName\": \"Rose\"\n    }\n  }", 
+            "title": "restivus"
+        }, 
+        {
+            "location": "/rest-api/#collectionapi", 
+            "text": "https://github.com/xcv58/meteor-collectionapi  https://github.com/xcv58/meteor-collectionapi-demo/blob/cf233f31d973191e6cd4510ed5e017ad695b33f8/server/restful.js#L36  Fournit un serveur d\u00e9di\u00e9 \u00e0 l'api, ind\u00e9pendant de l'application.  Fonctionnalit\u00e9s: \n* Authentification custom  Configuration rapide  Players = new Meteor.Collection(\"players\");  if (Meteor.isServer) {\n  Meteor.startup(function () {\n    collectionApi = new CollectionAPI({ authToken: '97f0ad9e24ca5e0408a269748d7fe0a0' });\n    collectionApi.addCollection(Players, 'players');\n    collectionApi.start();\n  });\n}\n\n\n$ curl -H \"X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0\" http://localhost:3000/collectionapi/players", 
+            "title": "collectionapi"
+        }, 
+        {
+            "location": "/tap-i18n/", 
+            "text": "tab:i18n\n\n\nInternationalisation de projets Meteor\n\n\nhttps://atmospherejs.com/tap/i18n\n\n\nTODO\n\n\n\n\nExtraction pour service crowdin\n\n\nVoir http://i18next.com/\n\n\n\n\nInstallation\n\n\nmeteor add tap:i18n\n\n\n\n\n    Meteor.startup(function() {\n      if (Meteor.isClient) {\n        return TAPi18n.setLanguage('en');\n      }\n    });\n\n\n\n\n\nUtilisation dans les templates\n\n\n    \ndiv class=\nbtn\n{{_ \nsign_up\n}}\n/div\n\n\n    # Avec param\u00e8tre dans la chaine \u00e0 traduire\n    \ntemplate name=\nmessages_today\n\n      \np\n{{_ \ninbox_status\n \nDaniel\n count=18}}\n/p\n\n    \n/template\n\n\n    # Exemple de fichier de lang - i18n/en.i18n.json\n    {\n      \ninbox_status\n: \nHey, %s! You have received one new message today.\n,\n      \ninbox_status_plural\n: \nHey, %s! You have received %s new messages today.\n\n    }\n\n\n\n\nUtilisation dans les scripts\n\n\n\n    Config = {\n      name: 'Title',\n      title: function() {\n        return TAPi18n.__('configTitle');\n      },\n      subtitle: function() {\n        return TAPi18n.__('configSubtitle');\n      },\n    }\n\n\n\n\n\nExtensions\n\n\ntap-i18n-ui\n\n\nhttps://github.com/TAPevents/tap-i18n-ui\n\n\n    meteor add tap:i18n-ui\n\n    {{\n i18n_dropdown}}             // Bootstrap\n    {{\n i18n_dropdown_semantic}}    // Semantic UI\n\n\n\n\ntap-i18n-db\n\n\nhttps://github.com/TAPevents/tap-i18n-db\n\n\nmeteor add tap:i18n-db\n\n\n\n\n    CountryLang = new TAPi18n.Collection(\ncountry_lang\n);\n\n    // Cr\u00e9ation du document et d'une ou plusieurs traductions\n    id = CountryLang.insertTranslations({country: \nfr\n, name: \nFran\u00e7ais\n}, {\n        en: {\n            name: \nFrench\n\n        }\n    });\n\n    # Mise \u00e0 jour d'un document existant\n    CountryLang.updateTranslations(id, {\n        de: {\n            name: \nFranz\u00f6sisch\u043b\u0430\n\n        }\n    });\n\n    # Publication et souscription\n    if (Meteor.isServer) {\n        TAPi18n.publish(\ncountrylang\n, function (query) {\n            return CountryLang.i18nFind(query);\n        });\n    }\n\n    if (Meteor.isClient) {\n        TAPi18n.subscribe(\ncountrylang\n, {});\n    }", 
+            "title": "Internationalisation"
+        }, 
+        {
+            "location": "/tap-i18n/#tabi18n", 
+            "text": "Internationalisation de projets Meteor  https://atmospherejs.com/tap/i18n", 
+            "title": "tab:i18n"
+        }, 
+        {
+            "location": "/tap-i18n/#todo", 
+            "text": "Extraction pour service crowdin  Voir http://i18next.com/", 
+            "title": "TODO"
+        }, 
+        {
+            "location": "/tap-i18n/#installation", 
+            "text": "meteor add tap:i18n  \n    Meteor.startup(function() {\n      if (Meteor.isClient) {\n        return TAPi18n.setLanguage('en');\n      }\n    });", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/tap-i18n/#utilisation-dans-les-templates", 
+            "text": "div class= btn {{_  sign_up }} /div \n\n    # Avec param\u00e8tre dans la chaine \u00e0 traduire\n     template name= messages_today \n       p {{_  inbox_status   Daniel  count=18}} /p \n     /template \n\n    # Exemple de fichier de lang - i18n/en.i18n.json\n    {\n       inbox_status :  Hey, %s! You have received one new message today. ,\n       inbox_status_plural :  Hey, %s! You have received %s new messages today. \n    }", 
+            "title": "Utilisation dans les templates"
+        }, 
+        {
+            "location": "/tap-i18n/#utilisation-dans-les-scripts", 
+            "text": "Config = {\n      name: 'Title',\n      title: function() {\n        return TAPi18n.__('configTitle');\n      },\n      subtitle: function() {\n        return TAPi18n.__('configSubtitle');\n      },\n    }", 
+            "title": "Utilisation dans les scripts"
+        }, 
+        {
+            "location": "/tap-i18n/#extensions", 
+            "text": "tap-i18n-ui  https://github.com/TAPevents/tap-i18n-ui      meteor add tap:i18n-ui\n\n    {{  i18n_dropdown}}             // Bootstrap\n    {{  i18n_dropdown_semantic}}    // Semantic UI  tap-i18n-db  https://github.com/TAPevents/tap-i18n-db  meteor add tap:i18n-db  \n    CountryLang = new TAPi18n.Collection( country_lang );\n\n    // Cr\u00e9ation du document et d'une ou plusieurs traductions\n    id = CountryLang.insertTranslations({country:  fr , name:  Fran\u00e7ais }, {\n        en: {\n            name:  French \n        }\n    });\n\n    # Mise \u00e0 jour d'un document existant\n    CountryLang.updateTranslations(id, {\n        de: {\n            name:  Franz\u00f6sisch\u043b\u0430 \n        }\n    });\n\n    # Publication et souscription\n    if (Meteor.isServer) {\n        TAPi18n.publish( countrylang , function (query) {\n            return CountryLang.i18nFind(query);\n        });\n    }\n\n    if (Meteor.isClient) {\n        TAPi18n.subscribe( countrylang , {});\n    }", 
+            "title": "Extensions"
+        }, 
+        {
+            "location": "/publish-counts/", 
+            "text": "publish-counts\n\n\nG\u00e8re des compteurs de collection pour des statistiques par exemple.\n\n\nhttps://github.com/percolatestudio/publish-counts\n\n\n$ meteor add tmeasday:publish-counts\n\n\n\n\nD\u00e9finition d'une collection:\n\n\n\nPlayers = new Mongo.Collection(\nplayers\n);\n\n\n\n\n\nCot\u00e9 Server:\n\n\n\nMeteor.publish('stats', function() {\n    Counts.publish(this, 'player_total', Players.find());\n});\n\n\n\n\n\nCot\u00e9 Client:\n\n\n\nMeteor.subscribe('stats');\n\n\n\n\n\n\n\ntemplate name=\nstats\n\n    \nspan\nTotal players : {{getPublishedCount \nplayer_total\n}}\n/span\n\n\n/template", 
+            "title": "publish-counts"
+        }, 
+        {
+            "location": "/publish-counts/#publish-counts", 
+            "text": "G\u00e8re des compteurs de collection pour des statistiques par exemple.  https://github.com/percolatestudio/publish-counts  $ meteor add tmeasday:publish-counts  D\u00e9finition d'une collection:  \nPlayers = new Mongo.Collection( players );  Cot\u00e9 Server:  \nMeteor.publish('stats', function() {\n    Counts.publish(this, 'player_total', Players.find());\n});  Cot\u00e9 Client:  \nMeteor.subscribe('stats');   template name= stats \n     span Total players : {{getPublishedCount  player_total }} /span  /template", 
+            "title": "publish-counts"
+        }, 
+        {
+            "location": "/plugins-a-etudier/", 
+            "text": "Plugins A etudier\n\n\nhttps://atmospherejs.com/zimme/iron-router-auth", 
+            "title": "En cours d'\u00e9valuation"
+        }, 
+        {
+            "location": "/plugins-a-etudier/#plugins-a-etudier", 
+            "text": "https://atmospherejs.com/zimme/iron-router-auth", 
+            "title": "Plugins A etudier"
+        }, 
+        {
             "location": "/links/", 
-            "text": "Liens sur Meteor\n\n\nSites officiels\n\n\n\n\nmeteor.com\n\n\nDocumentation\n\n\nD\u00e9pot Meteor\n\n\nPlugins\n\n\n\n\nTutoriels - Fran\u00e7ais\n\n\n\n\nhttp://fr.discovermeteor.com/pdf\n\n\nhttp://openclassrooms.com/courses/creez-une-single-page-app-avec-node-js-et-meteor\n\n\nhttp://www.etiennebalit.com/2013/04/meteor-b-a-ba-et-bonnes-pratiques/\n\n\n\n\nTutoriels - Anglais\n\n\n\n\nhttp://iron-meteor.github.io/iron-router/#route-controllers\n\n\nhttp://robertdickert.com/blog/2014/05/09/set-up-navigation-with-iron-router-and-bootstrap/\n\n\nhttps://github.com/awatson1978/meteor-cookbook\n\n\nhttp://www.webtempest.com/meteor-js-autoform-tutorial\n\n\nhttps://medium.com/@s_eschweiler/how-to-build-web-apps-ultra-fast-with-meteor-iron-scaffolding-and-automatic-form-generation-11734eda8e67\n\n\n\n\nLes librairies les plus utiles\n\n\n\n\nhttps://github.com/aldeed/meteor-simple-schema\n\n\nhttps://github.com/aldeed/meteor-autoform\n\n\nhttps://github.com/aldeed/meteor-collection2\n\n\n\n\nEnvironnement de d\u00e9veloppement - IDE\n\n\nJe n\nai pas encore trouv\u00e9 l\nenvironnement id\u00e9al pour Meteor.\n\n\nJ\nai laiss\u00e9 Eclipse de cot\u00e9 car je suis sous Windows et plusieurs d\u00e9pendances Node.js ou Meteor ne fonctionnent pas ou sont compliqu\u00e9s \u00e0 installer.\n\n\nPour l\ninstant, j\nai mis au moins une image Docker avec Cloud9, l\nIDE en ligne et Meteor.\n\n\nIl est disponible sur https://github.com/srault95/meteor-app-base\n\n\n\n\nLes choix d\nIDE sont:\n\n\nCloud9 - http://c9.io/\n\n\nWebStorm - https://www.jetbrains.com/webstorm/\n\n\nAtom - https://atom.io\n\n\n\n\n\n\n\n\nQuelques projets a suivre\n\n\nmeteor kitchen\n\n\nhttp://www.meteorkitchen.com\n\n\nOrion CMS\n\n\nhttp://orionjs.org\n\n\nLaunch Docker\n\n\nhttps://github.com/ongoworks/launchdock", 
+            "text": "Liens sur Meteor\n\n\nSites officiels\n\n\n\n\nmeteor.com\n\n\nDocumentation\n\n\nD\u00e9pot Meteor\n\n\nPlugins\n\n\n\n\nTutoriels - Fran\u00e7ais\n\n\n\n\nhttp://fr.discovermeteor.com/pdf\n\n\nhttp://openclassrooms.com/courses/creez-une-single-page-app-avec-node-js-et-meteor\n\n\nhttp://www.etiennebalit.com/2013/04/meteor-b-a-ba-et-bonnes-pratiques/\n\n\n\n\nTutoriels - Anglais\n\n\n\n\nhttp://iron-meteor.github.io/iron-router/#route-controllers\n\n\nhttp://robertdickert.com/blog/2014/05/09/set-up-navigation-with-iron-router-and-bootstrap/\n\n\nhttps://github.com/awatson1978/meteor-cookbook\n\n\nhttp://www.webtempest.com/meteor-js-autoform-tutorial\n\n\nhttps://medium.com/@s_eschweiler/how-to-build-web-apps-ultra-fast-with-meteor-iron-scaffolding-and-automatic-form-generation-11734eda8e67\n\n\n\n\nLes librairies les plus utiles\n\n\n\n\nhttps://github.com/aldeed/meteor-simple-schema\n\n\nhttps://github.com/aldeed/meteor-autoform\n\n\nhttps://github.com/aldeed/meteor-collection2\n\n\n\n\nEnvironnement de d\u00e9veloppement - IDE\n\n\nJe n'ai pas encore trouv\u00e9 l'environnement id\u00e9al pour Meteor.\n\n\nJ'ai laiss\u00e9 Eclipse de cot\u00e9 car je suis sous Windows et plusieurs d\u00e9pendances Node.js ou Meteor ne fonctionnent pas ou sont compliqu\u00e9s \u00e0 installer.\n\n\nPour l'instant, j'ai mis au moins une image Docker avec Cloud9, l'IDE en ligne et Meteor.\n\n\nIl est disponible sur https://github.com/srault95/meteor-app-base\n\n\n\n\nLes choix d'IDE sont:\n\n\nCloud9 - http://c9.io/\n\n\nWebStorm - https://www.jetbrains.com/webstorm/\n\n\nAtom - https://atom.io\n\n\n\n\n\n\n\n\nQuelques projets a suivre\n\n\nmeteor kitchen\n\n\nhttp://www.meteorkitchen.com\n\n\nOrion CMS\n\n\nhttp://orionjs.org\n\n\nLaunch Docker\n\n\nhttps://github.com/ongoworks/launchdock", 
             "title": "Liens"
         }, 
         {
@@ -52,13 +307,38 @@
         }, 
         {
             "location": "/links/#environnement-de-developpement-ide", 
-            "text": "Je n ai pas encore trouv\u00e9 l environnement id\u00e9al pour Meteor.  J ai laiss\u00e9 Eclipse de cot\u00e9 car je suis sous Windows et plusieurs d\u00e9pendances Node.js ou Meteor ne fonctionnent pas ou sont compliqu\u00e9s \u00e0 installer.  Pour l instant, j ai mis au moins une image Docker avec Cloud9, l IDE en ligne et Meteor.  Il est disponible sur https://github.com/srault95/meteor-app-base   Les choix d IDE sont:  Cloud9 - http://c9.io/  WebStorm - https://www.jetbrains.com/webstorm/  Atom - https://atom.io", 
+            "text": "Je n'ai pas encore trouv\u00e9 l'environnement id\u00e9al pour Meteor.  J'ai laiss\u00e9 Eclipse de cot\u00e9 car je suis sous Windows et plusieurs d\u00e9pendances Node.js ou Meteor ne fonctionnent pas ou sont compliqu\u00e9s \u00e0 installer.  Pour l'instant, j'ai mis au moins une image Docker avec Cloud9, l'IDE en ligne et Meteor.  Il est disponible sur https://github.com/srault95/meteor-app-base   Les choix d'IDE sont:  Cloud9 - http://c9.io/  WebStorm - https://www.jetbrains.com/webstorm/  Atom - https://atom.io", 
             "title": "Environnement de d\u00e9veloppement - IDE"
         }, 
         {
             "location": "/links/#quelques-projets-a-suivre", 
             "text": "meteor kitchen  http://www.meteorkitchen.com  Orion CMS  http://orionjs.org  Launch Docker  https://github.com/ongoworks/launchdock", 
             "title": "Quelques projets a suivre"
+        }, 
+        {
+            "location": "/tips/", 
+            "text": "Tips\n\n\nAffecter automatiquement le user.id au document\n\n\n\nDockerImages.before.insert(function (userId, doc) {\n    doc.userId = Meteor.userId();\n});", 
+            "title": "Tips"
+        }, 
+        {
+            "location": "/tips/#tips", 
+            "text": "", 
+            "title": "Tips"
+        }, 
+        {
+            "location": "/tips/#affecter-automatiquement-le-userid-au-document", 
+            "text": "DockerImages.before.insert(function (userId, doc) {\n    doc.userId = Meteor.userId();\n});", 
+            "title": "Affecter automatiquement le user.id au document"
+        }, 
+        {
+            "location": "/faq/", 
+            "text": "FAQ\n\n\nMeteor est t'il n\u00e9cessaire sur le serveur de production, une fois publi\u00e9 l'application ?\n\n\nNon, la commande \nmeteor build\n g\u00e9n\u00e8re un projet Node.js autonome.\n\n\nEst-ce que je peux publier mon application sur meteor.com mais utiliser une adresse avec mon domaine ?\n\n\nOui, il suffit d'ajouter un enregistrement CNAME dans le dns de votre domaine\n\n\nExemple:\n\n\nmyapp.mydomain.com  CNAME   myapp-v1.meteor.com.", 
+            "title": "Faq"
+        }, 
+        {
+            "location": "/faq/#faq", 
+            "text": "Meteor est t'il n\u00e9cessaire sur le serveur de production, une fois publi\u00e9 l'application ?  Non, la commande  meteor build  g\u00e9n\u00e8re un projet Node.js autonome.  Est-ce que je peux publier mon application sur meteor.com mais utiliser une adresse avec mon domaine ?  Oui, il suffit d'ajouter un enregistrement CNAME dans le dns de votre domaine  Exemple:  myapp.mydomain.com  CNAME   myapp-v1.meteor.com.", 
+            "title": "FAQ"
         }
     ]
 }

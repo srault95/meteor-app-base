@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>meteor-roles - Meteor</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "meteor-roles";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Meteor</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Accueil</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../project-structure/">Structure de Projet</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Plugins</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../simple-schema/">Simple Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../social-auth/">Authentification Sociale</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../autoform-semantic-ui/">autoform-semantic-ui</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../useraccounts/">useraccounts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../collection-timestampable/">collection-timestampable</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../meteor-collection-helpers/">meteor-collection-helpers</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">meteor-roles</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#meteor-roles">Meteor Roles</a></li>
+                
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#assigner-des-roles-au-demarrage-du-server">Assigner des rôles au démarrage du server</a></li>
+                
+                    <li><a class="toctree-l4" href="#creation-de-roles-au-demarrage">Création de roles au démarrage</a></li>
+                
+                    <li><a class="toctree-l4" href="#assigner-automatiquement-un-role-par-default">Assigner automatiquement un role par default</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips-limiter-la-creation-dutilisateurs">Tips - Limiter la création d'utilisateurs</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur">Tips - Exemple de filtrage des données coté server - Par Groupe utilisateur</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilisation-dans-les-templates">Utilisation dans les templates</a></li>
+                
+                    <li><a class="toctree-l4" href="#collections">Collections</a></li>
+                
+                    <li><a class="toctree-l4" href="#ajout-de-role">Ajout de role</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../rest-api/">API Rest</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tap-i18n/">Internationalisation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../publish-counts/">publish-counts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plugins-a-etudier/">En cours d'évaluation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../links/">Liens</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tips/">Tips</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">Faq</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Meteor</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Plugins &raquo;</li>
+        
+      
+    
+    <li>meteor-roles</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/srault95/meteor-app-base" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="meteor-roles">Meteor Roles</h1>
+<p>https://github.com/alanning/meteor-roles</p>
+<h2 id="installation">Installation</h2>
+<pre><code class="sh">
+$ meteor add accounts-password
+$ meteor add alanning:roles
+
+</code></pre>
+
+<p><strong>La collection n'est pas publié par défaut, il faut le faire avec:</strong></p>
+<pre><code class="javascript">
+// server/publish.js
+Meteor.publish(null, function (){
+  return Meteor.roles.find({})
+})
+
+</code></pre>
+
+<h2 id="assigner-des-roles-au-demarrage-du-server">Assigner des rôles au démarrage du server</h2>
+<p>https://github.com/alanning/meteor-roles/blob/master/examples/rolesWithAccountsUI/server/startup.js
+https://github.com/alanning/meteor-roles/blob/master/examples/iron-router/server/server.js</p>
+<h2 id="creation-de-roles-au-demarrage">Création de roles au démarrage</h2>
+<h2 id="assigner-automatiquement-un-role-par-default">Assigner automatiquement un role par default</h2>
+<p># Coté startup - server:
+  Accounts.onCreateUser(function (options, user) {
+    Roles.setRolesOnUserObj(user, ['admin','view-secrets']);
+    return user
+  });</p>
+<h2 id="tips-limiter-la-creation-dutilisateurs">Tips - Limiter la création d'utilisateurs</h2>
+<p><strong>Autoriser seulement la création pour les roles admin ou manage-users:</strong></p>
+<pre><code class="javascript">
+//common
+Accounts.validateNewUser(function (user) {
+    var loggedInUser = Meteor.user();
+
+    if (Roles.userIsInRole(loggedInUser, ['admin','manage-users'])) {
+      return true;
+    }
+
+    throw new Meteor.Error(403, &quot;Not authorized to create new users&quot;);
+});
+
+</code></pre>
+
+<h2 id="tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur">Tips - Exemple de filtrage des données coté server - Par Groupe utilisateur</h2>
+<pre><code class="javascript">
+// server/publish.js
+Meteor.publish('secrets', function (group) {
+  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {
+
+    return Meteor.secrets.find({group: group});
+
+  } else {
+
+    // user not authorized. do not publish secrets
+    this.stop();
+    return;
+
+  }
+});
+
+</code></pre>
+
+<h2 id="utilisation-dans-les-templates">Utilisation dans les templates</h2>
+<pre><code>
+&lt;template name=&quot;header&quot;&gt;
+  {{#if isInRole 'admin'}}
+    {{&gt; admin_nav}}
+  {{/if}}
+  {{#if isInRole 'admin,editor'}}
+    {{&gt; editor_stuff}}
+  {{/if}}
+&lt;/template&gt;
+
+// Limiter au group1 avec le role admin ou editor
+&lt;template name=&quot;header&quot;&gt;
+  {{#if isInRole 'admin,editor' 'group1'}}
+    {{&gt; editor_stuff}}
+  {{/if}}
+&lt;/template&gt;
+
+</code></pre>
+
+<h2 id="collections">Collections</h2>
+<ul>
+<li>Meteor.roles</li>
+<li>Modifie Meteor.users</li>
+</ul>
+<h2 id="ajout-de-role">Ajout de role</h2>
+<ul>
+<li>users Array | String</li>
+<li>roles Array | String</li>
+<li>group String optional (default Roles.GLOBAL_GROUP)</li>
+</ul>
+<p>Roles.addUsersToRoles(userId, 'admin')</p>
+<p>Roles.addUsersToRoles(userId, ['view-secrets'], 'example.com')</p>
+<p>Roles.addUsersToRoles([user1, user2], ['user','editor'])</p>
+<p>Roles.addUsersToRoles([user1, user2], ['glorious-admin', 'perform-action'], 'example.org')</p>
+<p>Roles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP)</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rest-api/" class="btn btn-neutral float-right" title="API Rest"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../meteor-collection-helpers/" class="btn btn-neutral" title="meteor-collection-helpers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../meteor-collection-helpers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../rest-api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

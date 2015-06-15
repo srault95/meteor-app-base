@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Liens - Meteor</title>
+  <title>API Rest - Meteor</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Liens";
+    var mkdocs_page_name = "API Rest";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -118,8 +118,19 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../rest-api/">API Rest</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">API Rest</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#rest-apis">Rest APIs</a></li>
+                
+                    <li><a class="toctree-l4" href="#restivus">restivus</a></li>
+                
+                    <li><a class="toctree-l4" href="#collectionapi">collectionapi</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -149,27 +160,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Liens</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#liens-sur-meteor">Liens sur Meteor</a></li>
-                
-                    <li><a class="toctree-l4" href="#sites-officiels">Sites officiels</a></li>
-                
-                    <li><a class="toctree-l4" href="#tutoriels-francais">Tutoriels - Français</a></li>
-                
-                    <li><a class="toctree-l4" href="#tutoriels-anglais">Tutoriels - Anglais</a></li>
-                
-                    <li><a class="toctree-l4" href="#les-librairies-les-plus-utiles">Les librairies les plus utiles</a></li>
-                
-                    <li><a class="toctree-l4" href="#environnement-de-developpement-ide">Environnement de développement - IDE</a></li>
-                
-                    <li><a class="toctree-l4" href="#quelques-projets-a-suivre">Quelques projets a suivre</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../links/">Liens</a>
         
     </li>
 <li>
@@ -209,8 +201,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Plugins &raquo;</li>
+        
+      
     
-    <li>Liens</li>
+    <li>API Rest</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -224,54 +220,80 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="liens-sur-meteor">Liens sur Meteor</h1>
-<h2 id="sites-officiels">Sites officiels</h2>
-<ul>
-<li><a href="https://www.meteor.com/">meteor.com</a></li>
-<li><a href="http://docs.meteor.com/">Documentation</a></li>
-<li><a href="https://github.com/meteor/meteor">Dépot Meteor</a></li>
-<li><a href="https://atmospherejs.com/">Plugins</a></li>
-</ul>
-<h2 id="tutoriels-francais">Tutoriels - Français</h2>
-<ul>
-<li>http://fr.discovermeteor.com/pdf</li>
-<li>http://openclassrooms.com/courses/creez-une-single-page-app-avec-node-js-et-meteor</li>
-<li>http://www.etiennebalit.com/2013/04/meteor-b-a-ba-et-bonnes-pratiques/</li>
-</ul>
-<h2 id="tutoriels-anglais">Tutoriels - Anglais</h2>
-<ul>
-<li>http://iron-meteor.github.io/iron-router/#route-controllers</li>
-<li>http://robertdickert.com/blog/2014/05/09/set-up-navigation-with-iron-router-and-bootstrap/</li>
-<li>https://github.com/awatson1978/meteor-cookbook</li>
-<li>http://www.webtempest.com/meteor-js-autoform-tutorial</li>
-<li>https://medium.com/@s_eschweiler/how-to-build-web-apps-ultra-fast-with-meteor-iron-scaffolding-and-automatic-form-generation-11734eda8e67</li>
-</ul>
-<h2 id="les-librairies-les-plus-utiles">Les librairies les plus utiles</h2>
-<ul>
-<li>https://github.com/aldeed/meteor-simple-schema</li>
-<li>https://github.com/aldeed/meteor-autoform</li>
-<li>https://github.com/aldeed/meteor-collection2</li>
-</ul>
-<h2 id="environnement-de-developpement-ide">Environnement de développement - IDE</h2>
-<p>Je n'ai pas encore trouvé l'environnement idéal pour Meteor.</p>
-<p>J'ai laissé Eclipse de coté car je suis sous Windows et plusieurs dépendances Node.js ou Meteor ne fonctionnent pas ou sont compliqués à installer.</p>
-<p>Pour l'instant, j'ai mis au moins une image Docker avec Cloud9, l'IDE en ligne et Meteor.</p>
-<p>Il est disponible sur https://github.com/srault95/meteor-app-base</p>
-<ul>
-<li>Les choix d'IDE sont:<ul>
-<li>Cloud9 - http://c9.io/</li>
-<li>WebStorm - https://www.jetbrains.com/webstorm/</li>
-<li>Atom - https://atom.io</li>
-</ul>
-</li>
-</ul>
-<h2 id="quelques-projets-a-suivre">Quelques projets a suivre</h2>
-<h3 id="meteor-kitchen">meteor kitchen</h3>
-<p>http://www.meteorkitchen.com</p>
-<h3 id="orion-cms">Orion CMS</h3>
-<p>http://orionjs.org</p>
-<h3 id="launch-docker">Launch Docker</h3>
-<p>https://github.com/ongoworks/launchdock</p>
+                <h1 id="rest-apis">Rest APIs</h1>
+<h2 id="restivus">restivus</h2>
+<p>API Rest</p>
+<p>https://atmospherejs.com/nimble/restivus</p>
+<h3 id="installation">Installation</h3>
+<pre><code>meteor add nimble:restivus
+</code></pre>
+<h3 id="configuration-rapide">Configuration rapide</h3>
+<pre><code class="js">
+Items = new Mongo.Collection('items');
+
+if (Meteor.isServer) {
+
+  Restivus.configure({
+    useAuth: true,
+    prettyJson: true
+  });
+
+  // Generates: GET, POST, DELETE on /api/items and GET, PUT, DELETE on
+  // /api/items/:id for Items collection
+  Restivus.addCollection(Items);
+
+}
+
+</code></pre>
+
+<h3 id="collection-meteorusers">Collection Meteor.users</h3>
+<pre><code>Restivus.addCollection(Meteor.users, {
+    excludedEndpoints: ['deleteAll', 'put'],
+    routeOptions: {
+      authRequired: true
+    },
+    endpoints: {
+      post: {
+        authRequired: false
+      },
+      delete: {
+        roleRequired: 'admin'
+      }
+    }
+});
+</code></pre>
+<h4 id="particularites-du-post-de-la-collection-meteorusers">Particularités du POST de la collection Meteor.users</h4>
+<p>Seuls les champs reconnus par Accounts.createUser() sont autorisés dans le POST</p>
+<p>Ces champs sont: email, username, password, et profile</p>
+<p>Solution: il faut surement personnalisé avec l'utilisation d'un Accounts.setPassword(userId, newPassword, [options])</p>
+<p>POST http://localhost:3000/api/users</p>
+<p>{
+    "email": "jack@mail.com",
+    "password": "password",
+    "profile": {
+      "firstName": "Jack",
+      "lastName": "Rose"
+    }
+  }</p>
+<h2 id="collectionapi">collectionapi</h2>
+<p>https://github.com/xcv58/meteor-collectionapi</p>
+<p>https://github.com/xcv58/meteor-collectionapi-demo/blob/cf233f31d973191e6cd4510ed5e017ad695b33f8/server/restful.js#L36</p>
+<p>Fournit un serveur dédié à l'api, indépendant de l'application.</p>
+<p><strong>Fonctionnalités:</strong>
+* Authentification custom</p>
+<h3 id="configuration-rapide_1">Configuration rapide</h3>
+<p>Players = new Meteor.Collection("players");</p>
+<pre><code>if (Meteor.isServer) {
+  Meteor.startup(function () {
+    collectionApi = new CollectionAPI({ authToken: '97f0ad9e24ca5e0408a269748d7fe0a0' });
+    collectionApi.addCollection(Players, 'players');
+    collectionApi.start();
+  });
+}
+
+
+$ curl -H "X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0" http://localhost:3000/collectionapi/players
+</code></pre>
               
             </div>
           </div>
@@ -279,10 +301,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tips/" class="btn btn-neutral float-right" title="Tips"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tap-i18n/" class="btn btn-neutral float-right" title="Internationalisation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../plugins-a-etudier/" class="btn btn-neutral" title="En cours d'évaluation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../meteor-roles/" class="btn btn-neutral" title="meteor-roles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -310,10 +332,10 @@
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../plugins-a-etudier/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../meteor-roles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../tips/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../tap-i18n/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
