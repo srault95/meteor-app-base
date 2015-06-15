@@ -18,6 +18,14 @@
     
 
     
+    <url>
+     <loc>http://srault95.github.io/meteor-app-base/tests/</loc>
+     <lastmod>2015-06-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/simple-schema/</loc>
@@ -50,6 +58,12 @@
     </url>
         
     <url>
+     <loc>http://srault95.github.io/meteor-app-base/collection-softremovable/</loc>
+     <lastmod>2015-06-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://srault95.github.io/meteor-app-base/meteor-collection-helpers/</loc>
      <lastmod>2015-06-15</lastmod>
      <changefreq>daily</changefreq>
@@ -75,6 +89,12 @@
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/publish-counts/</loc>
+     <lastmod>2015-06-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://srault95.github.io/meteor-app-base/sikka/</loc>
      <lastmod>2015-06-15</lastmod>
      <changefreq>daily</changefreq>
     </url>

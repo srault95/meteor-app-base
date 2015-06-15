@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Rest - Meteor</title>
+  <title>collection-softremovable - Meteor</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API Rest";
+    var mkdocs_page_name = "collection-softremovable";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -111,8 +111,23 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../collection-softremovable/">collection-softremovable</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">collection-softremovable</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#collection-softremovable">collection-softremovable</a></li>
+                
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuration-dune-collection">Configuration d'une collection</a></li>
+                
+                    <li><a class="toctree-l4" href="#removerestore">Remove/Restore</a></li>
+                
+                    <li><a class="toctree-l4" href="#recherches">Recherches</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -132,19 +147,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API Rest</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#rest-apis">Rest APIs</a></li>
-                
-                    <li><a class="toctree-l4" href="#restivus">restivus</a></li>
-                
-                    <li><a class="toctree-l4" href="#collectionapi">collectionapi</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../rest-api/">API Rest</a>
         
     </li>
 
@@ -227,7 +231,7 @@
         
       
     
-    <li>API Rest</li>
+    <li>collection-softremovable</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -241,79 +245,48 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rest-apis">Rest APIs</h1>
-<h2 id="restivus">restivus</h2>
-<p>API Rest</p>
-<p>https://atmospherejs.com/nimble/restivus</p>
-<h3 id="installation">Installation</h3>
-<pre><code>meteor add nimble:restivus
+                <h1 id="collection-softremovable">collection-softremovable</h1>
+<p>Ajoute dynamiquement à une collection des champs et fonctions pour placer des documents supprimés à la corbeille au lieu d'une suppression définitive.</p>
+<ul>
+<li><a href="https://atmospherejs.com/zimme/collection-softremovable">Atmosphere</a></li>
+<li><a href="https://github.com/zimme/meteor-collection-softremovable">Sources</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<pre><code>meteor add zimme:collection-softremovable
 </code></pre>
-<h3 id="configuration-rapide">Configuration rapide</h3>
-<pre><code class="js">
-Items = new Mongo.Collection('items');
+<h2 id="configuration-dune-collection">Configuration d'une collection</h2>
+<pre><code>Posts = new Mongo.Collection('posts');
 
-if (Meteor.isServer) {
+//Attach behaviour with the default options
+Posts.attachBehaviour('softRemovable');
 
-  Restivus.configure({
-    useAuth: true,
-    prettyJson: true
-  });
-
-  // Generates: GET, POST, DELETE on /api/items and GET, PUT, DELETE on
-  // /api/items/:id for Items collection
-  Restivus.addCollection(Items);
-
-}
-
-</code></pre>
-
-<h3 id="collection-meteorusers">Collection Meteor.users</h3>
-<pre><code>Restivus.addCollection(Meteor.users, {
-    excludedEndpoints: ['deleteAll', 'put'],
-    routeOptions: {
-      authRequired: true
-    },
-    endpoints: {
-      post: {
-        authRequired: false
-      },
-      delete: {
-        roleRequired: 'admin'
-      }
-    }
+//Attach behaviour with custom options
+Posts.attachBehaviour('softRemovable', {
+  removed: 'deleted',
+  removedBy: false,
+  restoredAt: 'undeletedAt',
+  restoredBy: false
 });
 </code></pre>
-<h4 id="particularites-du-post-de-la-collection-meteorusers">Particularités du POST de la collection Meteor.users</h4>
-<p>Seuls les champs reconnus par Accounts.createUser() sont autorisés dans le POST</p>
-<p>Ces champs sont: email, username, password, et profile</p>
-<p>Solution: il faut surement personnalisé avec l'utilisation d'un Accounts.setPassword(userId, newPassword, [options])</p>
-<p>POST http://localhost:3000/api/users</p>
-<p>{
-    "email": "jack@mail.com",
-    "password": "password",
-    "profile": {
-      "firstName": "Jack",
-      "lastName": "Rose"
-    }
-  }</p>
-<h2 id="collectionapi">collectionapi</h2>
-<p>https://github.com/xcv58/meteor-collectionapi</p>
-<p>https://github.com/xcv58/meteor-collectionapi-demo/blob/cf233f31d973191e6cd4510ed5e017ad695b33f8/server/restful.js#L36</p>
-<p>Fournit un serveur dédié à l'api, indépendant de l'application.</p>
-<p><strong>Fonctionnalités:</strong>
-* Authentification custom</p>
-<h3 id="configuration-rapide_1">Configuration rapide</h3>
-<p>Players = new Meteor.Collection("players");</p>
-<pre><code>if (Meteor.isServer) {
-  Meteor.startup(function () {
-    collectionApi = new CollectionAPI({ authToken: '97f0ad9e24ca5e0408a269748d7fe0a0' });
-    collectionApi.addCollection(Players, 'players');
-    collectionApi.start();
-  });
-}
+<h2 id="removerestore">Remove/Restore</h2>
+<pre><code>// Soft remove document by _id
+Posts.softRemove({_id: 'BFpDzGuWG8extPwrE'});
 
+// Restore document by _id
+Posts.restore('BFpDzGuWG8extPwrE');
 
-$ curl -H "X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0" http://localhost:3000/collectionapi/players
+// Actually remove document from collection
+Posts.remove({_id: 'BFpDzGuWG8extPwrE'});
+</code></pre>
+<h2 id="recherches">Recherches</h2>
+<pre><code>// Find all posts except soft removed posts
+Posts.find({});
+
+// Find only posts that have been soft removed
+Posts.find({removed: true});
+
+// Find all posts including removed
+Posts.find({}, {removed: true});
 </code></pre>
               
             </div>
@@ -322,10 +295,10 @@ $ curl -H "X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0" http://localhost:3000
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tap-i18n/" class="btn btn-neutral float-right" title="Internationalisation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../meteor-collection-helpers/" class="btn btn-neutral float-right" title="meteor-collection-helpers"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../meteor-roles/" class="btn btn-neutral" title="meteor-roles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collection-timestampable/" class="btn btn-neutral" title="collection-timestampable"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -353,10 +326,10 @@ $ curl -H "X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0" http://localhost:3000
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../meteor-roles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../collection-timestampable/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../tap-i18n/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../meteor-collection-helpers/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

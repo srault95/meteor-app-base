@@ -64,6 +64,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tests/">Tests Meteor</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>Plugins</span></li>
 
@@ -105,6 +112,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../collection-softremovable/">collection-softremovable</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../meteor-collection-helpers/">meteor-collection-helpers</a>
         
     </li>
@@ -139,12 +153,23 @@
 
         
             
+    <li class="toctree-l1 ">
+        <a class="" href="../sikka/">Sécurité</a>
+        
+    </li>
+
+        
+            
     <li class="toctree-l1 current">
         <a class="current" href="./">En cours d'évaluation</a>
         
             <ul>
             
                 <li class="toctree-l3"><a href="#plugins-a-etudier">Plugins A etudier</a></li>
+                
+                    <li><a class="toctree-l4" href="#flash-messages">flash-messages</a></li>
+                
+                    <li><a class="toctree-l4" href="#graphique-highcharts">Graphique HighCharts</a></li>
                 
             
             </ul>
@@ -218,6 +243,96 @@
               
                 <h1 id="plugins-a-etudier">Plugins A etudier</h1>
 <p>https://atmospherejs.com/zimme/iron-router-auth</p>
+<h2 id="flash-messages">flash-messages</h2>
+<ul>
+<li>https://github.com/camilosw/flash-messages</li>
+<li>https://atmospherejs.com/mrt/flash-messages</li>
+<li>https://github.com/JamesLefrere/meteor-flash-messages-semantic-ui</li>
+</ul>
+<p><strong>Installation:</strong></p>
+<pre><code>$ meteor add jameslefrere:flash-messages-semantic-ui
+</code></pre>
+<p><strong>Configuration:</strong></p>
+<pre><code>FlashMessages.configure({
+    autoHide: true,
+    hideDelay: 5000,
+    autoScroll: true
+});
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code>{{&gt; flashMessages}}
+
+FlashMessages.sendWarning("Message");
+FlashMessages.sendError("Message");
+FlashMessages.sendSuccess("Message");
+FlashMessages.sendInfo("Message");
+
+FlashMessages.sendInfo(["Message 1", "Message 2", "Message 3"]);
+
+FlashMessages.clear();
+
+FlashMessages.sendWarning("Message", { autoHide: false });
+FlashMessages.sendError("Message", { hideDelay: 2000 });
+FlashMessages.sendSuccess("Message", { autoHide: true, hideDelay: 8000 });
+</code></pre>
+<h2 id="graphique-highcharts">Graphique HighCharts</h2>
+<ul>
+<li>https://github.com/MaazAli/Meteor-HighCharts</li>
+<li>http://highcharts-demo.meteor.com/</li>
+<li>https://github.com/jhuenges/highcharts-demo</li>
+<li>https://github.com/MaazAli/highcharts-gauge</li>
+<li>https://github.com/MaazAli/highcharts-3d</li>
+</ul>
+<p><strong>Installation:</strong></p>
+<pre><code>$ meteor add maazalik:highcharts
+</code></pre>
+<p><strong>Template:</strong></p>
+<pre><code>// myTempmlate.html
+{{&gt; highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
+</code></pre>
+<p><strong>Scripts::</strong></p>
+<pre><code>// myTemplate.js
+Template.myTemplate.topGenresChart = function() {
+    return {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: this.username + "'s top genres"
+        },
+        tooltip: {
+            pointFormat: '&lt;b&gt;{point.percentage:.1f}%&lt;/b&gt;'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '&lt;b&gt;{point.name}&lt;/b&gt;: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme &amp;&amp; Highcharts.theme.contrastTextColor) || 'black'
+                    },
+                    connectorColor: 'silver'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'genre',
+            data: [
+                ['Adventure',   45.0],
+                ['Action',       26.8],
+                ['Ecchi',   12.8],
+                ['Comedy',    8.5],
+                ['Yuri',     6.2]
+            ]
+        }]
+    };
+};
+</code></pre>
               
             </div>
           </div>
@@ -228,7 +343,7 @@
         <a href="../links/" class="btn btn-neutral float-right" title="Liens"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../publish-counts/" class="btn btn-neutral" title="publish-counts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sikka/" class="btn btn-neutral" title="Sécurité"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -256,7 +371,7 @@
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../publish-counts/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../sikka/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../links/" style="color: #fcfcfc">Next &raquo;</a></span>

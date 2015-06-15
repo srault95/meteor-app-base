@@ -2,23 +2,68 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Documentation Meteor\n\n\n\n\nStructure de Projet\n\n\nPlugins\n\n\nSimple Schema\n\n\nAuthentification Sociale\n\n\nautoform-semantic-ui\n\n\nuseraccounts\n\n\ncollection-timestampable\n\n\nmeteor-collection-helpers\n\n\nmeteor-roles\n\n\nAPI Rest\n\n\nInternationalisation\n\n\npublish-counts\n\n\nEn cours d'\u00e9valuation\n\n\n\n\n\n\nTips\n\n\nLiens\n\n\nFaq", 
+            "text": "Documentation Meteor\n\n\nAdresse de ce projet\n\n\n\n\nUtilisation du mod\u00e8le de projet\n\n\nTests Meteor\n\n\nPlugins\n\n\nSimple Schema\n\n\nAuthentification Sociale\n\n\nautoform-semantic-ui\n\n\nuseraccounts\n\n\ncollection-timestampable\n\n\ncollection-softremovable\n\n\nmeteor-collection-helpers\n\n\nmeteor-roles\n\n\nAPI Rest\n\n\nInternationalisation\n\n\npublish-counts\n\n\nS\u00e9curit\u00e9\n\n\nEn cours d'\u00e9valuation\n\n\n\n\n\n\nTips\n\n\nLiens\n\n\nFaq", 
             "title": "Accueil"
         }, 
         {
             "location": "/#documentation-meteor", 
-            "text": "Structure de Projet  Plugins  Simple Schema  Authentification Sociale  autoform-semantic-ui  useraccounts  collection-timestampable  meteor-collection-helpers  meteor-roles  API Rest  Internationalisation  publish-counts  En cours d'\u00e9valuation    Tips  Liens  Faq", 
+            "text": "Adresse de ce projet   Utilisation du mod\u00e8le de projet  Tests Meteor  Plugins  Simple Schema  Authentification Sociale  autoform-semantic-ui  useraccounts  collection-timestampable  collection-softremovable  meteor-collection-helpers  meteor-roles  API Rest  Internationalisation  publish-counts  S\u00e9curit\u00e9  En cours d'\u00e9valuation    Tips  Liens  Faq", 
             "title": "Documentation Meteor"
         }, 
         {
             "location": "/project-structure/", 
-            "text": "Structure de Projet Meteor\n\n\nIl y a beaucoup d'avis sur cette question mais pour l'instant, la majorit\u00e9 s'accorde pour avoir au minimum la structure suivante:\n\n\n.meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "text": "Structure de Projet Meteor\n\n\nIntroduction\n\n\nIl y a beaucoup d'avis sur cette question mais pour l'instant, pour ma part, j'ai choisi la suivante:\n\n\n.meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md\n\n\n\nInstallation\n\n\ngit clone https://github.com/srault95/meteor-app-base.git myproject\n\ncd myproject/app\n\nmeteor update", 
             "title": "Structure de Projet"
         }, 
         {
             "location": "/project-structure/#structure-de-projet-meteor", 
-            "text": "Il y a beaucoup d'avis sur cette question mais pour l'instant, la majorit\u00e9 s'accorde pour avoir au minimum la structure suivante:  .meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "text": "", 
             "title": "Structure de Projet Meteor"
+        }, 
+        {
+            "location": "/project-structure/#introduction", 
+            "text": "Il y a beaucoup d'avis sur cette question mais pour l'instant, pour ma part, j'ai choisi la suivante:  .meteor/\nclient/\n    stylesheets/\n    lib/\n    views/\n    helpers.js\n    router.js\n    startup.js\ncommon/\n    lib/\n    collections/\nserver/\n    lib/\n    startup.js\n    methods.js\n    publish.js\npublic/\nprivate/\ni18n/\npackages/\nsettings.json\nREADME.md", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/project-structure/#installation", 
+            "text": "git clone https://github.com/srault95/meteor-app-base.git myproject\n\ncd myproject/app\n\nmeteor update", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/tests/", 
+            "text": "Tests Meteor\n\n\nTinyTest\n\n\nTutorials:\n\n\n\n\nhttps://github.com/awatson1978/meteor-cookbook/blob/master/cookbook/writing.unit.tests.md\n\n\n\n\nExemple:\n\n\nmeteor create helloworld\ncd helloworld\nmeteor add tinytest\nmeteor\n\n# Dans un autre terminal\nmeteor test-packages\n\n\n\nvelocity\n\n\n\n\n\n\nvelocity\n\n\n$ git clone https://github.com/meteor-velocity/velocity-examples.git\n$ cd velocity-examples/leaderboard-cucumber\n$ meteor\n\n\n\n\n\n\nmocha - (40 022 installations)\n\n\n\n\nAtmosphere\n\n\nSources\n\n\nFramework mochajs\n\n\n\n\nInstallation:\n\n\nmeteor add mike:mocha\n\n\n\nUsage:\n\n\nmeteor --test --release velocity:METEOR@1.1.0.2_2\n\n\n\ncucumber\n\n\n\n\nAtmosphere\n\n\nSources\n\n\n\n\nInstallation:\n\n\nmeteor add xolvio:cucumber\n\n\n\nPackages ajout\u00e9s:\n\n\namplify                           added, version 1.0.0\ncoffeescript                      added, version 1.0.6\npackage-version-parser            added, version 3.0.3\npracticalmeteor:chai              added, version 1.9.2_3\npracticalmeteor:loglevel          added, version 1.1.0_3\nsanjo:long-running-child-process  added, version 1.1.1\nsanjo:meteor-files-helpers        added, version 1.1.0_6\nsanjo:meteor-version              added, version 1.0.0\nvelocity:chokidar                 added, version 1.0.1_1\nvelocity:core                     added, version 0.6.5\nvelocity:html-reporter            added, version 0.6.2\nvelocity:meteor-internals         added, version 1.1.0_7\nvelocity:shim                     added, version 0.1.0\nxolvio:cucumber                   added, version 0.9.2\n\n\n\nJasmine\n\n\nhttps://github.com/awatson1978/meteor-cookbook/blob/master/cookbook/writing.unit.tests.with.jasmine.md", 
+            "title": "Tests Meteor"
+        }, 
+        {
+            "location": "/tests/#tests-meteor", 
+            "text": "", 
+            "title": "Tests Meteor"
+        }, 
+        {
+            "location": "/tests/#tinytest", 
+            "text": "Tutorials:   https://github.com/awatson1978/meteor-cookbook/blob/master/cookbook/writing.unit.tests.md   Exemple:  meteor create helloworld\ncd helloworld\nmeteor add tinytest\nmeteor\n\n# Dans un autre terminal\nmeteor test-packages", 
+            "title": "TinyTest"
+        }, 
+        {
+            "location": "/tests/#velocity", 
+            "text": "velocity  $ git clone https://github.com/meteor-velocity/velocity-examples.git\n$ cd velocity-examples/leaderboard-cucumber\n$ meteor", 
+            "title": "velocity"
+        }, 
+        {
+            "location": "/tests/#mocha-40-022-installations", 
+            "text": "Atmosphere  Sources  Framework mochajs   Installation:  meteor add mike:mocha  Usage:  meteor --test --release velocity:METEOR@1.1.0.2_2", 
+            "title": "mocha - (40 022 installations)"
+        }, 
+        {
+            "location": "/tests/#cucumber", 
+            "text": "Atmosphere  Sources   Installation:  meteor add xolvio:cucumber  Packages ajout\u00e9s:  amplify                           added, version 1.0.0\ncoffeescript                      added, version 1.0.6\npackage-version-parser            added, version 3.0.3\npracticalmeteor:chai              added, version 1.9.2_3\npracticalmeteor:loglevel          added, version 1.1.0_3\nsanjo:long-running-child-process  added, version 1.1.1\nsanjo:meteor-files-helpers        added, version 1.1.0_6\nsanjo:meteor-version              added, version 1.0.0\nvelocity:chokidar                 added, version 1.0.1_1\nvelocity:core                     added, version 0.6.5\nvelocity:html-reporter            added, version 0.6.2\nvelocity:meteor-internals         added, version 1.1.0_7\nvelocity:shim                     added, version 0.1.0\nxolvio:cucumber                   added, version 0.9.2", 
+            "title": "cucumber"
+        }, 
+        {
+            "location": "/tests/#jasmine", 
+            "text": "https://github.com/awatson1978/meteor-cookbook/blob/master/cookbook/writing.unit.tests.with.jasmine.md", 
+            "title": "Jasmine"
         }, 
         {
             "location": "/simple-schema/", 
@@ -112,7 +157,7 @@
         }, 
         {
             "location": "/collection-timestampable/", 
-            "text": "collection-timestampable\n\n\nhttps://atmospherejs.com/zimme/collection-timestampable\n\n\nPeut ajouter les champs createdAt, createdBy, updatedAt, updatedBy \u00e0 chaque document\n\n\nUsage\n\n\n    Posts = new Mongo.Collection('posts');\n\n    // Default options\n    Posts.attachBehaviour('timestampable');\n\n    // Custom options\n    Posts.attachBehaviour('timestampable', {\n      createdAt: 'insertedAt' // nom du champs dans le document\n      createdBy: 'insertedBy'\n      updatedAt: 'modifiedAt'\n      updatedBy: false\n    });", 
+            "text": "collection-timestampable\n\n\nhttps://atmospherejs.com/zimme/collection-timestampable\n\n\nPeut ajouter les champs createdAt, createdBy, updatedAt, updatedBy \u00e0 chaque document\n\n\nPackages utilis\u00e9s\n\n\n'matb33:collection-hooks@0.7.6'\n'zimme:collection-behaviours@1.0.3'\n'aldeed:autoform@4.0.0 || 5.0.0'\n'aldeed:collection2@2.0.0'\n'aldeed:simple-schema@1.0.3'\n\n\n\nInstallation\n\n\n$ meteor add zimme:collection-timestampable\n\n\nUsage\n\n\n    Posts = new Mongo.Collection('posts');\n\n    // Default options\n    Posts.attachBehaviour('timestampable');\n\n    // Custom options\n    Posts.attachBehaviour('timestampable', {\n      createdAt: 'insertedAt' // nom du champs dans le document\n      createdBy: 'insertedBy'\n      updatedAt: 'modifiedAt'\n      updatedBy: false\n    });", 
             "title": "collection-timestampable"
         }, 
         {
@@ -121,9 +166,49 @@
             "title": "collection-timestampable"
         }, 
         {
+            "location": "/collection-timestampable/#packages-utilises", 
+            "text": "'matb33:collection-hooks@0.7.6'\n'zimme:collection-behaviours@1.0.3'\n'aldeed:autoform@4.0.0 || 5.0.0'\n'aldeed:collection2@2.0.0'\n'aldeed:simple-schema@1.0.3'", 
+            "title": "Packages utilis\u00e9s"
+        }, 
+        {
+            "location": "/collection-timestampable/#installation", 
+            "text": "$ meteor add zimme:collection-timestampable", 
+            "title": "Installation"
+        }, 
+        {
             "location": "/collection-timestampable/#usage", 
             "text": "Posts = new Mongo.Collection('posts');\n\n    // Default options\n    Posts.attachBehaviour('timestampable');\n\n    // Custom options\n    Posts.attachBehaviour('timestampable', {\n      createdAt: 'insertedAt' // nom du champs dans le document\n      createdBy: 'insertedBy'\n      updatedAt: 'modifiedAt'\n      updatedBy: false\n    });", 
             "title": "Usage"
+        }, 
+        {
+            "location": "/collection-softremovable/", 
+            "text": "collection-softremovable\n\n\nAjoute dynamiquement \u00e0 une collection des champs et fonctions pour placer des documents supprim\u00e9s \u00e0 la corbeille au lieu d'une suppression d\u00e9finitive.\n\n\n\n\nAtmosphere\n\n\nSources\n\n\n\n\nInstallation\n\n\nmeteor add zimme:collection-softremovable\n\n\n\nConfiguration d'une collection\n\n\nPosts = new Mongo.Collection('posts');\n\n//Attach behaviour with the default options\nPosts.attachBehaviour('softRemovable');\n\n//Attach behaviour with custom options\nPosts.attachBehaviour('softRemovable', {\n  removed: 'deleted',\n  removedBy: false,\n  restoredAt: 'undeletedAt',\n  restoredBy: false\n});\n\n\n\nRemove/Restore\n\n\n// Soft remove document by _id\nPosts.softRemove({_id: 'BFpDzGuWG8extPwrE'});\n\n// Restore document by _id\nPosts.restore('BFpDzGuWG8extPwrE');\n\n// Actually remove document from collection\nPosts.remove({_id: 'BFpDzGuWG8extPwrE'});\n\n\n\nRecherches\n\n\n// Find all posts except soft removed posts\nPosts.find({});\n\n// Find only posts that have been soft removed\nPosts.find({removed: true});\n\n// Find all posts including removed\nPosts.find({}, {removed: true});", 
+            "title": "collection-softremovable"
+        }, 
+        {
+            "location": "/collection-softremovable/#collection-softremovable", 
+            "text": "Ajoute dynamiquement \u00e0 une collection des champs et fonctions pour placer des documents supprim\u00e9s \u00e0 la corbeille au lieu d'une suppression d\u00e9finitive.   Atmosphere  Sources", 
+            "title": "collection-softremovable"
+        }, 
+        {
+            "location": "/collection-softremovable/#installation", 
+            "text": "meteor add zimme:collection-softremovable", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/collection-softremovable/#configuration-dune-collection", 
+            "text": "Posts = new Mongo.Collection('posts');\n\n//Attach behaviour with the default options\nPosts.attachBehaviour('softRemovable');\n\n//Attach behaviour with custom options\nPosts.attachBehaviour('softRemovable', {\n  removed: 'deleted',\n  removedBy: false,\n  restoredAt: 'undeletedAt',\n  restoredBy: false\n});", 
+            "title": "Configuration d'une collection"
+        }, 
+        {
+            "location": "/collection-softremovable/#removerestore", 
+            "text": "// Soft remove document by _id\nPosts.softRemove({_id: 'BFpDzGuWG8extPwrE'});\n\n// Restore document by _id\nPosts.restore('BFpDzGuWG8extPwrE');\n\n// Actually remove document from collection\nPosts.remove({_id: 'BFpDzGuWG8extPwrE'});", 
+            "title": "Remove/Restore"
+        }, 
+        {
+            "location": "/collection-softremovable/#recherches", 
+            "text": "// Find all posts except soft removed posts\nPosts.find({});\n\n// Find only posts that have been soft removed\nPosts.find({removed: true});\n\n// Find all posts including removed\nPosts.find({}, {removed: true});", 
+            "title": "Recherches"
         }, 
         {
             "location": "/meteor-collection-helpers/", 
@@ -266,14 +351,49 @@
             "title": "publish-counts"
         }, 
         {
+            "location": "/sikka/", 
+            "text": "sikka\n\n\n\n\nSources\n\n\nAtmosphere\n\n\n\n\nDocumentation\n\n\n\n\n\n\nGoogle ReCaptcha\n\n\n\n\n\n\nFonctionnalit\u00e9s\n\n\n\n\nFirewall app - anti ddos\n\n\nConfigurable par variables d'environnement\n\n\nLimitation request par ip\n\n\nCaptcha\n\n\nG\u00e8re la r\u00e9cup\u00e9ration de l'ip r\u00e9elle derri\u00e8re un proxy comme Nginx\n\n\n\n\nInstallation\n\n\nmeteor add meteorhacks:sikka\n\n\n\nPackages ajout\u00e9s:\n\n\nchuangbo:cookie      added, version 1.1.0\nmeteorhacks:meteorx  added, version 1.3.1\nmeteorhacks:picker   added, version 1.0.2\nmeteorhacks:sikka    added, version 1.0.1\n\n\n\nConfiguration par l'environnement\n\n\nenv: SIKKA_PER_IP_MAX_RPS\nsettings: sikka.rateLimits.perIp\ndefault: 20\n\nenv: SIKKA_BLOCK_IP_FOR_MILLIS\nsettings: sikka.times.blockIpFor\ndefault: 120000\n\nSIKKA_CAPTCHA_SITE_KEY\nsikka.captcha.siteKey\n\nSIKKA_CAPTCHA_SECRET\nsikka.captcha.secret\n\nSIKKA_PER_HUMAN_MAX_RPS\nsikka.times.blockIpFor\nIP Rate Limit\n\nSIKKA_HUMAN_LIVES_UPTO_MILLIS\nsikka.times.humanLivesUpto\n3600000\n\n\n\nConfiguration par settings.json\n\n\n{\n  \"sikka\": {\n       \"captcha\": {\n           \"siteKey\": \"your_new_site_key\",\n           \"secret\":  \"your_new_secret_key\"\n       }\n  }\n}", 
+            "title": "S\u00e9curit\u00e9"
+        }, 
+        {
+            "location": "/sikka/#sikka", 
+            "text": "Sources  Atmosphere   Documentation    Google ReCaptcha    Fonctionnalit\u00e9s   Firewall app - anti ddos  Configurable par variables d'environnement  Limitation request par ip  Captcha  G\u00e8re la r\u00e9cup\u00e9ration de l'ip r\u00e9elle derri\u00e8re un proxy comme Nginx", 
+            "title": "sikka"
+        }, 
+        {
+            "location": "/sikka/#installation", 
+            "text": "meteor add meteorhacks:sikka  Packages ajout\u00e9s:  chuangbo:cookie      added, version 1.1.0\nmeteorhacks:meteorx  added, version 1.3.1\nmeteorhacks:picker   added, version 1.0.2\nmeteorhacks:sikka    added, version 1.0.1", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/sikka/#configuration-par-lenvironnement", 
+            "text": "env: SIKKA_PER_IP_MAX_RPS\nsettings: sikka.rateLimits.perIp\ndefault: 20\n\nenv: SIKKA_BLOCK_IP_FOR_MILLIS\nsettings: sikka.times.blockIpFor\ndefault: 120000\n\nSIKKA_CAPTCHA_SITE_KEY\nsikka.captcha.siteKey\n\nSIKKA_CAPTCHA_SECRET\nsikka.captcha.secret\n\nSIKKA_PER_HUMAN_MAX_RPS\nsikka.times.blockIpFor\nIP Rate Limit\n\nSIKKA_HUMAN_LIVES_UPTO_MILLIS\nsikka.times.humanLivesUpto\n3600000", 
+            "title": "Configuration par l'environnement"
+        }, 
+        {
+            "location": "/sikka/#configuration-par-settingsjson", 
+            "text": "{\n  \"sikka\": {\n       \"captcha\": {\n           \"siteKey\": \"your_new_site_key\",\n           \"secret\":  \"your_new_secret_key\"\n       }\n  }\n}", 
+            "title": "Configuration par settings.json"
+        }, 
+        {
             "location": "/plugins-a-etudier/", 
-            "text": "Plugins A etudier\n\n\nhttps://atmospherejs.com/zimme/iron-router-auth", 
+            "text": "Plugins A etudier\n\n\nhttps://atmospherejs.com/zimme/iron-router-auth\n\n\nflash-messages\n\n\n\n\nhttps://github.com/camilosw/flash-messages\n\n\nhttps://atmospherejs.com/mrt/flash-messages\n\n\nhttps://github.com/JamesLefrere/meteor-flash-messages-semantic-ui\n\n\n\n\nInstallation:\n\n\n$ meteor add jameslefrere:flash-messages-semantic-ui\n\n\n\nConfiguration:\n\n\nFlashMessages.configure({\n    autoHide: true,\n    hideDelay: 5000,\n    autoScroll: true\n});\n\n\n\nUsage:\n\n\n{{\n flashMessages}}\n\nFlashMessages.sendWarning(\"Message\");\nFlashMessages.sendError(\"Message\");\nFlashMessages.sendSuccess(\"Message\");\nFlashMessages.sendInfo(\"Message\");\n\nFlashMessages.sendInfo([\"Message 1\", \"Message 2\", \"Message 3\"]);\n\nFlashMessages.clear();\n\nFlashMessages.sendWarning(\"Message\", { autoHide: false });\nFlashMessages.sendError(\"Message\", { hideDelay: 2000 });\nFlashMessages.sendSuccess(\"Message\", { autoHide: true, hideDelay: 8000 });\n\n\n\nGraphique HighCharts\n\n\n\n\nhttps://github.com/MaazAli/Meteor-HighCharts\n\n\nhttp://highcharts-demo.meteor.com/\n\n\nhttps://github.com/jhuenges/highcharts-demo\n\n\nhttps://github.com/MaazAli/highcharts-gauge\n\n\nhttps://github.com/MaazAli/highcharts-3d\n\n\n\n\nInstallation:\n\n\n$ meteor add maazalik:highcharts\n\n\n\nTemplate:\n\n\n// myTempmlate.html\n{{\n highchartsHelper chartId=\"test\" chartWidth=\"100%\" charHeight=\"100%\" chartObject=topGenresChart}}\n\n\n\nScripts::\n\n\n// myTemplate.js\nTemplate.myTemplate.topGenresChart = function() {\n    return {\n        chart: {\n            plotBackgroundColor: null,\n            plotBorderWidth: null,\n            plotShadow: false\n        },\n        title: {\n            text: this.username + \"'s top genres\"\n        },\n        tooltip: {\n            pointFormat: '\nb\n{point.percentage:.1f}%\n/b\n'\n        },\n        plotOptions: {\n            pie: {\n                allowPointSelect: true,\n                cursor: 'pointer',\n                dataLabels: {\n                    enabled: true,\n                    format: '\nb\n{point.name}\n/b\n: {point.percentage:.1f} %',\n                    style: {\n                        color: (Highcharts.theme \n Highcharts.theme.contrastTextColor) || 'black'\n                    },\n                    connectorColor: 'silver'\n                }\n            }\n        },\n        series: [{\n            type: 'pie',\n            name: 'genre',\n            data: [\n                ['Adventure',   45.0],\n                ['Action',       26.8],\n                ['Ecchi',   12.8],\n                ['Comedy',    8.5],\n                ['Yuri',     6.2]\n            ]\n        }]\n    };\n};", 
             "title": "En cours d'\u00e9valuation"
         }, 
         {
             "location": "/plugins-a-etudier/#plugins-a-etudier", 
             "text": "https://atmospherejs.com/zimme/iron-router-auth", 
             "title": "Plugins A etudier"
+        }, 
+        {
+            "location": "/plugins-a-etudier/#flash-messages", 
+            "text": "https://github.com/camilosw/flash-messages  https://atmospherejs.com/mrt/flash-messages  https://github.com/JamesLefrere/meteor-flash-messages-semantic-ui   Installation:  $ meteor add jameslefrere:flash-messages-semantic-ui  Configuration:  FlashMessages.configure({\n    autoHide: true,\n    hideDelay: 5000,\n    autoScroll: true\n});  Usage:  {{  flashMessages}}\n\nFlashMessages.sendWarning(\"Message\");\nFlashMessages.sendError(\"Message\");\nFlashMessages.sendSuccess(\"Message\");\nFlashMessages.sendInfo(\"Message\");\n\nFlashMessages.sendInfo([\"Message 1\", \"Message 2\", \"Message 3\"]);\n\nFlashMessages.clear();\n\nFlashMessages.sendWarning(\"Message\", { autoHide: false });\nFlashMessages.sendError(\"Message\", { hideDelay: 2000 });\nFlashMessages.sendSuccess(\"Message\", { autoHide: true, hideDelay: 8000 });", 
+            "title": "flash-messages"
+        }, 
+        {
+            "location": "/plugins-a-etudier/#graphique-highcharts", 
+            "text": "https://github.com/MaazAli/Meteor-HighCharts  http://highcharts-demo.meteor.com/  https://github.com/jhuenges/highcharts-demo  https://github.com/MaazAli/highcharts-gauge  https://github.com/MaazAli/highcharts-3d   Installation:  $ meteor add maazalik:highcharts  Template:  // myTempmlate.html\n{{  highchartsHelper chartId=\"test\" chartWidth=\"100%\" charHeight=\"100%\" chartObject=topGenresChart}}  Scripts::  // myTemplate.js\nTemplate.myTemplate.topGenresChart = function() {\n    return {\n        chart: {\n            plotBackgroundColor: null,\n            plotBorderWidth: null,\n            plotShadow: false\n        },\n        title: {\n            text: this.username + \"'s top genres\"\n        },\n        tooltip: {\n            pointFormat: ' b {point.percentage:.1f}% /b '\n        },\n        plotOptions: {\n            pie: {\n                allowPointSelect: true,\n                cursor: 'pointer',\n                dataLabels: {\n                    enabled: true,\n                    format: ' b {point.name} /b : {point.percentage:.1f} %',\n                    style: {\n                        color: (Highcharts.theme   Highcharts.theme.contrastTextColor) || 'black'\n                    },\n                    connectorColor: 'silver'\n                }\n            }\n        },\n        series: [{\n            type: 'pie',\n            name: 'genre',\n            data: [\n                ['Adventure',   45.0],\n                ['Action',       26.8],\n                ['Ecchi',   12.8],\n                ['Comedy',    8.5],\n                ['Yuri',     6.2]\n            ]\n        }]\n    };\n};", 
+            "title": "Graphique HighCharts"
         }, 
         {
             "location": "/links/", 
