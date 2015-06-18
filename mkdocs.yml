@@ -15,8 +15,9 @@ theme: readthedocs
 pages:
     - 'Accueil': index.md
     - 'Structure de Projet': project-structure.md
-    - "Tests Meteor": tests.md
+    - 'Tests Meteor': tests.md
     - 'Plugins':
+        - "Iron Router": iron-router.md
         - "Simple Schema": simple-schema.md
         - "Authentification Sociale": social-auth.md
         - "autoform-semantic-ui": autoform-semantic-ui.md
@@ -30,6 +31,7 @@ pages:
         - "publish-counts": publish-counts.md
         - "Sécurité": sikka.md
         - "En cours d'évaluation": plugins-a-etudier.md
+    - 'Mails': email.md
     - 'Liens': links.md
     - 'Tips': tips.md
     - 'Faq': faq.md

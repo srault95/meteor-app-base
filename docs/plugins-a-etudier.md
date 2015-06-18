@@ -101,3 +101,55 @@ https://atmospherejs.com/zimme/iron-router-auth
     };
 
 
+## s-alert
+
+**Flash message**
+
+* https://atmospherejs.com/juliancwirko/s-alert
+* http://s-alert.meteor.com/
+* http://s-alert-demo.meteor.com/
+* https://github.com/juliancwirko/meteor-s-alert/
+
+
+- utilise une collection null: sAlert.collection
+
+	$ meteor add juliancwirko:s-alert
+
+	effets:
+		scale - meteor add juliancwirko:s-alert-scale
+		slide - meteor add juliancwirko:s-alert-slide
+		genie - meteor add juliancwirko:s-alert-genie
+		jelly - meteor add juliancwirko:s-alert-jelly
+		flip - meteor add juliancwirko:s-alert-flip
+		bouncyflip - meteor add juliancwirko:s-alert-bouncyflip
+
+		stackslide - meteor add juliancwirko:s-alert-stackslide
+			essai
+
+	positions
+		top-left
+		bottom-left
+		top-right (default)
+		bottom-right
+		top (full width)
+		bottom (full width)
+
+	<body>
+		{{> sAlert}}
+	</body>
+
+	# client:
+	Meteor.startup(function () {
+		sAlert.config({
+			effect: 'stackslide',
+			position: 'top',
+			timeout: 5000,
+			html: false,
+			onRouteClose: true,
+			stack: true,
+			offset: 0
+		});
+	});
+
+	sAlert.error('Your message', configOverwrite);
+
