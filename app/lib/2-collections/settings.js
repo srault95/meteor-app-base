@@ -2,9 +2,9 @@ Settings = Collections.Settings = new Mongo.Collection("settings");
 
 Collections.Settings.attachSchema(Schemas.Settings);
 
-Settings.attachBehaviour('timestampable');
+//Settings.attachBehaviour('timestampable');
 
-Settings.attachBehaviour('softRemovable');
+//Settings.attachBehaviour('softRemovable');
 
 var is_allow_settings = function(){
     var loggedInUser = Meteor.user();

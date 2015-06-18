@@ -1,3 +1,5 @@
 <template name="settings">
-  {{> quickForm collection="Settings" id="insertSetting" type="insert" omitFields="global" buttonContent="Create" template="semanticUI"}}
+    <div class="ui segment">
+        {{> quickForm collection=Collections.Settings id="updateSetting" doc=this type="update" omitFields="global" buttonContent="Update" template="semanticUI" errorsInLabels=true}}
+    </div>
 </template>

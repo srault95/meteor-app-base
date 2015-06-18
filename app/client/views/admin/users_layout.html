@@ -1,0 +1,36 @@
+<template name="userLayout">
+    {{> yield region='nav'}}
+    <div class="ui grid">
+        <div class="four wide column">
+            {{> DynamicTemplate template=getTemplateZone1 data=getDataContextZone1}}
+        </div>
+        <div class="four wide column">
+            {{> DynamicTemplate template=getTemplateZone2 data=getDataContextZone2}}
+        </div>
+    </div>
+    {{> yield region='footer'}}
+</template>
+
+<template name="userList">
+    <ul>
+    {{#each users}}
+        {{#each emails}}
+        <li>{{address}}</li>
+        {{/each}}
+    {{/each}}
+    </ul>
+</template>
+
+<template name="userCreate">
+    <div class="ui segment">
+        {{> quickForm collection=Schemas.UserSchema id="insertUser" type="insert" buttonContent="Create" template="semanticUI" errorsInLabels=true}}
+    </div>
+</template>
+
+<template name="userEdit">
+    <div class="ui segment">
+        {{> quickForm collection=Collections.Users id="updateUser" doc=this type="update" buttonContent="Update" template="semanticUI" errorsInLabels=true}}
+    </div>
+</template>
+
+

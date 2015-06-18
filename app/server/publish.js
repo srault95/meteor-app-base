@@ -6,8 +6,13 @@ Meteor.publish(null, function (){
 })
 
 Meteor.publish('settings', function() {
-  return Settings.find({});
+  return Settings.find();
 });
+
+Meteor.publish('users', function() {
+  return Meteor.users.find();
+});
+
 
 /*
 // Filtrage d'une collection par role et group. Ne renvoit que données du group

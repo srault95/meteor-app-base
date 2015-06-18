@@ -49,29 +49,49 @@ var set_or_update = function(doc){
 
         }
 
+        /*
         console.info("Sikka.Config.rateLimits.perIp : ", Sikka.Config.rateLimits.perIp);
+        console.log("doc.sikka : ", doc.sikka);
+        console.log("doc.sikka.rateLimits : ", doc.sikka.rateLimits);
         //Sikka.Config.rateLimits.perIp = doc['sikka']['rateLimits']['perIp'];
-        Sikka.Config.rateLimits.perIp = doc.sikka.rateLimits.perIp;
+
         console.info("Sikka.Config.rateLimits.perIp : ", Sikka.Config.rateLimits.perIp);
 
         //JSON.stringify(Sikka.Config);
+        */
+        console.info(JSON.stringify(_.keys(Sikka)));
+        /*
+        ["_getConfig","_rebuildStats","stats","_blackList","_humanTokens","_getIp","_updateStats","_rateExceeds","_blockIpFor","_isBlocked","_addHumanFor","_deleteHuman","_isValidHuman","_ensureStats","_incStat","_getStat","routes"]
+        */
+        //Sikka.Config.rateLimits.perIp = doc.sikka.rateLimits.perIp;
+
     }
 
 }
 
+/*
 Settings.after.insert(function(userId, doc) {
     //Mise à jour Meteor.settings
     //Meteor.settings
     return set_or_update(doc);
 });
 
-Settings.after.update(function(userId, doc, fieldNames, modifier, options) {
-    return set_or_update(doc);
-});
 
 Settings.after.remove(function(userId, doc) {
     return set_or_update(doc);
 });
+*/
+
+Settings.after.update(function(userId, doc, fieldNames, modifier, options) {
+    console.info("fieldNames : ", fieldNames);
+    console.info("options : ", options);
+    //console.info("modifier : ", modifier); entrée mongo $set...
+    /*
+    fieldNames :  [ 'maintenance', 'captcha', 'sikka', 'mailUrl', 'kadira' ]
+    */
+    return set_or_update(doc);
+});
+
 
 Meteor.startup(function() {
 
@@ -89,8 +109,8 @@ Meteor.startup(function() {
         console.info('Configuration file created: ' + configurationId);
     } else {
         console.info('Update from existing settings');
-        //doc = Settings.find().fetch()[0]
-        //doc = Settings.find()[0]
+        //var doc = Settings.find().fetch()[0];
+        //var doc = Settings.find()[0];
         var doc = Settings.findOne();
         set_or_update(doc);
     }
