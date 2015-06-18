@@ -77,6 +77,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../iron-router/">Iron Router</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../simple-schema/">Simple Schema</a>
         
     </li>
@@ -171,6 +178,11 @@
                 
                     <li><a class="toctree-l4" href="#graphique-highcharts">Graphique HighCharts</a></li>
                 
+                    <li><a class="toctree-l4" href="#s-alert">s-alert</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#client">client:</a></li>
+                
             
             </ul>
         
@@ -178,6 +190,13 @@
 
         
     </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../email/">Mails</a>
+        
+    </li>
 <li>
           
             <li>
@@ -333,6 +352,53 @@ Template.myTemplate.topGenresChart = function() {
     };
 };
 </code></pre>
+<h2 id="s-alert">s-alert</h2>
+<p><strong>Flash message</strong></p>
+<ul>
+<li>https://atmospherejs.com/juliancwirko/s-alert</li>
+<li>http://s-alert.meteor.com/</li>
+<li>http://s-alert-demo.meteor.com/</li>
+<li>
+<p>https://github.com/juliancwirko/meteor-s-alert/</p>
+</li>
+<li>
+<p>utilise une collection null: sAlert.collection</p>
+<p>$ meteor add juliancwirko:s-alert</p>
+<p>effets:
+    scale - meteor add juliancwirko:s-alert-scale
+    slide - meteor add juliancwirko:s-alert-slide
+    genie - meteor add juliancwirko:s-alert-genie
+    jelly - meteor add juliancwirko:s-alert-jelly
+    flip - meteor add juliancwirko:s-alert-flip
+    bouncyflip - meteor add juliancwirko:s-alert-bouncyflip</p>
+<pre><code>stackslide - meteor add juliancwirko:s-alert-stackslide
+    essai
+</code></pre>
+<p>positions
+    top-left
+    bottom-left
+    top-right (default)
+    bottom-right
+    top (full width)
+    bottom (full width)</p>
+<p><body>
+    {{&gt; sAlert}}
+</body></p>
+<h1 id="client">client:</h1>
+<p>Meteor.startup(function () {
+    sAlert.config({
+        effect: 'stackslide',
+        position: 'top',
+        timeout: 5000,
+        html: false,
+        onRouteClose: true,
+        stack: true,
+        offset: 0
+    });
+});</p>
+<p>sAlert.error('Your message', configOverwrite);</p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -340,7 +406,7 @@ Template.myTemplate.topGenresChart = function() {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../links/" class="btn btn-neutral float-right" title="Liens"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../email/" class="btn btn-neutral float-right" title="Mails"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../sikka/" class="btn btn-neutral" title="Sécurité"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -374,7 +440,7 @@ Template.myTemplate.topGenresChart = function() {
         <span><a href="../sikka/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../links/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../email/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

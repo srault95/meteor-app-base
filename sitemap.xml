@@ -4,7 +4,7 @@
     
     <url>
      <loc>http://srault95.github.io/meteor-app-base/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>http://srault95.github.io/meteor-app-base/project-structure/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>http://srault95.github.io/meteor-app-base/tests/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,80 +28,86 @@
     
         
     <url>
+     <loc>http://srault95.github.io/meteor-app-base/iron-router/</loc>
+     <lastmod>2015-06-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://srault95.github.io/meteor-app-base/simple-schema/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/social-auth/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/autoform-semantic-ui/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/useraccounts/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/collection-timestampable/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/collection-softremovable/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/meteor-collection-helpers/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/meteor-roles/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/rest-api/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/tap-i18n/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/publish-counts/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/sikka/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://srault95.github.io/meteor-app-base/plugins-a-etudier/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -109,8 +115,16 @@
 
     
     <url>
+     <loc>http://srault95.github.io/meteor-app-base/email/</loc>
+     <lastmod>2015-06-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>http://srault95.github.io/meteor-app-base/links/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -118,7 +132,7 @@
     
     <url>
      <loc>http://srault95.github.io/meteor-app-base/tips/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -126,7 +140,7 @@
     
     <url>
      <loc>http://srault95.github.io/meteor-app-base/faq/</loc>
-     <lastmod>2015-06-15</lastmod>
+     <lastmod>2015-06-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

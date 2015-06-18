@@ -77,6 +77,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../iron-router/">Iron Router</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../simple-schema/">Simple Schema</a>
         
     </li>
@@ -104,9 +111,73 @@
             
                 <li class="toctree-l3"><a href="#useraccounts">useraccounts</a></li>
                 
+                    <li><a class="toctree-l4" href="#todo">TODO</a></li>
+                
+                    <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
+                
+                    <li><a class="toctree-l4" href="#relation-avec-les-packages-standard-meteor">Relation avec les packages standard Meteor</a></li>
+                
+                    <li><a class="toctree-l4" href="#exemple-dinstallation-authentification-par-mot-de-passe-templates-semantic-ui">Exemple d'Installation - Authentification par mot de passe - Templates Semantic-ui</a></li>
+                
+                    <li><a class="toctree-l4" href="#plugin-ensuresignedin">Plugin ensureSignedIn</a></li>
+                
+                    <li><a class="toctree-l4" href="#api">Api</a></li>
+                
+                    <li><a class="toctree-l4" href="#template-atform">Template atForm</a></li>
+                
+                    <li><a class="toctree-l4" href="#states">States</a></li>
+                
+                    <li><a class="toctree-l4" href="#bouton-atnavbutton">Bouton atNavButton</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#personnalisation-de-la-structure-des-champs-de-formulaire">Personnalisation de la structure des champs de formulaire</a></li>
+                
+                    <li><a class="toctree-l4" href="#champs-speciaux-quil-faut-supprimer-avant-de-redefinir">Champs spéciaux qu'il faut supprimer avant de redéfinir</a></li>
+                
+                    <li><a class="toctree-l4" href="#changement-de-la-politique-de-mot-de-passe">Changement de la politique de mot de passe</a></li>
+                
+                    <li><a class="toctree-l4" href="#ajoute-un-champs-telephone">Ajoute un champs téléphone</a></li>
+                
+                    <li><a class="toctree-l4" href="#verifie-si-le-username-existe-deja">Vérifie si le username existe déjà</a></li>
+                
+                    <li><a class="toctree-l4" href="#ajout-dun-champs-genre">Ajout d'un champs Genre</a></li>
+                
+                    <li><a class="toctree-l4" href="#champs-de-souscription-a-la-mailing-list">Champs de souscription à la mailing list</a></li>
+                
+                    <li><a class="toctree-l4" href="#champs-cache-contenant-un-code-de-validation">Champs caché contenant un code de validation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#internationalisation-i18n">Internationalisation - i18n</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#personnalisation-des-formulaires-ui">Personnalisation des formulaires UI</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#solution-complete-avec-semantic-ui-hors-authentification-sociale">Solution complète avec semantic-ui - hors authentification sociale</a></li>
+                
                     <li><a class="toctree-l4" href="#installation">Installation</a></li>
                 
-                    <li><a class="toctree-l4" href="#extension-useraccountssemantic-ui">Extension - useraccounts:semantic-ui</a></li>
+                    <li><a class="toctree-l4" href="#configuration_1">Configuration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tips-solution-dedie-mobile-avec-ratchet">Tips - Solution dédié mobile avec Ratchet</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#structure-dun-enregistrement-dun-compte-utilisateur">Structure d'un enregistrement d'un compte utilisateur</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tips-publish-liste-des-utilisateurs">Tips - Publish - Liste des utilisateurs</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tips-autres-solutions">Tips - Autres solutions</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tips-profile-utilisateur-et-preferences">Tips - Profile Utilisateur et préférences</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tips-integration-de-iron-router-auth">Tips - Intégration de iron-router-auth</a></li>
                 
             
             </ul>
@@ -182,6 +253,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../email/">Mails</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../links/">Liens</a>
         
     </li>
@@ -242,15 +320,30 @@
             <div class="section">
               
                 <h1 id="useraccounts">useraccounts</h1>
-<p>https://atmospherejs.com/useraccounts/core
-https://github.com/meteor-useraccounts/core/</p>
+<ul>
+<li>https://github.com/meteor-useraccounts/core/blob/master/Guide.md</li>
+<li>https://atmospherejs.com/useraccounts/core</li>
+<li>https://github.com/meteor-useraccounts/core/</li>
+<li>https://useraccounts-semantic-ui.meteor.com/</li>
+<li>
+<p>https://github.com/meteor-useraccounts/semantic-ui</p>
+</li>
+<li>
 <p>Démo: http://useraccounts.meteor.com/</p>
-<p>Fonctionnement:</p>
+</li>
+<li>Boilerplate pour chaque besoin: https://github.com/meteor-useraccounts/boilerplates</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>Définition d'un schéma pour la collection Meteor.users</li>
+<li>Rendre obligatoire l'auth sur les routes /admin/* par exemple</li>
+<li>Usage de la collection meteor_accounts_loginServiceConfiguration</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
 <p>useraccounts:core fournit toutes les fonctions de base mais aucun template.</p>
 <p>il faut utiliser une des extensions comme useraccounts:semantic-ui pour obtenir des templates.</p>
 <p>Exemple avec le bouton de connection:</p>
-<pre><code>
-{{&gt; atNavButton}}
+<pre><code>{{&gt; atNavButton}}
 
 </code></pre>
 
@@ -261,13 +354,597 @@ https://github.com/meteor-useraccounts/core/</p>
 </ul>
 </li>
 </ul>
-<h2 id="installation">Installation</h2>
-<pre><code>    $ meteor add useraccounts:core
+<h2 id="relation-avec-les-packages-standard-meteor">Relation avec les packages standard Meteor</h2>
+<ul>
+<li>
+<p>https://www.meteor.com/accounts</p>
+<p>A priori, appartient à accounts-ui-unstyled - https://github.com/meteor/meteor/tree/devel/packages/accounts-ui-unstyled
+passwordSignupFields: 'EMAIL_ONLY'</p>
+<p>Accounts.validateLoginAttempt
+Accounts.onLoginFailure
+Accounts.onLogin
+Meteor.logoutOtherClients
+//locked-account or unauthorized-ip.
+Meteor.user()
+Meteor.loggingIn()</p>
+<p>accounts-ui
+    Accounts.loginWithPassword, Accounts.loginWithFacebook, Accounts.createUser and Accounts.forgotPassword</p>
+</li>
+</ul>
+<h2 id="exemple-dinstallation-authentification-par-mot-de-passe-templates-semantic-ui">Exemple d'Installation - Authentification par mot de passe - Templates Semantic-ui</h2>
+<ul>
+<li>Ne pas installer accounts-ui ?</li>
+<li>Le package installe déjà useraccounts:core accounts-base</li>
+<li>Il ne faut pas installer directement le package useraccounts:core mais son implémentation selon le framework utilisé</li>
+<li>Installer les packages providers comme accounts-password, accounts-github, ... selon les besoins</li>
+</ul>
+<pre><code class="sh">$ meteor add accounts-password
+$ meteor add semantic:ui-css
+$ meteor add useraccounts:semantic-ui
 </code></pre>
 
-<h2 id="extension-useraccountssemantic-ui">Extension - useraccounts:semantic-ui</h2>
-<p>Démo: https://useraccounts-semantic-ui.meteor.com/</p>
-<pre><code>    $ meteor add useraccounts:semantic-ui
+<h2 id="plugin-ensuresignedin">Plugin ensureSignedIn</h2>
+<ul>
+<li>Rend obligatoire l'authentification pour toutes les routes</li>
+</ul>
+<pre><code class="js">
+Router.plugin('ensureSignedIn');
+
+</code></pre>
+
+<ul>
+<li>
+<p>Rend obligatoire l'authentification pour les routes placés dans only[]</p>
+</li>
+<li>
+<p>Voir différence avec AccountsTemplates.configureRoute('ensureSignedIn') ?</p>
+</li>
+</ul>
+<pre><code class="js">
+Router.plugin('ensureSignedIn', {
+  only: ['private']
+});
+
+</code></pre>
+
+<ul>
+<li>Rend obligatoire l'authentification pour toutes les routes sauf celles placés dans except[]</li>
+</ul>
+<pre><code class="js">
+Router.plugin('ensureSignedIn', {
+    except: ['home', 'atSignIn', 'atSignUp', 'atForgotPassword']
+});
+
+</code></pre>
+
+<ul>
+<li>Personnalisation du template et layout</li>
+</ul>
+<pre><code class="js">
+AccountsTemplates.configureRoute('ensureSignedIn', {
+    template: 'myLogin',
+    layoutTemplate: 'myLayout',
+});
+
+</code></pre>
+
+<h2 id="api">Api</h2>
+<ul>
+<li>Package inclus avec Meteor: Account, AccountsServer<ul>
+<li>Coté client, Accounts = new AccountsClient();</li>
+<li>Coté server, Accounts = new AccountsServer(Meteor.server);</li>
+<li>Meteor.users est remplacé par Accounts.users</li>
+</ul>
+</li>
+</ul>
+<h2 id="template-atform">Template atForm</h2>
+<ul>
+<li>Par exemple pour customiser le template d'authentification, placez dans un template</li>
+</ul>
+<pre><code>{{&gt; atForm state='signUp'}}
+
+OU
+
+{{&gt; atForm}} car le state par défaut est signUp
+
+</code></pre>
+
+<h2 id="states">States</h2>
+<pre><code>changePwd               Formulaire de changement de mot de passe
+
+enrollAccount           Formulaire d'inscription ???
+
+forgotPwd               Formulaire pour saisir une email à laquelle sera envoyé le lien de récupération de mot de passe
+
+hide                    Aucun
+
+resendVerificationEmail Envoi d'un nouveau mail de vérification
+
+resetPwd                Réinitialisation du mot de passe
+
+signIn                  Formulaire d'authentification
+
+signUp                  ?
+
+verifyEmail             Résultat après avoir cliqué sur le lien de récupération de mot de passe reçu par mail
+</code></pre>
+<h2 id="bouton-atnavbutton">Bouton atNavButton</h2>
+<pre><code>
+</code></pre>
+
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li>
+<p>https://github.com/meteor-useraccounts/core/blob/master/Guide.md</p>
+</li>
+<li>
+<p>Placez la configuration dans lib/config/at_config.js</p>
+</li>
+</ul>
+<h3 id="routage">Routage</h3>
+<p>Il n'y a aucune route par défaut.</p>
+<p>La définition des routes par AccountsTemplates.configureRoute() s'utilise comme les routes habituels d'Iron Router</p>
+<p>Chaque route peut être définit avec ses paramètres par défaut ou personnalisé</p>
+<pre><code class="js">
+AccountsTemplates.configureRoute('signIn');
+
+AccountsTemplates.configureRoute('signIn', {
+    name: 'signin',
+    path: '/login',
+    template: 'myLogin',
+    layoutTemplate: 'myLayout',
+    redirect: '/user-profile',
+});
+
+AccountsTemplates.configureRoute('signIn', {
+    // Redirige vers /user/ae8WQQk6DrtDzA2AZ après une authentification réussie
+    redirect: function(){
+        var user = Meteor.user();
+        if (user)
+          Router.go('/user/' + user._id);
+    }
+});
+
+</code></pre>
+
+<h3 id="exemple-de-configuration-complete">Exemple de configuration complète</h3>
+<pre><code class="js">
+// lib/config/at_config.js
+AccountsTemplates.configure({
+    // Behaviour
+    confirmPassword: true,                  // (default: true) - Demande la confirmation du mot de passe (register)
+    defaultState: &quot;signIn&quot;,                 // (default: signIn) - State par défaut
+    enablePasswordChange: true,             // (default: false) - Active la fonction de changement de mot de passe
+    enforceEmailVerification: false,        // (default: false) - experimental - A utiliser seulement avec le service accounts-password
+
+    forbidClientAccountCreation: false,     // (default: false) - Si true, désactive l'enregistrement
+                                            // Remplace Accounts.config({forbidClientAccountCreation : true});
+
+    overrideLoginErrors: true,              // (default: true) - Si true, affiche erreur générique de connection sans préciser si mauvais login ou pass
+    sendVerificationEmail: false,           // (default: false) - Si true, envoi un lien de confirmation par mail pour chaque nouvel utilisateur
+    redirectTimeout: 2000,                  // (default: 2000) - Timeout de redirection après: enrollAccount, forgotPwd, resetPwd, ou verifyEmail
+    lowercaseUsername: false,               // (default: false) - A REVOIR
+    socialLoginStyle: 'popup',              // (default: popup) - Voir LoginStyle - choix (redirect, popup)
+                                            // Si popup, ouvre la page d'authentification du service dans un modal
+
+    // Appearance
+    defaultLayout: undefined,               // (default: undefined)
+    hideSignInLink: false,                  // (default: false) - Si true, n'affiche jamais le lien de connection
+    hideSignUpLink: false,                  // (default: false) - Si true, n'affiche jamais le lien de déconnection
+    showAddRemoveServices: false,           // (default: false) - A revoir - en rapport avec synchro comptes sociaux - https://atmospherejs.com/splendido/accounts-meld
+    showForgotPasswordLink: false,          // (default: false) - Si true, affiche lien de récupération de mot de passe
+    showLabels: true,                       // (default: true) - si true, affiche les label au dessous des champs dans les formulaires
+    showPlaceholders: true,                 // (default: false) - si true, Affiche les placeholders dans les champs
+    showResendVerificationEmailLink: false, // (default: false) - Si true, affiche le lien pour envoyer à nouveau le mail de vérification
+
+    // Client-side Validation
+    continuousValidation: false,            // (default: false) - Active la validation coté client pendant la saisie
+    negativeFeedback: false,                // (default: false) - continuousValidation
+    negativeValidation: true,               // (default: false) - continuousValidation
+    positiveValidation: true,               // (default: false) - continuousValidation
+    positiveFeedback: true,                 // (default: false) - continuousValidation
+    showValidating: true,                   // (default: false) -
+
+    // Links
+    homeRoutePath: '/',                     // (default: /) - Pas Home pour les redirections
+    //privacyUrl: 'privacy',                // (default: undefined) - Affiche lien ?
+    //termsUrl: 'terms-of-use',             // (default: undefined) - Affiche lien ?
+
+    // Hooks
+    //onLogoutHook: myLogoutFunc,           // Hook de routage appellé par AccountsTemplates.logout
+    //onSubmitHook: mySubmitFunc,           // Hook appellé quand submit d'un des formulaire est ok - func(error, state)
+    //preSignUpHook: myPreSubmitFunc,       // Comme ci-dessous mais appellé avant submit - func(password, info)
+
+    // Texts customization
+    /*
+    texts: {
+      button: {
+          signUp: &quot;Register Now!&quot;
+      },
+      socialSignUp: &quot;Register&quot;,
+      socialIcons: {
+          &quot;meteor-developer&quot;: &quot;fa fa-rocket&quot;
+      },
+      title: {
+          forgotPwd: &quot;Recover Your Password&quot;
+      },
+    },
+    */
+});
+
+</code></pre>
+
+<h3 id="configuration-recapcha">Configuration ReCapcha</h3>
+<p><a href="https://www.google.com/recaptcha/intro/index.html">recaptcha</a></p>
+<p>Les clés peuvent se configurer ici ou dans Meteor.Settings ou dans settings.json</p>
+<pre><code class="js">AccountsTemplates.configure({
+    reCaptcha: {
+        siteKey: YOUR SITE KEY,
+        secretKey: YOUR SECRET KEY,
+        theme: &quot;light&quot;, // light ou dark
+        data_type: &quot;image&quot; // image ou audio
+    },
+    showReCaptcha: true
+});
+
+</code></pre>
+
+<h3 id="exemple-de-submithook">Exemple de SubmitHook</h3>
+<pre><code class="js">
+var mySubmitFunc = function(error, state){
+  if (!error) {
+    if (state === &quot;signIn&quot;) {
+      // Successfully logged in
+      // ...
+    }
+    if (state === &quot;signUp&quot;) {
+      // Successfully registered
+      // ...
+    }
+  }
+};
+
+AccountsTemplates.configure({
+    onSubmitHook: mySubmitFunc
+});
+</code></pre>
+
+<h1 id="personnalisation-de-la-structure-des-champs-de-formulaire">Personnalisation de la structure des champs de formulaire</h1>
+<p>Exemple de personnalisation des champs avec <strong>aldeed:template-extension</strong> pour le package <a href="https://gist.github.com/dalgard/a844f6569d8f471db9a7">useraccounts:semantic-ui</a></p>
+<h2 id="champs-speciaux-quil-faut-supprimer-avant-de-redefinir">Champs spéciaux qu'il faut supprimer avant de redéfinir</h2>
+<pre><code>current_password
+email
+password
+password_again
+username
+username_and_email
+</code></pre>
+<h3 id="exemple-avec-le-champs-password">Exemple avec le champs password</h3>
+<pre><code class="js">AccountsTemplates.removeField('password');
+AccountsTemplates.addField({
+    _id: 'password',
+    type: 'password',
+    required: true,
+    minLength: 6,
+    re: /(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/,
+    errStr: 'At least 1 digit, 1 lower-case and 1 upper-case',
+});
+</code></pre>
+
+<h3 id="particularite-de-la-customisation-des-champs-username-ou-email">Particularité de la customisation des champs username ou email</h3>
+<p>Il faut impérativement supprimer le champs password avant de rédéfinir username ou password</p>
+<p>Pour ne pas avoir à définir à nouveau password, procédez comme ci-dessous:</p>
+<pre><code class="js">var pwd = AccountsTemplates.removeField('password');
+AccountsTemplates.removeField('email');
+AccountsTemplates.addFields([
+  {
+      _id: &quot;username&quot;,
+      type: &quot;text&quot;,
+      displayName: &quot;username&quot;,
+      required: true,
+      minLength: 5,
+  },
+  {
+      _id: 'email',
+      type: 'email',
+      required: true,
+      displayName: &quot;email&quot;,
+      re: /.+@(.+){2,}\.(.+){2,}/,
+      errStr: 'Invalid email',
+  },
+  pwd
+]);
+</code></pre>
+
+<h2 id="changement-de-la-politique-de-mot-de-passe">Changement de la politique de mot de passe</h2>
+<p>**Demande un mot de passe d'au minimum 6 caractères</p>
+<pre><code class="js">AccountsTemplates.addField({
+    _id: 'password',
+    type: 'password',
+    placeholder: {
+        signUp: &quot;At least six characters&quot;
+    },
+    required: true,
+    minLength: 6,
+    re: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/,
+    errStr: 'At least 1 digit, 1 lowercase and 1 uppercase',
+});
+</code></pre>
+
+<h2 id="ajoute-un-champs-telephone">Ajoute un champs téléphone</h2>
+<p><strong>Champs phone avec validation coté serveur (fonction isValidPhone à définir):</strong></p>
+<pre><code class="js">AccountsTemplates.addField({
+    _id: 'phone',
+    type: 'tel',
+    displayName: &quot;Phone&quot;,
+    required: true,
+    func: function (number) {
+        if (Meteor.isServer){
+          if (isValidPhone(number))
+              return false; // meaning no error!
+          return true; // Validation error!
+        }
+    },
+    errStr: 'Invalid Phone number!',
+});
+</code></pre>
+
+<h2 id="verifie-si-le-username-existe-deja">Vérifie si le username existe déjà</h2>
+<pre><code class="js">// server/methods.js
+if (Meteor.isServer){
+    Meteor.methods({
+        &quot;userExists&quot;: function(username){
+            return !!Meteor.users.findOne({username: username});
+        },
+    });
+}
+
+// lib/config/at_config.js
+AccountsTemplates.addField({
+    _id: 'username',
+    type: 'text',
+    required: true,
+    func: function(value){
+        if (Meteor.isClient) {
+            console.log(&quot;Validating username...&quot;);
+            var self = this;
+            Meteor.call(&quot;userExists&quot;, value, function(err, userExists){
+                if (!userExists)
+                    self.setSuccess();
+                else
+                    self.setError(userExists);
+                self.setValidating(false);
+            });
+            return;
+        }
+        // Server
+        return Meteor.call(&quot;userExists&quot;, value);
+    },
+});
+</code></pre>
+
+<p><strong>VOIR AUSSI:</strong></p>
+<pre><code>//Dans la définition d'un schéma
+username: {
+  type: String,
+  regEx: /^[a-z0-9A-Z_]{3,15}$/,
+  unique: true,
+  custom: function () {
+    if (Meteor.isClient &amp;&amp; this.isSet) {
+      Meteor.call(&quot;accountsIsUsernameAvailable&quot;, this.value, function (error, result) {
+        if (!result) {
+          Meteor.users.simpleSchema().namedContext(&quot;createUserForm&quot;).addInvalidKeys([{name: &quot;username&quot;, type: &quot;notUnique&quot;}]);
+        }
+      });
+    }
+  }
+}
+</code></pre>
+
+<h2 id="ajout-dun-champs-genre">Ajout d'un champs Genre</h2>
+<pre><code class="js">AccountsTemplates.addField({
+    _id: &quot;gender&quot;,
+    type: &quot;select&quot;,
+    displayName: &quot;Gender&quot;,
+    select: [
+        {
+            text: &quot;Male&quot;,
+            value: &quot;male&quot;,
+        },
+        {
+            text: &quot;Female&quot;,
+            value: &quot;female&quot;,
+        },
+    ],
+});
+</code></pre>
+
+<h2 id="champs-de-souscription-a-la-mailing-list">Champs de souscription à la mailing list</h2>
+<pre><code class="js">AccountsTemplates.addField({
+    _id: &quot;mailing_list&quot;,
+    type: &quot;checkbox&quot;,
+    displayName: &quot;Subscribe me to mailing List&quot;,
+});
+</code></pre>
+
+<h2 id="champs-cache-contenant-un-code-de-validation">Champs caché contenant un code de validation</h2>
+<pre><code class="js">// http://my.splendido.site/sign-up?email=giorgio@example.com&amp;reg_code=123
+AccountsTemplates.addField({
+    _id: 'reg_code',
+    type: 'hidden'
+});
+</code></pre>
+
+<h1 id="internationalisation-i18n">Internationalisation - i18n</h1>
+<p><a href="https://atmospherejs.com/softwarerero/accounts-t9n">accounts-t9n</a></p>
+<pre><code class="sh">$ meteor add softwarerero:accounts-t9n
+</code></pre>
+
+<pre><code class="js">// /lib/config/at_config.js
+T9n.setLanguage(&quot;fr&quot;);
+</code></pre>
+
+<h1 id="personnalisation-des-formulaires-ui">Personnalisation des formulaires UI</h1>
+<p>Requis: <a href="https://github.com/aldeed/meteor-template-extension">template-extension</a></p>
+<pre><code class="sh">$ meteor add aldeed:template-extension
+</code></pre>
+
+<pre><code>&lt;template name=&quot;appAtInput&quot;&gt;
+  {{#if options.dividerBefore}}&lt;hr&gt;{{/if}}
+
+  {{&gt; Template.dynamic template=templateName}}
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">AccountsTemplates.addField({
+  _id: &quot;address&quot;,
+  type: &quot;text&quot;,
+
+  // Options qui seront passés au formulaire
+  options: {
+    dividerBefore: true
+  }
+});
+
+Template.appAtInput.replaces(&quot;atInput&quot;);
+</code></pre>
+
+<h1 id="solution-complete-avec-semantic-ui-hors-authentification-sociale">Solution complète avec semantic-ui - hors authentification sociale</h1>
+<h2 id="installation">Installation</h2>
+<pre><code class="sh">$ meteor add accounts-ui-unstyled
+$ meteor add accounts-password
+$ meteor add semantic:ui-css
+$ meteor add softwarerero:accounts-t9n
+$ meteor add useraccounts:semantic-ui
+
+# OU
+$ meteor add accounts-ui-unstyled accounts-password semantic:ui-css softwarerero:accounts-t9n useraccounts:semantic-ui
+
+# OU pour iron cli
+$ iron add accounts-ui-unstyled accounts-password semantic:ui-css softwarerero:accounts-t9n useraccounts:semantic-ui
+
+</code></pre>
+
+<p><strong>Dépendances:</strong></p>
+<pre><code>less
+reactive-var
+http
+underscore
+accounts-base
+reactive-dict
+check
+meteor
+templating
+blaze
+useraccounts:core
+iron:router
+softwarerero:accounts-t9n
+</code></pre>
+<h2 id="configuration_1">Configuration</h2>
+<h1 id="tips-solution-dedie-mobile-avec-ratchet">Tips - Solution dédié mobile avec Ratchet</h1>
+<ul>
+<li>https://atmospherejs.com/useraccounts/ratchet</li>
+</ul>
+<h1 id="structure-dun-enregistrement-dun-compte-utilisateur">Structure d'un enregistrement d'un compte utilisateur</h1>
+<ul>
+<li>La structure peut varier mais il y a des éléments important à noter:<ul>
+<li>emails est une liste d'objet</li>
+<li>services est une collections avec comme clé, le nom du service</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+  _id: &quot;bbca5d6a-2156-41c4-89da-0329e8c99a4f&quot;,  // Meteor.userId()
+  username: &quot;cool_kid_13&quot;, // unique name
+  emails: [
+    { address: &quot;cool@example.com&quot;, verified: true },
+    { address: &quot;another@different.com&quot;, verified: false }
+  ],
+  createdAt: Wed Aug 21 2013 15:16:52 GMT-0700 (PDT),
+  profile: {
+    name: &quot;Joe Schmoe&quot;
+  },
+  services: {
+    facebook: {
+      id: &quot;709050&quot;, // facebook id
+      accessToken: &quot;AAACCgdX7G2...AbV9AZDZD&quot;
+    },
+    resume: {
+      loginTokens: [
+        { token: &quot;97e8c205-c7e4-47c9-9bea-8e2ccc0694cd&quot;,
+          when: 1349761684048 }
+      ]
+    }
+  }
+}
+
+
+</code></pre>
+
+<h1 id="tips-publish-liste-des-utilisateurs">Tips - Publish - Liste des utilisateurs</h1>
+<ul>
+<li>Source <a href="https://github.com/awatson1978/meteor-cookbook/blob/14e5ecc346665713ba2a336ae74a226a9ae48f4c/cookbook/accounts.md">meteor-cookbook</a></li>
+</ul>
+<pre><code class="js">// server/publish.js
+Meteor.publish(&quot;usersDirectory&quot;, function () {
+  try{
+    return Meteor.users.find({}, {fields: {
+      '_id': true,
+      'username': true,
+      'profile': true,
+      'profile.name': true,
+      'profile.avatar': true,
+      'profile.username': true,
+
+      'emails': true,
+      'emails[0].address': true,
+      'emails.address': true
+    }});
+  }catch(error){
+    console.log(error);
+  }
+});
+</code></pre>
+
+<h1 id="tips-autres-solutions">Tips - Autres solutions</h1>
+<ul>
+<li>https://atmospherejs.com/juliancwirko/s-id</li>
+<li><a href="http://blog.benmcmahen.com/post/41741539120/building-a-customized-accounts-ui-for-meteor">Solution Manuelle</a></li>
+<li><a href="https://github.com/Differential/accounts-entry">accounts-entry</a></li>
+</ul>
+<h1 id="tips-profile-utilisateur-et-preferences">Tips - Profile Utilisateur et préférences</h1>
+<h1 id="tips-integration-de-iron-router-auth">Tips - Intégration de iron-router-auth</h1>
+<ul>
+<li>https://github.com/zimme/meteor-iron-router-auth</li>
+</ul>
+<pre><code class="sh">$ meteor add zimme:iron-router-auth
+</code></pre>
+
+<pre><code>{
+  authenticate: {
+    home: 'home',
+    layout: undefined,
+    logout: 'logout',
+    replaceState: undefined,
+    route: 'login',
+    template: undefined
+  },
+  authorize: {
+    allow: function() {return true},
+    deny: function() {return false}, // deny overrides allow
+    layout: undefined,
+    replaceState: undefined,
+    route: undefined,
+    template: 'notAuthorized'
+  },
+  except: ['enroll', 'forgotPassword', 'home', 'login', 'reset', 'verify'],
+  noAuth: {
+    dashboard: 'dashboard',
+    home: 'home',
+    replaceState: undefined
+  },
+  only: ['enroll', 'login']
+}
 </code></pre>
               
             </div>
