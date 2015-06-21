@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>meteor-roles - Meteor</title>
+  <title>E-Commerce - Meteor</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "meteor-roles";
+    var mkdocs_page_name = "E-Commerce";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -132,33 +132,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">meteor-roles</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#meteor-roles">Meteor Roles</a></li>
-                
-                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
-                
-                    <li><a class="toctree-l4" href="#assigner-des-roles-au-demarrage-du-server">Assigner des rôles au démarrage du server</a></li>
-                
-                    <li><a class="toctree-l4" href="#creation-de-roles-au-demarrage">Création de roles au démarrage</a></li>
-                
-                    <li><a class="toctree-l4" href="#assigner-automatiquement-un-role-par-default">Assigner automatiquement un role par default</a></li>
-                
-                    <li><a class="toctree-l4" href="#tips-limiter-la-creation-dutilisateurs">Tips - Limiter la création d'utilisateurs</a></li>
-                
-                    <li><a class="toctree-l4" href="#tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur">Tips - Exemple de filtrage des données coté server - Par Groupe utilisateur</a></li>
-                
-                    <li><a class="toctree-l4" href="#utilisation-dans-les-templates">Utilisation dans les templates</a></li>
-                
-                    <li><a class="toctree-l4" href="#collections">Collections</a></li>
-                
-                    <li><a class="toctree-l4" href="#ajout-de-role">Ajout de role</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../useraccounts-roles/">meteor-roles</a>
         
     </li>
 
@@ -209,6 +184,37 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Applications</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">E-Commerce</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#reaction-commerce">Reaction Commerce</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#par-docker">Par Docker</a></li>
+                
+                    <li><a class="toctree-l4" href="#ajout-a-un-projet-existant">Ajout à un projet existant</a></li>
+                
+                    <li><a class="toctree-l4" href="#creation-dun-nouveau-projet">Création d'un nouveau projet</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
     <li class="toctree-l1 ">
         <a class="" href="../links/">Liens</a>
         
@@ -251,11 +257,11 @@
     
       
         
-          <li>Plugins &raquo;</li>
+          <li>Applications &raquo;</li>
         
       
     
-    <li>meteor-roles</li>
+    <li>E-Commerce</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -269,105 +275,144 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="meteor-roles">Meteor Roles</h1>
-<p>https://github.com/alanning/meteor-roles</p>
-<h2 id="installation">Installation</h2>
-<pre><code class="sh">
-$ meteor add accounts-password
-$ meteor add alanning:roles
-
+                <h1 id="reaction-commerce">Reaction Commerce</h1>
+<ul>
+<li><a href="https://reactioncommerce.com/">Site</a></li>
+<li><a href="https://reactioncommerce.com/guide">Documentation</a></li>
+<li><a href="https://github.com/reactioncommerce">Sources</a></li>
+<li><a href="https://reactioncommerce.com/vision">Status des Modules</a></li>
+<li>https://waffle.io/reactioncommerce/reaction</li>
+</ul>
+<p>Auteur de Meteor Security: https://github.com/ongoworks/meteor-security</p>
+<h1 id="installation">Installation</h1>
+<h2 id="par-docker">Par Docker</h2>
+<ul>
+<li>https://github.com/reactioncommerce/reaction/blob/development/Dockerfile</li>
+</ul>
+<h2 id="ajout-a-un-projet-existant">Ajout à un projet existant</h2>
+<pre><code>$ meteor add reactioncommerce:core
 </code></pre>
+<h2 id="creation-dun-nouveau-projet">Création d'un nouveau projet</h2>
+<pre><code>$ meteor add reactioncommerce:core
+$ meteor remove insecure
+$ meteor remove autopublish
+$ meteor add nemo64:bootstrap
 
-<p><strong>La collection n'est pas publié par défaut, il faut le faire avec:</strong></p>
-<pre><code class="javascript">
-// server/publish.js
-Meteor.publish(null, function (){
-  return Meteor.roles.find({})
-})
+cd /workspace
 
+git clone https://github.com/reactioncommerce/reaction.git
+
+cd reaction &amp;&amp; git checkout master
+
+# n'est pas dans le projet
+meteor remove force-ssl
+
+&gt; NOK
+# https://github.com/reactioncommerce/reaction-core/blob/master/docs/deploying.md
+# Renommer settings/dev.sample.json en settings/dev.json
+mv settings/dev.sample.json settings/dev.json
+meteor --settings settings/dev.json --raw-logs -p $IP:$PORT
+
+ROOT_URL=https://188.165.254.60:444 MONGO_URL=mongodb://localhost/reaction meteor --raw-logs -p $IP:$PORT
+
+IMPORTANT! DEFAULT USER INFO (RANDOM)
+  EMAIL/LOGIN: wpdxynxm@188.165.254.60
+  PASSWORD: f0rFvPOC
+
+Requis:
+    apt-get install -y --no-install-recommends graphicsmagick
+
+--settings
+
+# supp .meteor/local/build/programs/server/assets/packages/reactioncommerce_core/private/data/*.json
+$ meteor reset
 </code></pre>
+<p>Inclus
+::::::</p>
+<p>::</p>
+<pre><code>package-stats-opt-out
+meteor-platform
+oauth-encryption
+coffeescript
+less
 
-<h2 id="assigner-des-roles-au-demarrage-du-server">Assigner des rôles au démarrage du server</h2>
-<p>https://github.com/alanning/meteor-roles/blob/master/examples/rolesWithAccountsUI/server/startup.js
-https://github.com/alanning/meteor-roles/blob/master/examples/iron-router/server/server.js</p>
-<h2 id="creation-de-roles-au-demarrage">Création de roles au démarrage</h2>
-<h2 id="assigner-automatiquement-un-role-par-default">Assigner automatiquement un role par default</h2>
-<p># Coté startup - server:
-  Accounts.onCreateUser(function (options, user) {
-    Roles.setRolesOnUserObj(user, ['admin','view-secrets']);
-    return user
-  });</p>
-<h2 id="tips-limiter-la-creation-dutilisateurs">Tips - Limiter la création d'utilisateurs</h2>
-<p><strong>Autoriser seulement la création pour les roles admin ou manage-users:</strong></p>
-<pre><code class="javascript">
-//common
-Accounts.validateNewUser(function (user) {
-    var loggedInUser = Meteor.user();
+# Optional Meteor Packages
+accounts-facebook
+spiderable
+audit-argument-checks
+fastclick
 
-    if (Roles.userIsInRole(loggedInUser, ['admin','manage-users'])) {
-      return true;
-    }
+# Community Packages
+nemo64:bootstrap
+#mike:mocha
+sanjo:jasmine
+velocity:html-reporter
 
-    throw new Meteor.Error(403, &quot;Not authorized to create new users&quot;);
-});
+# Reaction Commerce Packages
+reactioncommerce:core
+    https://github.com/reactioncommerce/reaction-core
+reactioncommerce:core-theme
+    https://github.com/reactioncommerce/reaction-core-theme
 
+reactioncommerce:reaction-shipping
+    https://github.com/reactioncommerce/reaction-shipping
+
+#payment
+reactioncommerce:reaction-paypal
+    https://github.com/reactioncommerce/reaction-paypal
+reactioncommerce:reaction-braintree
+    https://github.com/reactioncommerce/reaction-braintree
+reactioncommerce:reaction-stripe
+    https://github.com/reactioncommerce/reaction-stripe
+
+#Auth:
+reactioncommerce:reaction-auth-net
+    https://github.com/reactioncommerce/reaction-auth-net
+reactioncommerce:reaction-social
+    https://github.com/reactioncommerce/reaction-social
+
+spencern:reaction-analytics-libs
+spencern:reaction-analytics
+
+https://github.com/reactioncommerce/reaction-google-analytics
+https://github.com/reactioncommerce/reaction-search
+https://github.com/reactioncommerce/reaction-coupons
 </code></pre>
+<p>Config mail dans /dashboard/settings/shop
+:::::::::::::::::::::::::::::::::::::::::</p>
+<p>::</p>
+<pre><code>username:
+password:
+hostname: smtp.gmail.com
+port:
+</code></pre>
+<p>Pages static
+::::::::::::</p>
+<ul>
+<li>
+<p>Pages avec template dans client/templates/static/*.html mais sans scripts</p>
+</li>
+<li>
+<p>Controler: ShopController</p>
+</li>
+</ul>
+<p>::</p>
+<pre><code>var staticPages = ["about", "team", "faqs", "terms", "privacy"];
 
-<h2 id="tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur">Tips - Exemple de filtrage des données coté server - Par Groupe utilisateur</h2>
-<pre><code class="javascript">
-// server/publish.js
-Meteor.publish('secrets', function (group) {
-  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {
-
-    return Meteor.secrets.find({group: group});
-
-  } else {
-
-    // user not authorized. do not publish secrets
-    this.stop();
-    return;
-
+Router.map(function() {
+  var i, len, page;
+  for (i = 0, len = staticPages.length; i &lt; len; i++) {
+    page = staticPages[i];
+    this.route(page, {
+      controller: ShopController,
+      name: page
+    });
   }
+  return this.route("notFound", {
+    path: "/(.*)"
+  });
 });
-
 </code></pre>
-
-<h2 id="utilisation-dans-les-templates">Utilisation dans les templates</h2>
-<pre><code>
-&lt;template name=&quot;header&quot;&gt;
-  {{#if isInRole 'admin'}}
-    {{&gt; admin_nav}}
-  {{/if}}
-  {{#if isInRole 'admin,editor'}}
-    {{&gt; editor_stuff}}
-  {{/if}}
-&lt;/template&gt;
-
-// Limiter au group1 avec le role admin ou editor
-&lt;template name=&quot;header&quot;&gt;
-  {{#if isInRole 'admin,editor' 'group1'}}
-    {{&gt; editor_stuff}}
-  {{/if}}
-&lt;/template&gt;
-
-</code></pre>
-
-<h2 id="collections">Collections</h2>
-<ul>
-<li>Meteor.roles</li>
-<li>Modifie Meteor.users</li>
-</ul>
-<h2 id="ajout-de-role">Ajout de role</h2>
-<ul>
-<li>users Array | String</li>
-<li>roles Array | String</li>
-<li>group String optional (default Roles.GLOBAL_GROUP)</li>
-</ul>
-<p>Roles.addUsersToRoles(userId, 'admin')</p>
-<p>Roles.addUsersToRoles(userId, ['view-secrets'], 'example.com')</p>
-<p>Roles.addUsersToRoles([user1, user2], ['user','editor'])</p>
-<p>Roles.addUsersToRoles([user1, user2], ['glorious-admin', 'perform-action'], 'example.org')</p>
-<p>Roles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP)</p>
               
             </div>
           </div>
@@ -375,10 +420,10 @@ Meteor.publish('secrets', function (group) {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../rest-api/" class="btn btn-neutral float-right" title="API Rest"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../links/" class="btn btn-neutral float-right" title="Liens"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../meteor-collection-helpers/" class="btn btn-neutral" title="meteor-collection-helpers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../email/" class="btn btn-neutral" title="Mails"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -406,10 +451,10 @@ Meteor.publish('secrets', function (group) {
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../meteor-collection-helpers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../email/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../rest-api/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../links/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

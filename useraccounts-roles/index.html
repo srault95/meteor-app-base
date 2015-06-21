@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>meteor-roles - Meteor</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "meteor-roles";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Meteor</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Accueil</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../project-structure/">Structure de Projet</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tests/">Tests Meteor</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Plugins</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../iron-router/">Iron Router</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../simple-schema/">Simple Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../social-auth/">Authentification Sociale</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../autoform-semantic-ui/">autoform-semantic-ui</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../useraccounts/">useraccounts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../collection-timestampable/">collection-timestampable</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../collection-softremovable/">collection-softremovable</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../meteor-collection-helpers/">meteor-collection-helpers</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">meteor-roles</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#meteor-roles">Meteor Roles</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#references">Références</a></li>
+                
+                    <li><a class="toctree-l4" href="#todo">TODO</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips-simpleschema-ajout-auto-dun-champs-owner">Tips - SimpleSchema - Ajout auto d'un champs owner</a></li>
+                
+                    <li><a class="toctree-l4" href="#references-utilise-par">Références - Utilisé par</a></li>
+                
+                    <li><a class="toctree-l4" href="#les-differentes-solutions">Les différentes solutions</a></li>
+                
+                    <li><a class="toctree-l4" href="#ajout-au-modele-utilisateur">Ajout au modèle utilisateur</a></li>
+                
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#creer-supprimer-des-roles-hors-user">Créer / Supprimer des roles - hors user</a></li>
+                
+                    <li><a class="toctree-l4" href="#liste-des-roles-dun-utilisateur">Liste des roles d'un utilisateur</a></li>
+                
+                    <li><a class="toctree-l4" href="#liste-des-utilisateurs-pour-un-role">Liste des utilisateurs pour un role</a></li>
+                
+                    <li><a class="toctree-l4" href="#liste-des-groupes-dun-utilisateur">Liste des groupes d'un utilisateur</a></li>
+                
+                    <li><a class="toctree-l4" href="#controlleur-personnalise-avec-verification-des-droits-par-route">Controlleur personnalisé avec vérification des droits par route</a></li>
+                
+                    <li><a class="toctree-l4" href="#assigner-des-roles-au-demarrage-du-server">Assigner des rôles au démarrage du server</a></li>
+                
+                    <li><a class="toctree-l4" href="#supprimer-les-roles-dun-utilisateur">Supprimer les roles d'un utilisateur</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilisation-dans-les-allow-deny">Utilisation dans les Allow - Deny</a></li>
+                
+                    <li><a class="toctree-l4" href="#assigner-automatiquement-un-role-par-default">Assigner automatiquement un role par default</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips-limiter-la-creation-dutilisateurs">Tips - Limiter la création d'utilisateurs</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur">Tips - Exemple de filtrage des données coté server - Par Groupe utilisateur</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilisation-dans-les-templates">Utilisation dans les templates</a></li>
+                
+                    <li><a class="toctree-l4" href="#collections">Collections</a></li>
+                
+                    <li><a class="toctree-l4" href="#ajout-de-role">Ajout de role</a></li>
+                
+                    <li><a class="toctree-l4" href="#extension-ongoworks-security">Extension ongoworks-security</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../rest-api/">API Rest</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tap-i18n/">Internationalisation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../publish-counts/">publish-counts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sikka/">Sécurité</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plugins-a-etudier/">En cours d'évaluation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../email/">Mails</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Applications</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../links/">Liens</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tips/">Tips</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">Faq</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Meteor</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Plugins &raquo;</li>
+        
+      
+    
+    <li>meteor-roles</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/srault95/meteor-app-base" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="meteor-roles">Meteor Roles</h1>
+<ul>
+<li>https://atmospherejs.com/alanning/roles</li>
+<li>
+<p>https://github.com/alanning/meteor-roles</p>
+</li>
+<li>
+<p>https://www.discovermeteor.com/blog/allow-deny-a-security-primer/</p>
+</li>
+<li>https://www.discovermeteor.com/blog/allow-deny-challenge-results/</li>
+</ul>
+<h1 id="references">Références</h1>
+<ul>
+<li>https://atmospherejs.com/ongoworks/security</li>
+<li>https://github.com/ongoworks/meteor-security</li>
+<li>https://atmospherejs.com/ryw/blog</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<p>Filtrer les publish selon roles et appartenance au group
+    - Role: ?
+    - Récupérer group d'un user et utiliser find({'$in': []})</p>
+<p>Allow
+    - insert
+      - Role (pas de group)
+    - update
+      - Le group du user doit être dans le champs owner_group
+    - remove</p>
+<h2 id="tips-simpleschema-ajout-auto-dun-champs-owner">Tips - SimpleSchema - Ajout auto d'un champs owner</h2>
+<p>Schemas.Posts = new SimpleSchema({
+    title: {
+      type: String,
+      max: 60
+    },
+    owner: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Id,
+      autoValue: function() {
+        if (this.isInsert) {
+          return Meteor.userId();
+        }
+      },
+      autoform: {
+        options: function() {
+          return _.map(Meteor.users.find().fetch(), function(user) {
+            return {
+              label: user.emails[0].address,
+              value: user._id
+            };
+          });
+        }
+      }
+    }
+  });</p>
+<h2 id="references-utilise-par">Références - Utilisé par</h2>
+<ul>
+<li>https://atmospherejs.com/yogiben/admin</li>
+<li>https://atmospherejs.com/reactioncommerce/core</li>
+</ul>
+<h2 id="les-differentes-solutions">Les différentes solutions</h2>
+<pre><code>https://github.com/perak/user-roles
+https://github.com/nicolaslopezj/roles
+    - Utiliser par cms orion
+https://github.com/possibilities/meteor-groups
+</code></pre>
+<h2 id="ajout-au-modele-utilisateur">Ajout au modèle utilisateur</h2>
+<p>Groupe Global
+  {
+    "_id" : "jdJpzpvCvqr9ZrXvm",
+    "username" : "admin",
+    ...
+    "roles" : {
+        "<strong>global_roles</strong>" : [
+                "admin"
+        ]
+    }
+  }</p>
+<p>Groupe client1
+    "roles" : {
+        "group1" : [
+                "client"
+        ]
+    }</p>
+<h2 id="installation">Installation</h2>
+<pre><code class="sh">
+$ meteor add accounts-password
+$ meteor add alanning:roles
+</code></pre>
+
+<p><strong>La collection n'est pas publié par défaut, il faut le faire avec:</strong></p>
+<pre><code class="js">// server/publish.js
+Meteor.publish(null, function (){
+  return Meteor.roles.find({})
+});
+
+</code></pre>
+
+<h2 id="creer-supprimer-des-roles-hors-user">Créer / Supprimer des roles - hors user</h2>
+<pre><code class="js">Roles.createRole(role);
+
+Roles.deleteRole(role);
+
+// Refuse la suppression, si le role est affecté à des utilisateurs:
+
+var foundExistingUser = Meteor.users.findOne({roles: {$in: [role]}},{fields: {_id: 1}})
+
+</code></pre>
+
+<h2 id="liste-des-roles-dun-utilisateur">Liste des roles d'un utilisateur</h2>
+<p>Renvoi un tableau de String non trié des roles du user</p>
+<pre><code class="js">Roles.getRolesForUser(user_or_userid, optional_group);
+</code></pre>
+
+<h2 id="liste-des-utilisateurs-pour-un-role">Liste des utilisateurs pour un role</h2>
+<p>Retour un curseur des Meteor.users pour ce role</p>
+<pre><code class="js">Roles.getUsersInRole(role, group);
+</code></pre>
+
+<h2 id="liste-des-groupes-dun-utilisateur">Liste des groupes d'un utilisateur</h2>
+<p>Renvoi un tableau des groupes non trié</p>
+<pre><code class="js">Roles.getGroupsForUser(user_or_userid, optional_role);
+</code></pre>
+
+<h2 id="controlleur-personnalise-avec-verification-des-droits-par-route">Controlleur personnalisé avec vérification des droits par route</h2>
+<p>Vérifie avant (onBeforeAction) si l'utilisateur à la permission pour cette route</p>
+<pre><code>ShopAdminController = this.ShopController.extend({
+  onBeforeAction: function() {
+    if (!ReactionCore.hasPermission(this.route.getName())) {
+      this.render('unauthorized', {
+        to: 'main'
+      });
+    } else {
+      this.next();
+    }
+  }
+});
+</code></pre>
+
+<h2 id="assigner-des-roles-au-demarrage-du-server">Assigner des rôles au démarrage du server</h2>
+<p>https://github.com/alanning/meteor-roles/blob/master/examples/rolesWithAccountsUI/server/startup.js
+https://github.com/alanning/meteor-roles/blob/master/examples/iron-router/server/server.js</p>
+<h2 id="supprimer-les-roles-dun-utilisateur">Supprimer les roles d'un utilisateur</h2>
+<p>A faire avant la suppression d'un utilisateur</p>
+<pre><code class="js">Roles.setUserRoles(targetUserId, [], group)
+</code></pre>
+
+<h2 id="utilisation-dans-les-allow-deny">Utilisation dans les Allow - Deny</h2>
+<pre><code>BlacklistIp.allow({
+  insert: function (userId, doc) {
+    //error.invalidKeys` or by calling Books.simpleSchema().namedContext().invalidKeys()
+    //error.reason
+    return !! userId;
+    //return true;
+  },
+
+  update: function (userId, doc, fieldNames, modifier) {
+    return true;
+  },
+
+  remove: function (userId, doc) {
+    return true;
+  }
+});
+</code></pre>
+
+<h2 id="assigner-automatiquement-un-role-par-default">Assigner automatiquement un role par default</h2>
+<p>Intercepte la création d'un utilisateur par la méthode Accounts.createUser()</p>
+<p>// server/methods.js
+  Accounts.onCreateUser(function (options, user) {
+    Roles.setRolesOnUserObj(user, ['admin','view-secrets']);
+    return user
+  });</p>
+<h2 id="tips-limiter-la-creation-dutilisateurs">Tips - Limiter la création d'utilisateurs</h2>
+<p><strong>Autoriser seulement la création pour les roles admin ou manage-users:</strong></p>
+<pre><code class="javascript">
+//common
+Accounts.validateNewUser(function (user) {
+    var loggedInUser = Meteor.user();
+
+    if (Roles.userIsInRole(loggedInUser, ['admin','manage-users'])) {
+      return true;
+    }
+
+    throw new Meteor.Error(403, &quot;Not authorized to create new users&quot;);
+});
+
+</code></pre>
+
+<h2 id="tips-exemple-de-filtrage-des-donnees-cote-server-par-groupe-utilisateur">Tips - Exemple de filtrage des données coté server - Par Groupe utilisateur</h2>
+<pre><code class="javascript">
+// server/publish.js
+Meteor.publish('secrets', function (group) {
+  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {
+
+    return Meteor.secrets.find({group: group});
+
+  } else {
+
+    // user not authorized. do not publish secrets
+    this.stop();
+    return;
+
+  }
+});
+
+</code></pre>
+
+<h2 id="utilisation-dans-les-templates">Utilisation dans les templates</h2>
+<pre><code>
+&lt;template name=&quot;header&quot;&gt;
+  {{#if isInRole 'admin'}}
+    {{&gt; admin_nav}}
+  {{/if}}
+  {{#if isInRole 'admin,editor'}}
+    {{&gt; editor_stuff}}
+  {{/if}}
+&lt;/template&gt;
+
+// Limiter au group1 avec le role admin ou editor
+&lt;template name=&quot;header&quot;&gt;
+  {{#if isInRole 'admin,editor' 'group1'}}
+    {{&gt; editor_stuff}}
+  {{/if}}
+&lt;/template&gt;
+
+</code></pre>
+
+<h2 id="collections">Collections</h2>
+<ul>
+<li>Meteor.roles</li>
+<li>Modifie Meteor.users</li>
+</ul>
+<h2 id="ajout-de-role">Ajout de role</h2>
+<ul>
+<li>users Array | String</li>
+<li>roles Array | String</li>
+<li>group String optional (default Roles.GLOBAL_GROUP)</li>
+</ul>
+<p>addUsersToRoles vs setUserRoles:
+    addUsersToRoles: ajoute un ou plusieurs roles
+    setUserRoles: affecte ou remplace les roles</p>
+<p>Roles.addUsersToRoles(userId, 'admin')</p>
+<p>Roles.addUsersToRoles(userId, ['view-secrets'], 'example.com')</p>
+<p>Roles.addUsersToRoles([user1, user2], ['user','editor'])</p>
+<p>Roles.addUsersToRoles([user1, user2], ['glorious-admin', 'perform-action'], 'example.org')</p>
+<p>Roles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP)</p>
+<h2 id="extension-ongoworks-security">Extension ongoworks-security</h2>
+<ul>
+<li>https://atmospherejs.com/ongoworks/security</li>
+<li>https://github.com/reactioncommerce/reaction-core/blob/5d719c2a74ea6c0e125ad5113af39859f697bf03/server/security.coffee</li>
+</ul>
+<pre><code class="sh">$ meteor add ongoworks:security
+</code></pre>
+
+<p>Affecte des permissions par collection</p>
+<pre><code class="js">// server/security.js:
+
+// Any client may insert, update, or remove a post without restriction
+Posts.permit(['insert', 'update', 'remove']).apply();
+
+// No clients may insert, update, or remove posts
+Posts.permit(['insert', 'update', 'remove']).never().apply();
+
+// Clients may insert posts only if a user is logged in
+Posts.permit('insert').ifLoggedIn().apply();
+
+// Clients may remove posts only if an admin user is logged in
+Posts.permit('remove').ifHasRole('admin').apply();
+
+// Admin users may update any properties of any post, but regular users may
+// update posts only if they don't try to change the `author` or `date` properties
+Posts.permit('update').ifHasRole('admin').apply();
+Posts.permit('update').ifLoggedIn().exceptProps(['author', 'date']).apply();
+</code></pre>
+
+<p><strong>Méthodes chainables:</strong></p>
+<p>never() - Jamais</p>
+<p>ifLoggedIn() - Si l'utilisateur est authentifié</p>
+<p>ifHasUserId(userId) - N'autorise que le userid</p>
+<p>ifHasRole(role) - Autorise si l'utilisateur à le role</p>
+<p>ifHasRole({role: 'admin', group: 'mygroup'}</p>
+<p>ifHasRole({role: role, group: group})</p>
+<p>onlyProps(props) - N'autorise que la modification de ces champs</p>
+<p>exceptProps(['owner', 'owner_group'])</p>
+<p>exceptProps(props) - ?</p>
+<h3 id="personnalisation-de-methods">Personnalisation de methods</h3>
+<pre><code class="js">
+// usage: Posts.permit('remove').ifLoggedIn().apply();
+Security.defineMethod(&quot;ifLoggedIn&quot;, {
+  fetch: [],
+  transform: null,
+  deny: function (type, arg, userId) {
+    return !userId;
+  }
+});
+
+// ifHasUserId
+Security.defineMethod(&quot;ifHasUserId&quot;, {
+  fetch: [],
+  transform: null,
+  deny: function (type, arg, userId) {
+    return userId !== arg;
+  }
+});
+
+Security.defineMethod(&quot;ifIsCurrentUser&quot;, {
+  fetch: [],
+  transform: null,
+  deny: function (type, arg, userId, doc) {
+    return userId !== doc._id;
+  }
+});
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rest-api/" class="btn btn-neutral float-right" title="API Rest"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../meteor-collection-helpers/" class="btn btn-neutral" title="meteor-collection-helpers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../meteor-collection-helpers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../rest-api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

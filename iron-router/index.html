@@ -83,6 +83,8 @@
             
                 <li class="toctree-l3"><a href="#router-iron-router">Router iron-router</a></li>
                 
+                    <li><a class="toctree-l4" href="#souscription">Souscription</a></li>
+                
             
             </ul>
         
@@ -140,7 +142,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../meteor-roles/">meteor-roles</a>
+        <a class="" href="../useraccounts-roles/">meteor-roles</a>
         
     </li>
 
@@ -188,6 +190,21 @@
         <a class="" href="../email/">Mails</a>
         
     </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Applications</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
@@ -252,6 +269,36 @@
             <div class="section">
               
                 <h1 id="router-iron-router">Router iron-router</h1>
+<ul>
+<li>https://github.com/iron-meteor/iron-router/blob/devel/Guide.md</li>
+<li>http://robertdickert.com/blog/2014/05/08/iron-router-first-steps/</li>
+<li>https://github.com/zimme/meteor-iron-router-auth.git</li>
+</ul>
+<h2 id="souscription">Souscription</h2>
+<p>Plusieurs méthodes</p>
+<p>Idée: définir un controlleur global à hérité et y placer des subscribe commun comme les Users</p>
+<h3 id="dans-un-routerroute">Dans un Router.route</h3>
+<pre><code class="js">Router.route('/post/:_id', {
+  subscriptions: function() {
+    this.subscribe('items');
+    this.subscribe('item', this.params._id).wait();
+  },
+});
+</code></pre>
+
+<h3 id="waiton-vs-subscriptions">waitOn vs subscriptions</h3>
+<ul>
+<li>L'avantage de waitOn est d'y placer aussi d'autres attente (wait) que les souscriptions</li>
+</ul>
+<pre><code class="js">  waitOn: function () {
+    return Meteor.subscribe('post', this.params._id);
+  },
+</code></pre>
+
+<h3 id="dans-un-controlleur">Dans un controlleur</h3>
+<pre><code class="js">PostController = RouteController.extend();
+</code></pre>
+
 <ul>
 <li>http://www.manuel-schoebel.com/blog/meteorjs-iron-router-filters-before-and-after-hooks</li>
 </ul>

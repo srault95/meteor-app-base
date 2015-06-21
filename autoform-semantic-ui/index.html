@@ -102,11 +102,13 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#autoform-semantic-ui">autoform-semantic-ui</a></li>
+                <li class="toctree-l3"><a href="#semantic-ui-autoform-et-autres-composants">semantic-ui - autoform et autres composants</a></li>
                 
                     <li><a class="toctree-l4" href="#installation">Installation</a></li>
                 
                     <li><a class="toctree-l4" href="#usage">Usage</a></li>
+                
+                    <li><a class="toctree-l4" href="#semantic-ui-components">semantic-ui-components</a></li>
                 
             
             </ul>
@@ -144,7 +146,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../meteor-roles/">meteor-roles</a>
+        <a class="" href="../useraccounts-roles/">meteor-roles</a>
         
     </li>
 
@@ -192,6 +194,21 @@
         <a class="" href="../email/">Mails</a>
         
     </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Applications</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
@@ -255,13 +272,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="autoform-semantic-ui">autoform-semantic-ui</h1>
+                <h1 id="semantic-ui-autoform-et-autres-composants">semantic-ui - autoform et autres composants</h1>
 <p><strong>Template Semantic-ui pour le package aldeed:autoform.</strong></p>
-<p>https://github.com/fabienb4/meteor-autoform-semantic-ui</p>
+<ul>
+<li>https://atmospherejs.com/fabienb4/autoform-semantic-ui</li>
+<li>https://github.com/fabienb4/meteor-autoform-semantic-ui</li>
+</ul>
 <h3 id="installation">Installation</h3>
 <p>Dépendances: templating, underscore, aldeed:autoform</p>
 <pre><code>$ meteor add semantic:ui-css
 $ meteor add fabienb4:autoform-semantic-ui
+$ meteor add fabienb4:semantic-ui-components
 </code></pre>
 
 <p><strong>Configuration globale:</strong></p>
@@ -292,6 +313,105 @@ Template.main.helpers({
       { value: &quot;2&quot;, label: &quot;Item 2&quot; }
     ];
 });
+</code></pre>
+
+<h2 id="semantic-ui-components">semantic-ui-components</h2>
+<ul>
+<li>https://atmospherejs.com/fabienb4/semantic-ui-components</li>
+<li>https://github.com/fabienb4/meteor-semantic-ui-components/</li>
+</ul>
+<h3 id="connectionlost">ConnectionLost</h3>
+<pre><code>Router.configure({
+  loadingTemplate: "Loading",
+  onBeforeAction: function() {
+    if (! Meteor.status().connected) {
+      this.render("ConnectionLost");
+    } else {
+      this.next();
+    }
+  }
+});
+</code></pre>
+<h3 id="progressbar">progressBar</h3>
+<p>Exemples avec des variables Reactive (maxValue &amp; currentValue)</p>
+<pre><code>// Small inverted progress bar
+{{&gt; progressBar classNames="small inverted" current=currentValue total=maxValue}}
+
+// Progress bar that changes color when completed
+{{&gt; progressBar current=currentValue total=maxValue completeClass="green"}}
+
+// Progress bar with style when low (useful for countdown)
+{{&gt; progressBar current=currentValue total=maxValue styleLowBar=true low=20 veryLow=10}}
+
+// Progress bar with ratio display
+{{&gt; progressBar current=currentValue total=maxValue showRatio=true}}
+
+// Progress bar with percent display
+{{&gt; progressBar current=currentValue total=maxValue showPercent=true}}
+
+// Colored progress bar with label display
+{{&gt; progressBar classNames="labeled green" label="Capacity" current=currentValue total=maxValue}}
+
+// Colored progress bar with label &amp; ratio display
+{{&gt; progressBar label="Capacity" current=currentValue total=maxValue showRatio=true}}
+</code></pre>
+<h3 id="searchinput">searchInput</h3>
+<pre><code>{{&gt; searchInput}}
+
+// With ID
+{{&gt; searchInput id="searchName"}}
+
+// With placeholder
+{{&gt; searchInput placeholder="Search..."}}
+</code></pre>
+<h3 id="selectdropdown">selectDropdown</h3>
+<pre><code>// Simple
+items = [
+  { value: "1", label: "Item 1" },
+  { value: "2", label: "Item 2" }
+];
+
+// With icons/flags
+items = [
+  { value: "1", label: "Item 1", icon: "file text icon" },
+  { value: "2", label: "Item 2", icon: "bz flag" }
+];
+
+// Groups with headers
+items = [
+  {
+    itemGroup: "Group one",
+    items: [
+      { value: "1", label: "Item 1" },
+      { value: "2", label: "Item 2" }
+    ]
+  },
+  {
+    itemGroup: "Group two",
+    items: [
+      { value: "3", label: "Item 3" },
+      { value: "4", label: "Item 4" }
+    ]
+  }
+]
+
+// Simple
+{{&gt; selectDropdown items=items label="Items" name="items"}}
+
+// With a custom placeholder
+{{&gt; selectDropdown items=items label="Items" name="items" placeholder="Select an item"}}
+
+// Required select
+{{&gt; selectDropdown items=items label="Items" name="items" required=true}}
+
+// Searchable select
+{{&gt; selectDropdown items=items label="Items" name="items" search=true}}
+
+// Searchable select with full text search
+{{&gt; selectDropdown items=items label="Items" name="items" fullTextSearch=true}}
+</code></pre>
+<h3 id="reversing-animation">Reversing animation</h3>
+<pre><code>&lt;i class="reversing magnet icon"&gt;&lt;/i&gt;
 </code></pre>
               
             </div>

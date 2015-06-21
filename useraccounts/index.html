@@ -208,7 +208,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../meteor-roles/">meteor-roles</a>
+        <a class="" href="../useraccounts-roles/">meteor-roles</a>
         
     </li>
 
@@ -256,6 +256,21 @@
         <a class="" href="../email/">Mails</a>
         
     </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Applications</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
@@ -338,6 +353,9 @@
 <li>Définition d'un schéma pour la collection Meteor.users</li>
 <li>Rendre obligatoire l'auth sur les routes /admin/* par exemple</li>
 <li>Usage de la collection meteor_accounts_loginServiceConfiguration</li>
+<li>loginServiceConfiguration (DEFAULT_LOGIN_EXPIRATION_DAYS, ...)</li>
+<li>https://github.com/meteor/meteor/blob/master/packages/accounts-base/accounts_common.js#L55</li>
+<li>Hooks standard: Accounts.onLogin, Accounts.onLoginFailure</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
 <p>useraccounts:core fournit toutes les fonctions de base mais aucun template.</p>
@@ -360,6 +378,16 @@
 <p>https://www.meteor.com/accounts</p>
 <p>A priori, appartient à accounts-ui-unstyled - https://github.com/meteor/meteor/tree/devel/packages/accounts-ui-unstyled
 passwordSignupFields: 'EMAIL_ONLY'</p>
+<p>Accounts.ui.config({
+  requestPermissions: {
+    facebook: ['user_likes'],
+    github: ['user', 'repo']
+  },
+  requestOfflineToken: {
+    google: true
+  },
+  passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL' //  'USERNAME_AND_EMAIL', 'USERNAME_AND_OPTIONAL_EMAIL', 'USERNAME_ONLY', or 'EMAIL_ONLY' (default).
+});</p>
 <p>Accounts.validateLoginAttempt
 Accounts.onLoginFailure
 Accounts.onLogin
@@ -913,6 +941,45 @@ Meteor.publish(&quot;usersDirectory&quot;, function () {
 <li><a href="https://github.com/Differential/accounts-entry">accounts-entry</a></li>
 </ul>
 <h1 id="tips-profile-utilisateur-et-preferences">Tips - Profile Utilisateur et préférences</h1>
+<pre><code class="js">
+// A VOIR
+Meteor.publish(&quot;UserProfile&quot;, function(profileUserId) {
+  var permissions;
+  check(profileUserId, Match.OneOf(String, null));
+  permissions = ['dashboard/orders', 'owner', 'admin', 'dashboard/customers'];
+  if (profileUserId !== this.userId) {
+    if (this.userId &amp;&amp; (Roles.userIsInRole(this.userId, permissions, ReactionCore.getCurrentShop(this)._id || Roles.userIsInRole(this.userId, permissions, Roles.GLOBAL_GROUP)))) {
+      return Meteor.users.find({
+        _id: profileUserId
+      }, {
+        fields: {
+          &quot;emails&quot;: true,
+          &quot;profile.firstName&quot;: true,
+          &quot;profile.lastName&quot;: true,
+          &quot;profile.familyName&quot;: true,
+          &quot;profile.secondName&quot;: true,
+          &quot;profile.name&quot;: true,
+          &quot;services.twitter.profile_image_url_https&quot;: true,
+          &quot;services.facebook.id&quot;: true,
+          &quot;services.google.picture&quot;: true,
+          &quot;services.github.username&quot;: true,
+          &quot;services.instagram.profile_picture&quot;: true
+        }
+      });
+    } else {
+      ReactionCore.Events.info(&quot;user profile access denied&quot;);
+      return [];
+    }
+  } else if (this.userId) {
+    return Meteor.users.find({
+      _id: this.userId
+    });
+  } else {
+    return [];
+  }
+});
+</code></pre>
+
 <h1 id="tips-integration-de-iron-router-auth">Tips - Intégration de iron-router-auth</h1>
 <ul>
 <li>https://github.com/zimme/meteor-iron-router-auth</li>

@@ -133,7 +133,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../meteor-roles/">meteor-roles</a>
+        <a class="" href="../useraccounts-roles/">meteor-roles</a>
         
     </li>
 
@@ -183,6 +183,8 @@
             
                 <li class="toctree-l3"><a href="#client">client:</a></li>
                 
+                    <li><a class="toctree-l4" href="#meteor-admin">meteor-admin</a></li>
+                
             
             </ul>
         
@@ -197,6 +199,21 @@
         <a class="" href="../email/">Mails</a>
         
     </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Applications</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
@@ -263,6 +280,7 @@
                 <h1 id="plugins-a-etudier">Plugins A etudier</h1>
 <p>https://atmospherejs.com/zimme/iron-router-auth</p>
 <h2 id="flash-messages">flash-messages</h2>
+<p>Voir plutot s-alert</p>
 <ul>
 <li>https://github.com/camilosw/flash-messages</li>
 <li>https://atmospherejs.com/mrt/flash-messages</li>
@@ -353,7 +371,6 @@ Template.myTemplate.topGenresChart = function() {
 };
 </code></pre>
 <h2 id="s-alert">s-alert</h2>
-<p><strong>Flash message</strong></p>
 <ul>
 <li>https://atmospherejs.com/juliancwirko/s-alert</li>
 <li>http://s-alert.meteor.com/</li>
@@ -399,6 +416,19 @@ Template.myTemplate.topGenresChart = function() {
 <p>sAlert.error('Your message', configOverwrite);</p>
 </li>
 </ul>
+<h2 id="meteor-admin">meteor-admin</h2>
+<ul>
+<li>https://github.com/yogiben/meteor-admin</li>
+</ul>
+<p><strong>Configuration minimum:</strong></p>
+<pre><code>@AdminConfig = {
+  name: 'My App'
+  adminEmails: ['ben@code2create.com']
+  collections: {
+    Posts: {}
+  }
+};
+</code></pre>
               
             </div>
           </div>
