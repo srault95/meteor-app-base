@@ -34,6 +34,7 @@ pages:
     - 'Mails': email.md
     - 'Applications':
       - 'E-Commerce': app-reactioncommerce.md
+      - 'CMS': app-orionjs.md
     - 'Liens': links.md
     - 'Tips': tips.md
     - 'Faq': faq.md

@@ -8,7 +8,9 @@ https://atmospherejs.com/nimble/restivus
 
 ###Installation
 
-    meteor add nimble:restivus
+```sh
+$ meteor add nimble:restivus
+```
 
 ### Configuration rapide
 

@@ -3,6 +3,9 @@
 * https://atmospherejs.com/alanning/roles
 * https://github.com/alanning/meteor-roles
 
+* https://github.com/nicolaslopezj/roles
+  * Utilisé par Orion
+
 * https://www.discovermeteor.com/blog/allow-deny-a-security-primer/
   * https://www.discovermeteor.com/blog/allow-deny-challenge-results/
 

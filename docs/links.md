@@ -25,6 +25,8 @@ page_keywords: documentation, docs,  docker, compose, orchestration, containers
 * http://www.webtempest.com/meteor-js-autoform-tutorial
 * https://medium.com/@s_eschweiler/how-to-build-web-apps-ultra-fast-with-meteor-iron-scaffolding-and-automatic-form-generation-11734eda8e67
 
+## Articles
+
 ## Les librairies les plus utiles
 
 * https://github.com/aldeed/meteor-simple-schema
@@ -51,10 +53,6 @@ Il est disponible sur https://github.com/srault95/meteor-app-base
 ### meteor kitchen
 
 http://www.meteorkitchen.com
-
-### Orion CMS
-
-http://orionjs.org
 
 ### Launch Docker
 

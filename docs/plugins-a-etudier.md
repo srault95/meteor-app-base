@@ -110,7 +110,6 @@ Voir plutot s-alert
 * http://s-alert-demo.meteor.com/
 * https://github.com/juliancwirko/meteor-s-alert/
 
-
 - utilise une collection null: sAlert.collection
 
 	$ meteor add juliancwirko:s-alert
@@ -154,18 +153,207 @@ Voir plutot s-alert
 	sAlert.error('Your message', configOverwrite);
 
 
-
 ## meteor-admin
 
 * https://github.com/yogiben/meteor-admin
 
 **Configuration minimum:**
 
-    @AdminConfig = {
-      name: 'My App'
-      adminEmails: ['ben@code2create.com']
-      collections: {
-        Posts: {}
-      }
-    };
+```coffeescript
+@AdminConfig = {
+  name: 'My App'
+  adminEmails: ['ben@code2create.com']
+  collections: {
+    Posts: {}
+  }
+};
+```
+
+## meteorhacks:npm
+
+Ajoute un fichier packages.json pour déclarer des dépendances NPM externes.
+
+* https://atmospherejs.com/meteorhacks/npm
+
+**Utilisation des dépendances dans Meteor - fichier packages.json:**
+
+```json
+{
+  "redis": "0.8.2",
+  "github": "0.1.8"
+}
+```
+
+```js
+// Coté server seulemement
+// var Github = Meteor.npmRequire('github');
+
+if (Meteor.isServer) {
+  Meteor.methods({
+    'getGists': function getGists(user) {
+      var GithubApi = Meteor.npmRequire('github');
+      var github = new GithubApi({
+          version: "3.0.0"
+      });
+
+      var gists = Async.runSync(function(done) {
+        github.gists.getFromUser({user: 'arunoda'}, function(err, data) {
+          done(null, data);
+        });
+      });
+
+      return gists.result;
+    }
+  });
+}
+```
+
+## meteorhacks:async
+
+* https://atmospherejs.com/meteorhacks/async
+
+```sh
+$ meteor add meteorhacks:async
+```
+
+```js
+// server/methods.js
+var response = Async.runSync(function(done) {
+  setTimeout(function() {
+    done(null, 1001);
+  }, 100);
+});
+
+console.log(response.result); // 1001
+```
+
+## meteorhacks:unblock
+
+* https://atmospherejs.com/meteorhacks/unblock
+
+Evite à l'utilisateur, lors d'appel de méthodes bloquantes comme l'envoi d'un mail d'attendre une réponse
+
+```sh
+$ meteor add meteorhacks:unblock
+```
+
+```js
+// server/methods.js
+Meteor.methods({
+  longMethod: function() {
+    this.unblock();
+    Meteor._sleepForMs(1000 * 60 * 60);
+  }
+});
+```
+
+## meteorhacks:meteorx
+
+* https://atmospherejs.com/meteorhacks/meteorx
+
+Expose certaines API Server Meteor
+
+```sh
+$ meteor add meteorhacks:meteorx
+```
+
+**API exposés:**
+
+* MeteorX.Session - livedata Session
+* MeteorX.Subscription - livedata Subscription
+* MeteorX.SessionCollectionView - livedata SessionCollectionView
+* MeteorX.SessionDocumentView - livedata SessionDocumentView
+* MeteorX.MongoConnection - mongo-livedata MongoConnection
+* MeteorX.MongoCursor - mongo-livedata Cursor
+
+## appcache
+
+* https://github.com/meteor/meteor/tree/devel/packages/appcache
+* https://github.com/meteor/meteor/wiki/AppCache
+* Voir aussi https://github.com/buildhybrid/appcache-extra
+* https://blog.groupbuddies.com/posts/45-offline-web-apps-with-meteor
+
+Mise en cache des assets (fichiers javascripts, css, images, ...)
+
+
+```
+$ meteor add appcache
+```
+
+```
+// Active ou désactive pour certains navigateur
+
+// choix : android, chrome, chromium, chromeMobileIOS, firefox, ie, mobileSafari and safari
+Meteor.AppCache.config({
+  chrome: false,
+  firefox: false
+});
+```
+
+## gadicohen:headers
+
+* https://atmospherejs.com/gadicohen/headers
+
+Permet d'interragir avec les headers, coté client et server
+
+Fournit des méthodes comme headers.getClientIP()
+
+```sh
+$ meteor add gadicohen:headers
+```
+
+## stevezhu:lodash
+
+* https://atmospherejs.com/stevezhu/lodash
+
+Charge et expose la librairie lodash v3.8.0
+
+```sh
+meteor add stevezhu:lodash
+```
+
+## browser-policy
+
+* https://github.com/meteor/meteor/tree/devel/packages/browser-policy
+* https://meteorhacks.com/xss-and-meteor
+* https://dweldon.silvrback.com/browser-policy
+* http://info.meteor.com/blog/defense-in-depth-securing-meteor-apps-with-content-security-policy
+
+Définit la politique de sécurité du navigateur et gère les attaques de type clickjacking
+
+```sh
+meteor add browser-policy
+```
+
+```js
+//server/browser_policy.js
+
+BrowserPolicy.framing.disallow();
+BrowserPolicy.content.disallowInlineScripts();
+BrowserPolicy.content.disallowEval();
+BrowserPolicy.content.allowInlineStyles();
+BrowserPolicy.content.allowFontDataUrl();
+
+// Autoriser seulement les scripts externes de ces provenances à s'executer
+// Oblige les scripts externes à être chargé en https
+var trusted = [
+  '*.google-analytics.com',
+  '*.mxpnl.com',
+  '*.zendesk.com'
+];
+
+_.each(trusted, function(origin) {
+  origin = "https://" + origin;
+  BrowserPolicy.content.allowOriginForAll(origin);
+});
+```
+
+### Spécifique proxy nginx
+
+```
+# Dans la section http
+proxy_buffer_size       128k;
+proxy_buffers           4 256k;
+proxy_busy_buffers_size 256k;
+```
 
