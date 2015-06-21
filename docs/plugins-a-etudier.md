@@ -5,6 +5,8 @@ https://atmospherejs.com/zimme/iron-router-auth
 
 ## flash-messages
 
+Voir plutot s-alert
+
 * https://github.com/camilosw/flash-messages
 * https://atmospherejs.com/mrt/flash-messages
 * https://github.com/JamesLefrere/meteor-flash-messages-semantic-ui
@@ -103,8 +105,6 @@ https://atmospherejs.com/zimme/iron-router-auth
 
 ## s-alert
 
-**Flash message**
-
 * https://atmospherejs.com/juliancwirko/s-alert
 * http://s-alert.meteor.com/
 * http://s-alert-demo.meteor.com/
@@ -152,4 +152,20 @@ https://atmospherejs.com/zimme/iron-router-auth
 	});
 
 	sAlert.error('Your message', configOverwrite);
+
+
+
+## meteor-admin
+
+* https://github.com/yogiben/meteor-admin
+
+**Configuration minimum:**
+
+    @AdminConfig = {
+      name: 'My App'
+      adminEmails: ['ben@code2create.com']
+      collections: {
+        Posts: {}
+      }
+    };
 

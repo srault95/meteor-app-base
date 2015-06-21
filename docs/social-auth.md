@@ -1,5 +1,7 @@
 # Authentification Sociale
 
+* https://github.com/ongoworks/meteor-accounts-docker
+
 ## Configuration Accounts.ui pour l'authentification sociales
 
     Accounts.ui.config({

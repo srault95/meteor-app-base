@@ -14,6 +14,9 @@
 - Définition d'un schéma pour la collection Meteor.users
 - Rendre obligatoire l'auth sur les routes /admin/* par exemple
 - Usage de la collection meteor_accounts_loginServiceConfiguration
+  - loginServiceConfiguration (DEFAULT_LOGIN_EXPIRATION_DAYS, ...)
+  - https://github.com/meteor/meteor/blob/master/packages/accounts-base/accounts_common.js#L55
+- Hooks standard: Accounts.onLogin, Accounts.onLoginFailure
 
 ## Introduction
 
@@ -38,6 +41,17 @@ Exemple avec le bouton de connection:
 
     A priori, appartient à accounts-ui-unstyled - https://github.com/meteor/meteor/tree/devel/packages/accounts-ui-unstyled
     passwordSignupFields: 'EMAIL_ONLY'
+
+    Accounts.ui.config({
+      requestPermissions: {
+        facebook: ['user_likes'],
+        github: ['user', 'repo']
+      },
+      requestOfflineToken: {
+        google: true
+      },
+      passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL' //  'USERNAME_AND_EMAIL', 'USERNAME_AND_OPTIONAL_EMAIL', 'USERNAME_ONLY', or 'EMAIL_ONLY' (default).
+    });
 
     Accounts.validateLoginAttempt
     Accounts.onLoginFailure
@@ -644,6 +658,46 @@ Meteor.publish("usersDirectory", function () {
 * [accounts-entry](https://github.com/Differential/accounts-entry)
 
 # Tips - Profile Utilisateur et préférences
+
+```js
+
+// A VOIR
+Meteor.publish("UserProfile", function(profileUserId) {
+  var permissions;
+  check(profileUserId, Match.OneOf(String, null));
+  permissions = ['dashboard/orders', 'owner', 'admin', 'dashboard/customers'];
+  if (profileUserId !== this.userId) {
+    if (this.userId && (Roles.userIsInRole(this.userId, permissions, ReactionCore.getCurrentShop(this)._id || Roles.userIsInRole(this.userId, permissions, Roles.GLOBAL_GROUP)))) {
+      return Meteor.users.find({
+        _id: profileUserId
+      }, {
+        fields: {
+          "emails": true,
+          "profile.firstName": true,
+          "profile.lastName": true,
+          "profile.familyName": true,
+          "profile.secondName": true,
+          "profile.name": true,
+          "services.twitter.profile_image_url_https": true,
+          "services.facebook.id": true,
+          "services.google.picture": true,
+          "services.github.username": true,
+          "services.instagram.profile_picture": true
+        }
+      });
+    } else {
+      ReactionCore.Events.info("user profile access denied");
+      return [];
+    }
+  } else if (this.userId) {
+    return Meteor.users.find({
+      _id: this.userId
+    });
+  } else {
+    return [];
+  }
+});
+```
 
 # Tips - Intégration de iron-router-auth
 
