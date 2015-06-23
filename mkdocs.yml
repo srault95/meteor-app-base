@@ -35,6 +35,7 @@ pages:
     - 'Applications':
       - 'E-Commerce': app-reactioncommerce.md
       - 'CMS': app-orionjs.md
+      - 'Site Communautaire': app-telescope.md
     - 'Liens': links.md
     - 'Tips': tips.md
     - 'Faq': faq.md

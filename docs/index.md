@@ -23,6 +23,7 @@
   * Applications
     * [E-Commerce](app-reactioncommerce.md)
     * [CMS](app-orionjs.md)
+    * [Site Communautaire](app-telescope.md)
 * [Tips](tips.md)
 * [Liens](links.md)
 * [Faq](faq.md)
