@@ -83,6 +83,22 @@
             
                 <li class="toctree-l3"><a href="#router-iron-router">Router iron-router</a></li>
                 
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#les-differentes-facon-de-declarer-et-gerer-des-routes">Les différentes façon de déclarer et gérer des routes</a></li>
+                
+                    <li><a class="toctree-l4" href="#tous-les-parametres-de-routerroute">Tous les paramètres de Router.route()</a></li>
+                
+                    <li><a class="toctree-l4" href="#options-par-defaut-pour-toutes-les-routes">Options par défaut pour toutes les routes</a></li>
+                
+                    <li><a class="toctree-l4" href="#hooks">Hooks</a></li>
+                
+                    <li><a class="toctree-l4" href="#plugins">Plugins</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips">Tips</a></li>
+                
+                    <li><a class="toctree-l4" href="#extensions-iron-router">Extensions Iron-Router</a></li>
+                
                     <li><a class="toctree-l4" href="#souscription">Souscription</a></li>
                 
             
@@ -94,6 +110,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../simple-schema/">Simple Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templating/">Templates</a>
         
     </li>
 
@@ -187,6 +210,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../mongodb/">MongoDB</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../email/">Mails</a>
         
     </li>
@@ -200,6 +230,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-orionjs/">CMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-telescope/">Site Communautaire</a>
         
     </li>
 
@@ -270,9 +314,201 @@
               
                 <h1 id="router-iron-router">Router iron-router</h1>
 <ul>
-<li>https://github.com/iron-meteor/iron-router/blob/devel/Guide.md</li>
+<li>https://github.com/iron-meteor/iron-router</li>
+<li>http://iron-meteor.github.io/iron-router</li>
+<li>http://fr.discovermeteor.com/chapters/routing/</li>
 <li>http://robertdickert.com/blog/2014/05/08/iron-router-first-steps/</li>
-<li>https://github.com/zimme/meteor-iron-router-auth.git</li>
+<li>http://stackoverflow.com/questions/tagged/iron-router</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<pre><code class="sh">$ meteor add iron:router
+</code></pre>
+
+<p><strong>Dépendances:</strong></p>
+<pre><code>// main namespace and utils
+// https://github.com/iron-meteor/iron-core
+iron:core
+
+// ui layout
+// https://github.com/iron-meteor/iron-layout
+iron:layout
+
+// connect like middleware stack for client/server
+// https://github.com/iron-meteor/iron-middleware-stack
+iron:middleware-stack
+
+// client and server side url utilities and compiling
+// https://github.com/iron-meteor/iron-url
+iron:url
+
+// for reactive urls and pushState in the browser
+// https://github.com/iron-meteor/iron-location
+iron:location
+
+// for RouteController which inherits from this
+// https://github.com/iron-meteor/iron-controller
+iron:controller
+</code></pre>
+
+<h2 id="les-differentes-facon-de-declarer-et-gerer-des-routes">Les différentes façon de déclarer et gérer des routes</h2>
+<pre><code class="js">
+// La plus simple: cherchera un template name=&quot;home&quot; et la route pourra être nommé &quot;home&quot;
+// Dans un template, la route pourra être appellé avec {{pathFor route='home'}}
+Router.route('/home');
+
+// Même chose mais en changeant des options comme le nom de la route
+// Le template devra s'appellé myhome
+// Dans un template, la route sera appellé avec {{pathFor route='myhome'}}
+Router.route('/home', {name: &quot;myhome&quot;});
+
+// Définit dans une fonction
+Router.route('/home', function () {
+  this.render('home');
+});
+
+// Fonction et options
+Router.route('/home', function () {
+  this.render('home');
+}, {
+  name: 'myhome'
+});
+
+</code></pre>
+
+<h2 id="tous-les-parametres-de-routerroute">Tous les paramètres de Router.route()</h2>
+<pre><code class="js">Router.route('/post/:_id', {
+  name: 'post.show',
+
+  path: '/post/:_id',
+
+  controller: 'CustomController',
+
+  template: 'Post',
+
+  layoutTemplate: 'ApplicationLayout',
+
+  yieldRegions: {
+    'MyAside': {to: 'aside'},
+    'MyFooter': {to: 'footer'}
+  },
+
+  subscriptions: function() {
+    this.subscribe('items');
+    this.subscribe('item', this.params._id).wait();
+  },
+
+  waitOn: function () {
+    return Meteor.subscribe('post', this.params._id);
+  },
+
+  data: function () {
+    return Posts.findOne({_id: this.params._id});
+  },
+
+  onRun: function () {},
+  onRerun: function () {},
+  onBeforeAction: function () {},
+  onAfterAction: function () {},
+  onStop: function () {},
+
+  action: function () {
+    this.render();
+  }
+});
+</code></pre>
+
+<h2 id="options-par-defaut-pour-toutes-les-routes">Options par défaut pour toutes les routes</h2>
+<p>Tous les paramètres de Router.route() peuvent être définit avec une valeur par défaut dans:</p>
+<pre><code class="js">Router.configure({
+  layoutTemplate: 'ApplicationLayout',
+});
+</code></pre>
+
+<h2 id="hooks">Hooks</h2>
+<h3 id="onbeforeaction">onBeforeAction</h3>
+<pre><code class="js">Router.onBeforeAction(function() {
+  if (! Meteor.userId()) {
+    this.render('login');
+  } else {
+    this.next();
+  }
+});
+</code></pre>
+
+<h2 id="plugins">Plugins</h2>
+<h2 id="tips">Tips</h2>
+<h3 id="trouver-le-nom-de-la-route-en-cours">Trouver le nom de la route en cours</h3>
+<pre><code class="js">Router.current().route.getName()
+</code></pre>
+
+<h2 id="extensions-iron-router">Extensions Iron-Router</h2>
+<p>Les extensions marqués d'un (*) sont ceux que je considère comme les plus utiles.</p>
+<h3 id="iron-dynamic-template">iron-dynamic-template</h3>
+<ul>
+<li>https://github.com/iron-meteor/iron-dynamic-template</li>
+</ul>
+<h3 id="iron-router-auth">iron-router-auth (*)</h3>
+<ul>
+<li>https://atmospherejs.com/zimme/iron-router-auth</li>
+</ul>
+<pre><code class="sh">$ meteor add zimme:iron-router-auth
+</code></pre>
+
+<pre><code>    - Définir routes public/privés: (dans client/views/router.js)
+        &gt; ou avec https://github.com/zimme/meteor-iron-router-auth
+        var publicRoutes = [&quot;home_public&quot;, &quot;login&quot;, &quot;register&quot;, &quot;forgot_password&quot;, &quot;reset_password&quot;];
+        var privateRoutes = [&quot;applications&quot;, &quot;applications.insert&quot;, &quot;applications.edit&quot;, &quot;applications.details&quot;, &quot;applications.details.form_view&quot;, &quot;applications.details.sitemap&quot;, &quot;applications.details.database&quot;, &quot;applications.details.json_view&quot;, &quot;applications.details.console&quot;, &quot;admin&quot;, &quot;admin.users&quot;, &quot;admin.users.details&quot;, &quot;admin.users.insert&quot;, &quot;admin.users.edit&quot;, &quot;user_settings&quot;, &quot;user_settings.profile&quot;, &quot;user_settings.change_pass&quot;, &quot;logout&quot;];
+        var zonelessRoutes = [&quot;getting_started&quot;, &quot;examples&quot;, &quot;api_reference&quot;, &quot;version_history&quot;, &quot;contribute&quot;, &quot;donate&quot;];
+    - Et utiliser hook (exemple site kitchen)
+        Router.onBeforeAction(Router.ensureNotLogged, {only: publicRoutes});
+        Router.onBeforeAction(Router.ensureLogged, {only: privateRoutes});
+</code></pre>
+
+<h3 id="iron-router-progress">iron-router-progress (*)</h3>
+<p>Affiche une barre de progression ou un spinner d'attente.</p>
+<ul>
+<li>https://atmospherejs.com/multiply/iron-router-progress</li>
+</ul>
+<pre><code class="sh">$ meteor add multiply:iron-router-progress
+</code></pre>
+
+<h3 id="iron-router-breadcrumb">iron-router-breadcrumb (*)</h3>
+<ul>
+<li>https://atmospherejs.com/monbro/iron-router-breadcrumb</li>
+<li>http://meteor-breadcrumb-plugin-basic-example.meteor.com/</li>
+</ul>
+<p>A l'aide des paramètres supplémentaires "parent" et "title" dans la définition des routes, permet d'avoir une barre:</p>
+<pre><code># Pour le lien: /dashboard/analytics/books
+Dashboard / Analytics / Category Books
+</code></pre>
+
+<p>Non dépendant de Bootstrap</p>
+<pre><code class="sh">$ meteor add monbro:iron-router-breadcrumb
+</code></pre>
+
+<h3 id="iron-router-i18n">iron-router-i18n (*)</h3>
+<p>Internationalisation des routes.</p>
+<ul>
+<li>https://atmospherejs.com/martino/iron-router-i18n</li>
+<li>https://atmospherejs.com/martino/i18n-conf</li>
+</ul>
+<pre><code class="sh">$ meteor add martino:iron-router-i18n
+$ meteor add martino:i18n-conf
+</code></pre>
+
+<h3 id="iron-router-ga">iron-router-ga</h3>
+<p>Aide à la création de routes personnalisés pour Google Analytic</p>
+<ul>
+<li>https://atmospherejs.com/reywood/iron-router-ga</li>
+<li>https://github.com/reywood/meteor-iron-router-ga/</li>
+</ul>
+<pre><code class="sh">$ meteor add reywood:iron-router-ga
+</code></pre>
+
+<h3 id="iron-router-autoscroll">iron-router-autoscroll</h3>
+<p>TODO: Comprendre l'usage</p>
+<ul>
+<li>https://atmospherejs.com/okgrow/iron-router-autoscroll</li>
 </ul>
 <h2 id="souscription">Souscription</h2>
 <p>Plusieurs méthodes</p>

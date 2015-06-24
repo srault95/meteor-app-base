@@ -91,6 +91,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../templating/">Templates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../social-auth/">Authentification Sociale</a>
         
     </li>
@@ -178,6 +185,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../mongodb/">MongoDB</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../email/">Mails</a>
         
     </li>
@@ -205,8 +219,28 @@
                 
                     <li><a class="toctree-l4" href="#creation-dun-nouveau-projet">Création d'un nouveau projet</a></li>
                 
+                    <li><a class="toctree-l4" href="#inclus">Inclus</a></li>
+                
+                    <li><a class="toctree-l4" href="#config-mail-dans-dashboardsettingsshop">Config mail dans /dashboard/settings/shop</a></li>
+                
+                    <li><a class="toctree-l4" href="#pages-static">Pages static</a></li>
+                
             
             </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-orionjs/">CMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-telescope/">Site Communautaire</a>
         
     </li>
 
@@ -292,6 +326,7 @@
 <h2 id="ajout-a-un-projet-existant">Ajout à un projet existant</h2>
 <pre><code>$ meteor add reactioncommerce:core
 </code></pre>
+
 <h2 id="creation-dun-nouveau-projet">Création d'un nouveau projet</h2>
 <pre><code>$ meteor add reactioncommerce:core
 $ meteor remove insecure
@@ -303,11 +338,13 @@ cd /workspace
 git clone https://github.com/reactioncommerce/reaction.git
 
 cd reaction &amp;&amp; git checkout master
+</code></pre>
 
-# n'est pas dans le projet
+<pre><code># n'est pas dans le projet
 meteor remove force-ssl
+</code></pre>
 
-&gt; NOK
+<pre><code>&gt; NOK
 # https://github.com/reactioncommerce/reaction-core/blob/master/docs/deploying.md
 # Renommer settings/dev.sample.json en settings/dev.json
 mv settings/dev.sample.json settings/dev.json
@@ -316,20 +353,20 @@ meteor --settings settings/dev.json --raw-logs -p $IP:$PORT
 ROOT_URL=https://188.165.254.60:444 MONGO_URL=mongodb://localhost/reaction meteor --raw-logs -p $IP:$PORT
 
 IMPORTANT! DEFAULT USER INFO (RANDOM)
-  EMAIL/LOGIN: wpdxynxm@188.165.254.60
-  PASSWORD: f0rFvPOC
+  EMAIL/LOGIN: wpdxynxm@localhost
+  PASSWORD: xxxxxx
 
 Requis:
     apt-get install -y --no-install-recommends graphicsmagick
 
 --settings
+</code></pre>
 
-# supp .meteor/local/build/programs/server/assets/packages/reactioncommerce_core/private/data/*.json
+<pre><code># supp .meteor/local/build/programs/server/assets/packages/reactioncommerce_core/private/data/*.json
 $ meteor reset
 </code></pre>
-<p>Inclus
-::::::</p>
-<p>::</p>
+
+<h2 id="inclus">Inclus</h2>
 <pre><code>package-stats-opt-out
 meteor-platform
 oauth-encryption
@@ -378,16 +415,15 @@ https://github.com/reactioncommerce/reaction-google-analytics
 https://github.com/reactioncommerce/reaction-search
 https://github.com/reactioncommerce/reaction-coupons
 </code></pre>
-<p>Config mail dans /dashboard/settings/shop
-:::::::::::::::::::::::::::::::::::::::::</p>
-<p>::</p>
+
+<h2 id="config-mail-dans-dashboardsettingsshop">Config mail dans /dashboard/settings/shop</h2>
 <pre><code>username:
 password:
 hostname: smtp.gmail.com
 port:
 </code></pre>
-<p>Pages static
-::::::::::::</p>
+
+<h2 id="pages-static">Pages static</h2>
 <ul>
 <li>
 <p>Pages avec template dans client/templates/static/*.html mais sans scripts</p>
@@ -396,8 +432,7 @@ port:
 <p>Controler: ShopController</p>
 </li>
 </ul>
-<p>::</p>
-<pre><code>var staticPages = ["about", "team", "faqs", "terms", "privacy"];
+<pre><code class="js">var staticPages = [&quot;about&quot;, &quot;team&quot;, &quot;faqs&quot;, &quot;terms&quot;, &quot;privacy&quot;];
 
 Router.map(function() {
   var i, len, page;
@@ -408,8 +443,8 @@ Router.map(function() {
       name: page
     });
   }
-  return this.route("notFound", {
-    path: "/(.*)"
+  return this.route(&quot;notFound&quot;, {
+    path: &quot;/(.*)&quot;
   });
 });
 </code></pre>
@@ -420,7 +455,7 @@ Router.map(function() {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../links/" class="btn btn-neutral float-right" title="Liens"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../app-orionjs/" class="btn btn-neutral float-right" title="CMS"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../email/" class="btn btn-neutral" title="Mails"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -454,7 +489,7 @@ Router.map(function() {
         <span><a href="../email/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../links/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../app-orionjs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

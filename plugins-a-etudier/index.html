@@ -91,6 +91,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../templating/">Templates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../social-auth/">Authentification Sociale</a>
         
     </li>
@@ -185,6 +192,24 @@
                 
                     <li><a class="toctree-l4" href="#meteor-admin">meteor-admin</a></li>
                 
+                    <li><a class="toctree-l4" href="#meteorhacksnpm">meteorhacks:npm</a></li>
+                
+                    <li><a class="toctree-l4" href="#meteorhacksasync">meteorhacks:async</a></li>
+                
+                    <li><a class="toctree-l4" href="#meteorhacksunblock">meteorhacks:unblock</a></li>
+                
+                    <li><a class="toctree-l4" href="#meteorhacksmeteorx">meteorhacks:meteorx</a></li>
+                
+                    <li><a class="toctree-l4" href="#appcache">appcache</a></li>
+                
+                    <li><a class="toctree-l4" href="#gadicohenheaders">gadicohen:headers</a></li>
+                
+                    <li><a class="toctree-l4" href="#stevezhulodash">stevezhu:lodash</a></li>
+                
+                    <li><a class="toctree-l4" href="#browser-policy">browser-policy</a></li>
+                
+                    <li><a class="toctree-l4" href="#meteor-user-status">meteor-user-status</a></li>
+                
             
             </ul>
         
@@ -192,6 +217,13 @@
 
         
     </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../mongodb/">MongoDB</a>
+        
+    </li>
 <li>
           
             <li>
@@ -209,6 +241,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-orionjs/">CMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-telescope/">Site Communautaire</a>
         
     </li>
 
@@ -421,13 +467,204 @@ Template.myTemplate.topGenresChart = function() {
 <li>https://github.com/yogiben/meteor-admin</li>
 </ul>
 <p><strong>Configuration minimum:</strong></p>
-<pre><code>@AdminConfig = {
+<pre><code class="coffeescript">@AdminConfig = {
   name: 'My App'
   adminEmails: ['ben@code2create.com']
   collections: {
     Posts: {}
   }
 };
+</code></pre>
+
+<h2 id="meteorhacksnpm">meteorhacks:npm</h2>
+<p>Ajoute un fichier packages.json pour déclarer des dépendances NPM externes.</p>
+<ul>
+<li>https://atmospherejs.com/meteorhacks/npm</li>
+</ul>
+<p><strong>Utilisation des dépendances dans Meteor - fichier packages.json:</strong></p>
+<pre><code class="json">{
+  &quot;redis&quot;: &quot;0.8.2&quot;,
+  &quot;github&quot;: &quot;0.1.8&quot;
+}
+</code></pre>
+
+<pre><code class="js">// Coté server seulemement
+// var Github = Meteor.npmRequire('github');
+
+if (Meteor.isServer) {
+  Meteor.methods({
+    'getGists': function getGists(user) {
+      var GithubApi = Meteor.npmRequire('github');
+      var github = new GithubApi({
+          version: &quot;3.0.0&quot;
+      });
+
+      var gists = Async.runSync(function(done) {
+        github.gists.getFromUser({user: 'arunoda'}, function(err, data) {
+          done(null, data);
+        });
+      });
+
+      return gists.result;
+    }
+  });
+}
+</code></pre>
+
+<h2 id="meteorhacksasync">meteorhacks:async</h2>
+<ul>
+<li>https://atmospherejs.com/meteorhacks/async</li>
+</ul>
+<pre><code class="sh">$ meteor add meteorhacks:async
+</code></pre>
+
+<pre><code class="js">// server/methods.js
+var response = Async.runSync(function(done) {
+  setTimeout(function() {
+    done(null, 1001);
+  }, 100);
+});
+
+console.log(response.result); // 1001
+</code></pre>
+
+<h2 id="meteorhacksunblock">meteorhacks:unblock</h2>
+<ul>
+<li>https://atmospherejs.com/meteorhacks/unblock</li>
+</ul>
+<p>Evite à l'utilisateur, lors d'appel de méthodes bloquantes comme l'envoi d'un mail d'attendre une réponse</p>
+<pre><code class="sh">$ meteor add meteorhacks:unblock
+</code></pre>
+
+<pre><code class="js">// server/methods.js
+Meteor.methods({
+  longMethod: function() {
+    this.unblock();
+    Meteor._sleepForMs(1000 * 60 * 60);
+  }
+});
+</code></pre>
+
+<h2 id="meteorhacksmeteorx">meteorhacks:meteorx</h2>
+<ul>
+<li>https://atmospherejs.com/meteorhacks/meteorx</li>
+</ul>
+<p>Expose certaines API Server Meteor</p>
+<pre><code class="sh">$ meteor add meteorhacks:meteorx
+</code></pre>
+
+<p><strong>API exposés:</strong></p>
+<ul>
+<li>MeteorX.Session - livedata Session</li>
+<li>MeteorX.Subscription - livedata Subscription</li>
+<li>MeteorX.SessionCollectionView - livedata SessionCollectionView</li>
+<li>MeteorX.SessionDocumentView - livedata SessionDocumentView</li>
+<li>MeteorX.MongoConnection - mongo-livedata MongoConnection</li>
+<li>MeteorX.MongoCursor - mongo-livedata Cursor</li>
+</ul>
+<h2 id="appcache">appcache</h2>
+<ul>
+<li>https://github.com/meteor/meteor/tree/devel/packages/appcache</li>
+<li>https://github.com/meteor/meteor/wiki/AppCache</li>
+<li>Voir aussi https://github.com/buildhybrid/appcache-extra</li>
+<li>https://blog.groupbuddies.com/posts/45-offline-web-apps-with-meteor</li>
+</ul>
+<p>Mise en cache des assets (fichiers javascripts, css, images, ...)</p>
+<pre><code>$ meteor add appcache
+</code></pre>
+
+<pre><code>// Active ou désactive pour certains navigateur
+
+// choix : android, chrome, chromium, chromeMobileIOS, firefox, ie, mobileSafari and safari
+Meteor.AppCache.config({
+  chrome: false,
+  firefox: false
+});
+</code></pre>
+
+<h2 id="gadicohenheaders">gadicohen:headers</h2>
+<ul>
+<li>https://atmospherejs.com/gadicohen/headers</li>
+</ul>
+<p>Permet d'interragir avec les headers, coté client et server</p>
+<p>Fournit des méthodes comme headers.getClientIP()</p>
+<pre><code class="sh">$ meteor add gadicohen:headers
+</code></pre>
+
+<h2 id="stevezhulodash">stevezhu:lodash</h2>
+<ul>
+<li>https://atmospherejs.com/stevezhu/lodash</li>
+</ul>
+<p>Charge et expose la librairie lodash v3.8.0</p>
+<pre><code class="sh">meteor add stevezhu:lodash
+</code></pre>
+
+<h2 id="browser-policy">browser-policy</h2>
+<ul>
+<li>https://github.com/meteor/meteor/tree/devel/packages/browser-policy</li>
+<li>https://meteorhacks.com/xss-and-meteor</li>
+<li>https://dweldon.silvrback.com/browser-policy</li>
+<li>http://info.meteor.com/blog/defense-in-depth-securing-meteor-apps-with-content-security-policy</li>
+</ul>
+<p>Définit la politique de sécurité du navigateur et gère les attaques de type clickjacking</p>
+<pre><code class="sh">meteor add browser-policy
+</code></pre>
+
+<pre><code class="js">//server/browser_policy.js
+
+BrowserPolicy.framing.disallow();
+BrowserPolicy.content.disallowInlineScripts();
+BrowserPolicy.content.disallowEval();
+BrowserPolicy.content.allowInlineStyles();
+BrowserPolicy.content.allowFontDataUrl();
+
+// Autoriser seulement les scripts externes de ces provenances à s'executer
+// Oblige les scripts externes à être chargé en https
+var trusted = [
+  '*.google-analytics.com',
+  '*.mxpnl.com',
+  '*.zendesk.com'
+];
+
+_.each(trusted, function(origin) {
+  origin = &quot;https://&quot; + origin;
+  BrowserPolicy.content.allowOriginForAll(origin);
+});
+</code></pre>
+
+<h3 id="specifique-proxy-nginx">Spécifique proxy nginx</h3>
+<pre><code># Dans la section http
+proxy_buffer_size       128k;
+proxy_buffers           4 256k;
+proxy_busy_buffers_size 256k;
+</code></pre>
+
+<h2 id="meteor-user-status">meteor-user-status</h2>
+<ul>
+<li>https://github.com/mizzao/meteor-user-status</li>
+</ul>
+<p><strong>Champs status ajouté et mis à jour dans Meteor.users par user-status:</strong></p>
+<pre><code>&quot;status&quot; : {
+        &quot;online&quot; : true,
+        &quot;lastLogin&quot; : {
+                &quot;date&quot; : ISODate(&quot;2015-06-24T12:22:29.447Z&quot;),
+                &quot;ipAddr&quot; : &quot;88.175.183.38&quot;,
+                &quot;userAgent&quot; : &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36&quot;
+        },
+        &quot;idle&quot; : false
+}
+</code></pre>
+
+<p><strong>Important:</strong></p>
+<p>Si vous avez définit un schéma pour la collection Meteor.users, il faut ajouter une entrée pour le champs status</p>
+<pre><code class="js">App.Schemas.User = new SimpleSchema({
+  status: {
+    type: Object,
+    optional: true,
+    blackbox: true,
+  },
+  //...
+});
 </code></pre>
               
             </div>
@@ -436,7 +673,7 @@ Template.myTemplate.topGenresChart = function() {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../email/" class="btn btn-neutral float-right" title="Mails"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../mongodb/" class="btn btn-neutral float-right" title="MongoDB"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../sikka/" class="btn btn-neutral" title="Sécurité"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -470,7 +707,7 @@ Template.myTemplate.topGenresChart = function() {
         <span><a href="../sikka/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../email/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../mongodb/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

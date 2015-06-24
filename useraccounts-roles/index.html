@@ -91,6 +91,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../templating/">Templates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../social-auth/">Authentification Sociale</a>
         
     </li>
@@ -184,6 +191,10 @@
                 
                     <li><a class="toctree-l4" href="#extension-ongoworks-security">Extension ongoworks-security</a></li>
                 
+                    <li><a class="toctree-l4" href="#userisinrole">userIsInRole</a></li>
+                
+                    <li><a class="toctree-l4" href="#getallroles">getAllRoles</a></li>
+                
             
             </ul>
         
@@ -230,6 +241,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../mongodb/">MongoDB</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../email/">Mails</a>
         
     </li>
@@ -243,6 +261,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-orionjs/">CMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-telescope/">Site Communautaire</a>
         
     </li>
 
@@ -316,6 +348,12 @@
 <li>https://atmospherejs.com/alanning/roles</li>
 <li>
 <p>https://github.com/alanning/meteor-roles</p>
+</li>
+<li>
+<p>https://github.com/nicolaslopezj/roles</p>
+</li>
+<li>
+<p>Utilisé par Orion</p>
 </li>
 <li>
 <p>https://www.discovermeteor.com/blog/allow-deny-a-security-primer/</p>
@@ -426,10 +464,17 @@ var foundExistingUser = Meteor.users.findOne({roles: {$in: [role]}},{fields: {_i
 <h2 id="liste-des-utilisateurs-pour-un-role">Liste des utilisateurs pour un role</h2>
 <p>Retour un curseur des Meteor.users pour ce role</p>
 <pre><code class="js">Roles.getUsersInRole(role, group);
+
+Roles.getUsersInRole(role, group).fetch();
+
+Roles.getUsersInRole(&quot;client&quot;).fetch()
+
+Roles.getUsersInRole([&quot;client&quot;, &quot;manager&quot;]).fetch()
 </code></pre>
 
 <h2 id="liste-des-groupes-dun-utilisateur">Liste des groupes d'un utilisateur</h2>
 <p>Renvoi un tableau des groupes non trié</p>
+<p>Ne doit fonctionner que si le groupe à été affecté en même temps que le role.</p>
 <pre><code class="js">Roles.getGroupsForUser(user_or_userid, optional_role);
 </code></pre>
 
@@ -622,6 +667,32 @@ Security.defineMethod(&quot;ifIsCurrentUser&quot;, {
     return userId !== doc._id;
   }
 });
+</code></pre>
+
+<h2 id="userisinrole">userIsInRole</h2>
+<pre><code>Roles.userIsInRole(Meteor.userId(), [&quot;admin&quot;]);
+</code></pre>
+
+<h2 id="getallroles">getAllRoles</h2>
+<pre><code>JSON.stringify(Roles.getAllRoles().fetch(), null, '\t')
+&quot;[
+    {
+        &quot;_id&quot;: &quot;us7DSDJsijRsmSQzq&quot;,
+        &quot;name&quot;: &quot;admin&quot;
+    },
+    {
+        &quot;_id&quot;: &quot;JajeKHFCQMRYqvYX6&quot;,
+        &quot;name&quot;: &quot;client&quot;
+    },
+    {
+        &quot;_id&quot;: &quot;zpH3Q76KDFYhMsSNB&quot;,
+        &quot;name&quot;: &quot;manager&quot;
+    },
+    {
+        &quot;_id&quot;: &quot;if4QYbtof6mAh3RYn&quot;,
+        &quot;name&quot;: &quot;user&quot;
+    }
+]&quot;
 </code></pre>
               
             </div>

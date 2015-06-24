@@ -91,6 +91,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../templating/">Templates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../social-auth/">Authentification Sociale</a>
         
     </li>
@@ -157,6 +164,10 @@
                 
                     <li><a class="toctree-l4" href="#installation">Installation</a></li>
                 
+                    <li><a class="toctree-l4" href="#fichiers-de-langue">Fichiers de langue</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuration-du-language-par-defaut">Configuration du language par défaut</a></li>
+                
                     <li><a class="toctree-l4" href="#utilisation-dans-les-templates">Utilisation dans les templates</a></li>
                 
                     <li><a class="toctree-l4" href="#utilisation-dans-les-scripts">Utilisation dans les scripts</a></li>
@@ -195,6 +206,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../mongodb/">MongoDB</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../email/">Mails</a>
         
     </li>
@@ -208,6 +226,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../app-reactioncommerce/">E-Commerce</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-orionjs/">CMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../app-telescope/">Site Communautaire</a>
         
     </li>
 
@@ -285,14 +317,23 @@
 <li>Voir http://i18next.com/</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<pre><code>meteor add tap:i18n
+<p>meteor add tap:i18n</p>
+<h2 id="fichiers-de-langue">Fichiers de langue</h2>
+<p>Un fichier par langue, a placer dans project/i18n/fr.i18n.json</p>
+<p>Meteor détecte les changement dans ces fichiers.</p>
+<pre><code class="json">{
+    &quot;configName&quot;: &quot;Mongrey.io&quot;,
+    &quot;configTitle&quot;: &quot;Make Meteor Apps. Fast.&quot;,
+    &quot;configSubtitle&quot;: &quot;Le seul service de liste grise&quot;,
+}
 </code></pre>
-<pre><code class="javascript">
-    Meteor.startup(function() {
-      if (Meteor.isClient) {
-        return TAPi18n.setLanguage('en');
-      }
-    });
+
+<h2 id="configuration-du-language-par-defaut">Configuration du language par défaut</h2>
+<pre><code class="js">Meteor.startup(function() {
+  if (Meteor.isClient) {
+    return TAPi18n.setLanguage('en');
+  }
+});
 
 </code></pre>
 

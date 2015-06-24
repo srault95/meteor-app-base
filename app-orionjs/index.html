@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sécurité - Meteor</title>
+  <title>CMS - Meteor</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Sécurité";
+    var mkdocs_page_name = "CMS";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -167,21 +167,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Sécurité</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#sikka">sikka</a></li>
-                
-                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
-                
-                    <li><a class="toctree-l4" href="#configuration-par-lenvironnement">Configuration par l'environnement</a></li>
-                
-                    <li><a class="toctree-l4" href="#configuration-par-settingsjson">Configuration par settings.json</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../sikka/">Sécurité</a>
         
     </li>
 
@@ -223,8 +210,17 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../app-orionjs/">CMS</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">CMS</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#orionjs-cms">OrionJS CMS</a></li>
+                
+                    <li><a class="toctree-l4" href="#integration">Intégration</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -282,11 +278,11 @@
     
       
         
-          <li>Plugins &raquo;</li>
+          <li>Applications &raquo;</li>
         
       
     
-    <li>Sécurité</li>
+    <li>CMS</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -300,67 +296,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sikka">sikka</h1>
+                <h1 id="orionjs-cms">OrionJS CMS</h1>
 <ul>
-<li><a href="https://github.com/meteorhacks/sikka">Sources</a></li>
-<li><a href="https://atmospherejs.com/meteorhacks/sikka">Atmosphere</a></li>
-<li>
-<p><a href="https://meteorhacks.com/introducing-sikka-a-firewall-for-meteor-apps">Documentation</a></p>
-</li>
-<li>
-<p><a href="https://www.google.com/recaptcha/intro/index.html">Google ReCaptcha</a></p>
-</li>
-<li>
-<p>Fonctionnalités</p>
-</li>
-<li>Firewall app - anti ddos</li>
-<li>Configurable par variables d'environnement</li>
-<li>Limitation request par ip</li>
-<li>Captcha</li>
-<li>Gère la récupération de l'ip réelle derrière un proxy comme Nginx</li>
+<li>http://orionjs.org</li>
 </ul>
-<h2 id="installation">Installation</h2>
-<pre><code>meteor add meteorhacks:sikka
-</code></pre>
-<p><strong>Packages ajoutés:</strong></p>
-<pre><code>chuangbo:cookie      added, version 1.1.0
-meteorhacks:meteorx  added, version 1.3.1
-meteorhacks:picker   added, version 1.0.2
-meteorhacks:sikka    added, version 1.0.1
-</code></pre>
-<h2 id="configuration-par-lenvironnement">Configuration par l'environnement</h2>
-<pre><code>env: SIKKA_PER_IP_MAX_RPS
-settings: sikka.rateLimits.perIp
-default: 20
-
-env: SIKKA_BLOCK_IP_FOR_MILLIS
-settings: sikka.times.blockIpFor
-default: 120000
-
-SIKKA_CAPTCHA_SITE_KEY
-sikka.captcha.siteKey
-
-SIKKA_CAPTCHA_SECRET
-sikka.captcha.secret
-
-SIKKA_PER_HUMAN_MAX_RPS
-sikka.times.blockIpFor
-IP Rate Limit
-
-SIKKA_HUMAN_LIVES_UPTO_MILLIS
-sikka.times.humanLivesUpto
-3600000
-</code></pre>
-<h2 id="configuration-par-settingsjson">Configuration par settings.json</h2>
-<pre><code>{
-  "sikka": {
-       "captcha": {
-           "siteKey": "your_new_site_key",
-           "secret":  "your_new_secret_key"
-       }
-  }
-}
-</code></pre>
+<h2 id="integration">Intégration</h2>
+<ul>
+<li><a href="https://github.com/orionjs/examples">Exemple blog</a></li>
+</ul>
+<p>Faire une application Meteor normal et intégrer Orion.</p>
+<p>Les éléments Orion se place dans un sous répertoire orion/</p>
               
             </div>
           </div>
@@ -368,10 +313,10 @@ sikka.times.humanLivesUpto
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../plugins-a-etudier/" class="btn btn-neutral float-right" title="En cours d'évaluation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../app-telescope/" class="btn btn-neutral float-right" title="Site Communautaire"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../publish-counts/" class="btn btn-neutral" title="publish-counts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../app-reactioncommerce/" class="btn btn-neutral" title="E-Commerce"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -399,10 +344,10 @@ sikka.times.humanLivesUpto
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../publish-counts/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../app-reactioncommerce/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../plugins-a-etudier/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../app-telescope/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
