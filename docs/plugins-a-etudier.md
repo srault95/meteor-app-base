@@ -357,3 +357,35 @@ proxy_buffers           4 256k;
 proxy_busy_buffers_size 256k;
 ```
 
+## meteor-user-status
+
+* https://github.com/mizzao/meteor-user-status
+
+**Champs status ajouté et mis à jour dans Meteor.users par user-status:**
+
+```
+"status" : {
+        "online" : true,
+        "lastLogin" : {
+                "date" : ISODate("2015-06-24T12:22:29.447Z"),
+                "ipAddr" : "88.175.183.38",
+                "userAgent" : "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"
+        },
+        "idle" : false
+}
+```
+
+**Important:**
+
+Si vous avez définit un schéma pour la collection Meteor.users, il faut ajouter une entrée pour le champs status
+
+```js
+App.Schemas.User = new SimpleSchema({
+  status: {
+    type: Object,
+    optional: true,
+    blackbox: true,
+  },
+  //...
+});
+```

@@ -1,5 +1,7 @@
 # Telescope
 
+**Même si vous n'avez pas l'utilisation de cette application, je vous suggère vivement d'étudier son code source car il s'agit vraiment de très bonnes pratiques en Javascript et plus particulièrement avec Meteor.**
+
 * http://www.telescopeapp.org/
 * https://github.com/TelescopeJS/Telescope
 * http://www.bootstrappers.io/
@@ -12,6 +14,11 @@
   * https://github.com/meteorclub/crater.io
 * http://hangouts.codebuddies.org/
   * https://github.com/lpatmo/cb
+
+## Bonne pratiques
+
+* Espaces de nom (NameSpaces)
+* Que des packages
 
 ## TODO
 
@@ -163,4 +170,16 @@ Dans settings, utilisez le menu page. Le contenu s'écrit en Markdown
 ```sh
 $ meteor add accounts-github
 ```
+
+## Package custom
+
+Un exemple de package est déjà disponible dans packages/custom
+
+* Il permet par exemple:
+    * d'ajouter des champs à chaque collection (lib/custom_fields.js)
+    * d'ajouter des callbacks (lib/callbacks.js)
+    * d'ajouter des modules de template (lib/template_modules.js) ???
+
+
+
 

@@ -60,7 +60,11 @@ ServiceConfiguration.configurations.update(
 
 * https://atmospherejs.com/meteor/accounts-meteor-developer
 
+
 ## github
+
+* https://atmospherejs.com/meteor/accounts-github
+* http://moduscreate.com/diving-into-meteorjs/
 
 **Service Configuration:**
 

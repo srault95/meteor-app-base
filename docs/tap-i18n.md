@@ -11,17 +11,34 @@ https://atmospherejs.com/tap/i18n
 
 ## Installation
 
-    meteor add tap:i18n
+meteor add tap:i18n
 
-```javascript
+## Fichiers de langue
 
-    Meteor.startup(function() {
-      if (Meteor.isClient) {
-        return TAPi18n.setLanguage('en');
-      }
-    });
+Un fichier par langue, a placer dans project/i18n/fr.i18n.json
+
+Meteor détecte les changement dans ces fichiers.
+
+```json
+{
+	"configName": "Mongrey.io",
+	"configTitle": "Make Meteor Apps. Fast.",
+	"configSubtitle": "Le seul service de liste grise",
+}
+```
+
+## Configuration du language par défaut
+
+```js
+Meteor.startup(function() {
+  if (Meteor.isClient) {
+    return TAPi18n.setLanguage('en');
+  }
+});
 
 ```
+
+
 
 ## Utilisation dans les templates
 

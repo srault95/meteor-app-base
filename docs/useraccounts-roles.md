@@ -134,11 +134,19 @@ Retour un curseur des Meteor.users pour ce role
 
 ```js
 Roles.getUsersInRole(role, group);
+
+Roles.getUsersInRole(role, group).fetch();
+
+Roles.getUsersInRole("client").fetch()
+
+Roles.getUsersInRole(["client", "manager"]).fetch()
 ```
 
 ## Liste des groupes d'un utilisateur
 
 Renvoi un tableau des groupes non trié
+
+Ne doit fonctionner que si le groupe à été affecté en même temps que le role.
 
 ```js
 Roles.getGroupsForUser(user_or_userid, optional_role);
@@ -377,4 +385,34 @@ Security.defineMethod("ifIsCurrentUser", {
     return userId !== doc._id;
   }
 });
+```
+
+## userIsInRole
+
+```
+Roles.userIsInRole(Meteor.userId(), ["admin"]);
+```
+
+## getAllRoles
+
+```
+JSON.stringify(Roles.getAllRoles().fetch(), null, '\t')
+"[
+	{
+		"_id": "us7DSDJsijRsmSQzq",
+		"name": "admin"
+	},
+	{
+		"_id": "JajeKHFCQMRYqvYX6",
+		"name": "client"
+	},
+	{
+		"_id": "zpH3Q76KDFYhMsSNB",
+		"name": "manager"
+	},
+	{
+		"_id": "if4QYbtof6mAh3RYn",
+		"name": "user"
+	}
+]"
 ```

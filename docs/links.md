@@ -19,6 +19,7 @@ page_keywords: documentation, docs,  docker, compose, orchestration, containers
 
 ## Tutoriels - Anglais
 
+* http://www.meteor-tutorial.org/book
 * http://iron-meteor.github.io/iron-router/#route-controllers
 * http://robertdickert.com/blog/2014/05/09/set-up-navigation-with-iron-router-and-bootstrap/
 * https://github.com/awatson1978/meteor-cookbook

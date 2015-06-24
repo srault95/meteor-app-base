@@ -1,12 +1,157 @@
 # Router iron-router
 
-* https://github.com/iron-meteor/iron-router/blob/devel/Guide.md
+* https://github.com/iron-meteor/iron-router
+* http://iron-meteor.github.io/iron-router
+* http://fr.discovermeteor.com/chapters/routing/
 * http://robertdickert.com/blog/2014/05/08/iron-router-first-steps/
-* https://github.com/zimme/meteor-iron-router-auth.git
+* http://stackoverflow.com/questions/tagged/iron-router
+
+## Installation
+
+```sh
+$ meteor add iron:router
+```
+
+**Dépendances:**
+
+```
+// main namespace and utils
+// https://github.com/iron-meteor/iron-core
+iron:core
+
+// ui layout
+// https://github.com/iron-meteor/iron-layout
+iron:layout
+
+// connect like middleware stack for client/server
+// https://github.com/iron-meteor/iron-middleware-stack
+iron:middleware-stack
+
+// client and server side url utilities and compiling
+// https://github.com/iron-meteor/iron-url
+iron:url
+
+// for reactive urls and pushState in the browser
+// https://github.com/iron-meteor/iron-location
+iron:location
+
+// for RouteController which inherits from this
+// https://github.com/iron-meteor/iron-controller
+iron:controller
+```
+
+## Les différentes façon de déclarer et gérer des routes
+
+```js
+
+// La plus simple: cherchera un template name="home" et la route pourra être nommé "home"
+// Dans un template, la route pourra être appellé avec {{pathFor route='home'}}
+Router.route('/home');
+
+// Même chose mais en changeant des options comme le nom de la route
+// Le template devra s'appellé myhome
+// Dans un template, la route sera appellé avec {{pathFor route='myhome'}}
+Router.route('/home', {name: "myhome"});
+
+// Définit dans une fonction
+Router.route('/home', function () {
+  this.render('home');
+});
+
+// Fonction et options
+Router.route('/home', function () {
+  this.render('home');
+}, {
+  name: 'myhome'
+});
+
+```
+
+## Tous les paramètres de Router.route()
+
+```js
+Router.route('/post/:_id', {
+  name: 'post.show',
+
+  path: '/post/:_id',
+
+  controller: 'CustomController',
+
+  template: 'Post',
+
+  layoutTemplate: 'ApplicationLayout',
+
+  yieldRegions: {
+    'MyAside': {to: 'aside'},
+    'MyFooter': {to: 'footer'}
+  },
+
+  subscriptions: function() {
+    this.subscribe('items');
+    this.subscribe('item', this.params._id).wait();
+  },
+
+  waitOn: function () {
+    return Meteor.subscribe('post', this.params._id);
+  },
+
+  data: function () {
+    return Posts.findOne({_id: this.params._id});
+  },
+
+  onRun: function () {},
+  onRerun: function () {},
+  onBeforeAction: function () {},
+  onAfterAction: function () {},
+  onStop: function () {},
+
+  action: function () {
+    this.render();
+  }
+});
+```
+
+## Options par défaut pour toutes les routes
+
+Tous les paramètres de Router.route() peuvent être définit avec une valeur par défaut dans:
+
+```js
+Router.configure({
+  layoutTemplate: 'ApplicationLayout',
+});
+```
+
+## Hooks
+
+### onBeforeAction
+
+```js
+Router.onBeforeAction(function() {
+  if (! Meteor.userId()) {
+    this.render('login');
+  } else {
+    this.next();
+  }
+});
+```
+
+## Plugins
+
+## Tips
+
+### Trouver le nom de la route en cours
+
+```js
+Router.current().route.getName()
+```
 
 ## Extensions Iron-Router
 
 Les extensions marqués d'un (*) sont ceux que je considère comme les plus utiles.
+
+### iron-dynamic-template
+
+* https://github.com/iron-meteor/iron-dynamic-template
 
 ### iron-router-auth (*)
 

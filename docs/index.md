@@ -7,6 +7,7 @@
 * Plugins
     * [Iron Router](iron-router.md)
     * [Simple Schema](simple-schema.md)
+    * [Templates](templating.md)
     * [useraccounts](useraccounts.md)
     * [Authentification Sociale](social-auth.md)
     * [autoform-semantic-ui](autoform-semantic-ui.md)
@@ -19,6 +20,7 @@
     * [publish-counts](publish-counts.md)
     * [Sécurité](sikka.md)
     * [En cours d'évaluation](plugins-a-etudier.md)
+* [MongoDB](mongodb.md)
 * [Mails](email.md)
   * Applications
     * [E-Commerce](app-reactioncommerce.md)
