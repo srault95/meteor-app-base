@@ -277,3 +277,42 @@ Router.map(function () {
     }
 }
 ```
+
+## Tips - Parcourir les routes pour générer un menu
+
+```js
+Template.mobileLayout.helpers({
+  sidebarLinks: function(){
+    var links = new Array();
+
+    _.each(Router.routes, function(r){
+      console.log(r);
+      if( r.options.hasOwnProperty('label') &&
+          r.options.hasOwnProperty('icon') ){
+        links.push({
+          routeName: r.name,
+          label: r.options.label,
+          icon: r.options.icon
+        });
+      }
+    });
+
+    return links;
+  }
+});
+```
+
+## Tips - Tracer les routes
+
+* https://github.com/okgrow/analytics/blob/master/lib/meteor-analytics.js
+
+```
+if (Package['iron:router']) {
+  Package['iron:router'].Router.onRun(function() {
+    var router = this;
+    Tracker.afterFlush(function () { analytics.page(router.route.getName()); });
+    this.next();
+  });
+}
+```
+

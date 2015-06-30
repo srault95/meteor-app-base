@@ -156,3 +156,68 @@ Exemples avec des variables Reactive (maxValue & currentValue)
 ### Reversing animation
 
     <i class="reversing magnet icon"></i>
+
+## Exemple complet pour un champs de type radio/boolean
+
+```js
+
+//both/collections
+BlacklistIp = new SimpleSchema({
+  active: {
+    type: Boolean,
+    label: "Actif",
+    defaultValue: true,
+    autoform: {
+      options: function() {
+        return [
+          {label: "Actif", value: true},
+          {label: "Inactif", value: false},
+        ]
+      }
+    }
+  }
+});
+
+//both ou client
+Meteor.startup(function() {
+  if (Meteor.isClient){
+    AutoForm.setDefaultTemplate("semanticUI");
+  }
+});
+```
+
+```
+<template name="BlacklistCreateForm">
+
+  {{#autoForm collection="BlacklistIp" id="BlacklistIpInsert" type="insert" errorsInLabels=true}}
+
+    {{> afQuickField name="active" type='boolean-checkbox' label=false checkboxType="toggle" value=true}}
+
+		<div class="ui buttons">
+		  <button type="submit" class="ui submit green button">Valider</button>
+		  <div class="or" data-text="ou"></div>
+		  <button type="reset" class="ui reset orange button">Réinitialiser</button>
+		</div>
+
+	{{/autoForm}}
+
+</template>
+
+<template name="BlacklistEditForm">
+
+  {{#autoForm collection="BlacklistIp" id="BlacklistIpInsert" type="update" errorsInLabels=true}}
+
+    {{> afQuickField name="active" type='boolean-checkbox' label=false checkboxType="toggle" value=doc.active}}
+
+		<div class="ui buttons">
+		  <button type="submit" class="ui submit green button">Valider</button>
+		  <div class="or" data-text="ou"></div>
+		  <button type="reset" class="ui reset orange button">Réinitialiser</button>
+		</div>
+
+	{{/autoForm}}
+
+</template>
+
+
+```
