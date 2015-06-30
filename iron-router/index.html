@@ -101,6 +101,10 @@
                 
                     <li><a class="toctree-l4" href="#souscription">Souscription</a></li>
                 
+                    <li><a class="toctree-l4" href="#tips-parcourir-les-routes-pour-generer-un-menu">Tips - Parcourir les routes pour générer un menu</a></li>
+                
+                    <li><a class="toctree-l4" href="#tips-tracer-les-routes">Tips - Tracer les routes</a></li>
+                
             
             </ul>
         
@@ -549,6 +553,41 @@ Router.map(function () {
             this.render('login');
         }
     }
+}
+</code></pre>
+
+<h2 id="tips-parcourir-les-routes-pour-generer-un-menu">Tips - Parcourir les routes pour générer un menu</h2>
+<pre><code class="js">Template.mobileLayout.helpers({
+  sidebarLinks: function(){
+    var links = new Array();
+
+    _.each(Router.routes, function(r){
+      console.log(r);
+      if( r.options.hasOwnProperty('label') &amp;&amp;
+          r.options.hasOwnProperty('icon') ){
+        links.push({
+          routeName: r.name,
+          label: r.options.label,
+          icon: r.options.icon
+        });
+      }
+    });
+
+    return links;
+  }
+});
+</code></pre>
+
+<h2 id="tips-tracer-les-routes">Tips - Tracer les routes</h2>
+<ul>
+<li>https://github.com/okgrow/analytics/blob/master/lib/meteor-analytics.js</li>
+</ul>
+<pre><code>if (Package['iron:router']) {
+  Package['iron:router'].Router.onRun(function() {
+    var router = this;
+    Tracker.afterFlush(function () { analytics.page(router.route.getName()); });
+    this.next();
+  });
 }
 </code></pre>
               

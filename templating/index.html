@@ -111,6 +111,20 @@
                 
                     <li><a class="toctree-l4" href="#tips-afterflush">Tips - afterFlush</a></li>
                 
+                    <li><a class="toctree-l4" href="#dynamic-template">Dynamic Template</a></li>
+                
+                    <li><a class="toctree-l4" href="#framework-css-dynamique-strategie-useraccounts">Framework CSS dynamique - Stratégie useraccounts</a></li>
+                
+                    <li><a class="toctree-l4" href="#framework-css-dynamique-strategie-tapi18n-ui">Framework CSS dynamique - Stratégie tap:i18n-ui</a></li>
+                
+                    <li><a class="toctree-l4" href="#templates-dynamique-avec-spacebars">Templates dynamique avec spacebars</a></li>
+                
+                    <li><a class="toctree-l4" href="#templates-dynamiques-avec-aldeedtemplate-extension">Templates dynamiques avec aldeed:template-extension</a></li>
+                
+                    <li><a class="toctree-l4" href="#templates-dynamiques-avec-irondynamic-template">Templates dynamiques avec iron:dynamic-template</a></li>
+                
+                    <li><a class="toctree-l4" href="#autoform">autoform</a></li>
+                
             
             </ul>
         
@@ -427,6 +441,258 @@ Template.postItem.helpers({
     });
   }
 });
+</code></pre>
+
+<h2 id="dynamic-template">Dynamic Template</h2>
+<p><template name="posts_list_controller">
+  {{&gt; Template.dynamic template=template data=data}}
+</template></p>
+<h2 id="framework-css-dynamique-strategie-useraccounts">Framework CSS dynamique - Stratégie useraccounts</h2>
+<p>Le pattern mis en oeuvre, permet d'avoir plusieurs implémentation de framework CSS (Bootstrap, Semantic-ui, ...)</p>
+<pre><code>useraccounts:core
+useraccounts:unstyled
+useraccounts:semantic-ui
+</code></pre>
+
+<h3 id="analyse-du-lien-connection-signin">Analyse du lien connection (signIn)</h3>
+<p>UserAccount core, expose une api dans lib/templates_helpers/ SANS template, ce qui permet à chaque implémentation CSS de définir seulement le template et d'hériter de la déclaration du helpers et d'events</p>
+<p>Si vous souhaitez utiliser librement par exemple, le lien <strong>signIn</strong>, vous verrez dans le code ci-dessous, qu'il suffit d'utiliser la fonction <strong>return AccountsTemplates.getRoutePath("signIn")</strong></p>
+<pre><code>
+//useraccounts:core -&gt; lib/templates_helpers/at_signin_link.js
+
+AT.prototype.atSigninLinkHelpers = {
+    disabled: function() {
+        return AccountsTemplates.disabled();
+    },
+    signInLink: function(){
+        return AccountsTemplates.getRoutePath(&quot;signIn&quot;);
+    },
+    preText: function(){
+        return T9n.get(AccountsTemplates.texts.signInLink_pre, markIfMissing=false);
+    },
+    linkText: function(){
+        return T9n.get(AccountsTemplates.texts.signInLink_link, markIfMissing=false);
+    },
+    suffText: function(){
+        return T9n.get(AccountsTemplates.texts.signInLink_suff, markIfMissing=false);
+    },
+};
+
+AT.prototype.atSigninLinkEvents = {
+    &quot;click #at-signIn&quot;: function(event, t) {
+        event.preventDefault();
+        AccountsTemplates.linkClick(&quot;signIn&quot;);
+    },
+};
+
+//useraccounts:unstyled -&gt; lib/at_signin_link.html
+
+&lt;template name=&quot;atSigninLink&quot;&gt;
+  &lt;div class=&quot;at-signin-link&quot;&gt;
+    &lt;p&gt;
+      {{preText}}
+      &lt;a href=&quot;{{signInLink}}&quot; id=&quot;at-signIn&quot; class=&quot;at-link at-signin {{disabled}}&quot;&gt;{{linkText}}&lt;/a&gt;
+      {{suffText}}
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+//useraccounts:unstyled -&gt; lib/at_signin_link.js
+
+Template.atSigninLink.helpers(AccountsTemplates.atSigninLinkHelpers);
+Template.atSigninLink.events(AccountsTemplates.atSigninLinkEvents);
+
+//useraccounts:semantic-ui -&gt; lib/at_signin_link.html
+
+&lt;template name=&quot;atSigninLink&quot;&gt;
+  &lt;div class=&quot;at-signin-link at-wrap&quot;&gt;
+    &lt;p&gt;
+      {{preText}}
+      &lt;a href=&quot;{{signInLink}}&quot; id=&quot;at-signIn&quot; class=&quot;at-link at-signin {{disabled}}&quot;&gt;{{linkText}}&lt;/a&gt;
+      {{suffText}}
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+//useraccounts:semantic-ui -&gt; lib/at_signin_link.js
+
+Template.atSigninLink.helpers(AccountsTemplates.atSigninLinkHelpers);
+Template.atSigninLink.events(AccountsTemplates.atSigninLinkEvents);
+
+</code></pre>
+
+<h2 id="framework-css-dynamique-strategie-tapi18n-ui">Framework CSS dynamique - Stratégie tap:i18n-ui</h2>
+<h2 id="templates-dynamique-avec-spacebars">Templates dynamique avec spacebars</h2>
+<ul>
+<li>Exemple fournit provenant de <a href="https://github.com/francocatena/meteor-status">meteor-status</a></li>
+<li>http://docs.meteor.com/#/full/template_dynamic</li>
+<li>https://github.com/meteor/meteor/blob/master/packages/spacebars/dynamic.js</li>
+</ul>
+<pre><code>// Le helpers appelle un template static (habituel) en lui passant le nom d'un template en paramètre
+// Le template dynamic reçoit aussi un objet contenant des fonctions comme le ferais un helpers normal
+
+// status.js
+Template.status.helpers({
+  template: function () {
+    // lié à une config par défaut + une ReactiveVar pour le changement dynamique de template
+    return 'status_' + Status.template()
+  },
+  helpers: function () {
+    return {
+      connected: function () {
+        return Meteor.status().connected
+      },
+      message: function () {
+        return i18n_status_func('meteor_status', { context: Meteor.status().status })
+      },
+    }
+  }
+})
+
+// status.html
+&lt;template name=&quot;status&quot;&gt;
+  {{&gt; Template.dynamic template=template data=helpers}}
+&lt;/template&gt;
+
+// Template final appellé par Template.dynamic
+// connected provient du helpers passé en paramètre
+&lt;template name=&quot;status_bootstrap3&quot;&gt;
+  {{#unless connected}}
+    &lt;div class=&quot;alert {{option 'classes'}} text-center&quot; role=&quot;alert&quot;&gt;
+      &lt;strong&gt;
+        &lt;span class=&quot;glyphicon glyphicon-warning-sign&quot;&gt;&lt;/span&gt;
+        {{message}}
+      &lt;/strong&gt;
+      {{extraMessage}}
+
+      {{#if showReconnect}}
+        &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;{{reconnectLabel}}&lt;/a&gt;
+      {{/if}}
+    &lt;/div&gt;
+  {{/unless}}
+&lt;/template&gt;
+
+</code></pre>
+
+<p><strong>Bonus:</strong></p>
+<p>Comme le template dynamic est appellé à l'intérieur du template static, tous les events habituels sont utilisables:</p>
+<pre><code>Template.status.events({
+  'click a.alert-link': function (e) {
+    e.preventDefault()
+    Meteor.reconnect()
+  }
+})
+</code></pre>
+
+<h2 id="templates-dynamiques-avec-aldeedtemplate-extension">Templates dynamiques avec aldeed:template-extension</h2>
+<ul>
+<li>https://github.com/aldeed/meteor-template-extension</li>
+<li>Solution utilisé par Telescope</li>
+</ul>
+<p>La méthode replaces semble permettre de permutter un nom de template par un autre</p>
+<pre><code>Template.post_content_galileo.replaces(&quot;post_content&quot;);
+Template.post_domain_galileo.replaces(&quot;post_domain&quot;);
+</code></pre>
+
+<h2 id="templates-dynamiques-avec-irondynamic-template">Templates dynamiques avec iron:dynamic-template</h2>
+<ul>
+<li>https://atmospherejs.com/iron/dynamic-template</li>
+</ul>
+<h2 id="autoform">autoform</h2>
+<pre><code>// Components
+autoForm
+quickForm
+afFieldInput
+afFieldMessage
+afFieldIsInvalid
+afFormGroup
+afQuickField
+afFieldValueIs and afFieldValueContains
+afFieldNames
+afQuickFields
+// Objects and Arrays
+afObjectField
+afArrayField
+afEachArrayItem
+afArrayFieldIsFirstVisible and afArrayFieldIsLastVisible
+// Form Types
+insert
+update
+update-pushArray
+method
+method-update
+normal
+disabled
+readonly
+</code></pre>
+
+<pre><code class="js">
+// Rapport avec :
+
+summary: {
+  type: String,
+  optional: true,
+  max: 2000,
+  autoform: {
+    afFieldInput: {
+      type: &quot;textarea&quot;,
+      rows: 10,
+      class: &quot;foo&quot;
+    }
+  }
+}
+
+// !! api.use('aldeed:simple-schema@1.1.0'); : last = 1.3.3
+
+// .meteor/versions:
+aldeed:autoform@5.3.0
+aldeed:collection2@2.3.3
+aldeed:simple-schema@1.3.3
+
+
+//autoform -&gt; autoform.js
+AutoForm = AutoForm || {};
+AutoForm.formPreserve = new FormPreserve(&quot;autoforms&quot;);
+AutoForm.reactiveFormData = new FormData();
+AutoForm._inputTypeDefinitions = {}; //for storing input type definitions added by AutoForm.addInputType
+AutoForm._formTypeDefinitions = {}; //for storing submit type definitions added by AutoForm.addFormType
+arrayTracker = new ArrayTracker();
+AutoForm._destroyForm = {};
+globalDefaultTemplate = &quot;bootstrap3&quot;;
+defaultTypeTemplates = {};
+deps = {
+  defaultTemplate: new Tracker.Dependency(),
+  defaultTypeTemplates: {}
+};
+
+AutoForm.setDefaultTemplate(&quot;semanticUI&quot;);
+
+//autoform -&gt; autoform-api.js
+AutoForm = AutoForm || {};
+
+AutoForm.addInputType = function afAddInputType(name, definition) {
+  var obj = {};
+  obj[name] = definition;
+  _.extend(AutoForm._inputTypeDefinitions, obj);
+};
+</code></pre>
+
+<pre><code class="js">//autoform -&gt; inputTypes/button/button.js
+AutoForm.addInputType(&quot;button&quot;, {
+  template: &quot;afInputButton&quot;
+});
+</code></pre>
+
+<pre><code>//autoform -&gt; inputTypes/button/button.html
+&lt;template name=&quot;afInputButton&quot;&gt;
+  &lt;input type=&quot;button&quot; value=&quot;{{this.value}}&quot; {{this.atts}}/&gt;
+&lt;/template&gt;
+
+
+//semantic-ui -&gt; templates/semantic-ui/inputTypes/button/button.html
+&lt;template name=&quot;afInputButton_semanticUI&quot;&gt;
+  &lt;input type=&quot;button&quot; value=&quot;{{this.value}}&quot; {{attsPlusButtonClass}}/&gt;
+&lt;/template&gt;
 </code></pre>
               
             </div>

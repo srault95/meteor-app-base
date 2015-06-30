@@ -117,6 +117,8 @@
                 
                     <li><a class="toctree-l4" href="#semantic-ui-components">semantic-ui-components</a></li>
                 
+                    <li><a class="toctree-l4" href="#exemple-complet-pour-un-champs-de-type-radioboolean">Exemple complet pour un champs de type radio/boolean</a></li>
+                
             
             </ul>
         
@@ -440,6 +442,67 @@ items = [
 </code></pre>
 <h3 id="reversing-animation">Reversing animation</h3>
 <pre><code>&lt;i class="reversing magnet icon"&gt;&lt;/i&gt;
+</code></pre>
+<h2 id="exemple-complet-pour-un-champs-de-type-radioboolean">Exemple complet pour un champs de type radio/boolean</h2>
+<pre><code class="js">
+//both/collections
+BlacklistIp = new SimpleSchema({
+  active: {
+    type: Boolean,
+    label: &quot;Actif&quot;,
+    defaultValue: true,
+    autoform: {
+      options: function() {
+        return [
+          {label: &quot;Actif&quot;, value: true},
+          {label: &quot;Inactif&quot;, value: false},
+        ]
+      }
+    }
+  }
+});
+
+//both ou client
+Meteor.startup(function() {
+  if (Meteor.isClient){
+    AutoForm.setDefaultTemplate(&quot;semanticUI&quot;);
+  }
+});
+</code></pre>
+
+<pre><code>&lt;template name=&quot;BlacklistCreateForm&quot;&gt;
+
+  {{#autoForm collection=&quot;BlacklistIp&quot; id=&quot;BlacklistIpInsert&quot; type=&quot;insert&quot; errorsInLabels=true}}
+
+    {{&gt; afQuickField name=&quot;active&quot; type='boolean-checkbox' label=false checkboxType=&quot;toggle&quot; value=true}}
+
+        &lt;div class=&quot;ui buttons&quot;&gt;
+          &lt;button type=&quot;submit&quot; class=&quot;ui submit green button&quot;&gt;Valider&lt;/button&gt;
+          &lt;div class=&quot;or&quot; data-text=&quot;ou&quot;&gt;&lt;/div&gt;
+          &lt;button type=&quot;reset&quot; class=&quot;ui reset orange button&quot;&gt;Réinitialiser&lt;/button&gt;
+        &lt;/div&gt;
+
+    {{/autoForm}}
+
+&lt;/template&gt;
+
+&lt;template name=&quot;BlacklistEditForm&quot;&gt;
+
+  {{#autoForm collection=&quot;BlacklistIp&quot; id=&quot;BlacklistIpInsert&quot; type=&quot;update&quot; errorsInLabels=true}}
+
+    {{&gt; afQuickField name=&quot;active&quot; type='boolean-checkbox' label=false checkboxType=&quot;toggle&quot; value=doc.active}}
+
+        &lt;div class=&quot;ui buttons&quot;&gt;
+          &lt;button type=&quot;submit&quot; class=&quot;ui submit green button&quot;&gt;Valider&lt;/button&gt;
+          &lt;div class=&quot;or&quot; data-text=&quot;ou&quot;&gt;&lt;/div&gt;
+          &lt;button type=&quot;reset&quot; class=&quot;ui reset orange button&quot;&gt;Réinitialiser&lt;/button&gt;
+        &lt;/div&gt;
+
+    {{/autoForm}}
+
+&lt;/template&gt;
+
+
 </code></pre>
               
             </div>
